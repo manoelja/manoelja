@@ -39,7 +39,9 @@ const resources = {
         description: "Specialized in transforming large volumes of data into business intelligence through Machine Learning and advanced statistical modeling.",
         about_me: "Dedicated to solving complex problems through data analysis and specialized in Data Science.",
         view_projects: "View Projects",
-        scroll: "Scroll"
+        scroll: "Scroll",
+        view_cv: "View CV",
+        download_cv: "Download CV"
       },
       skills: {
         title: "Tech Stack",
@@ -68,6 +70,18 @@ const resources = {
         copyright: "© 2026 DS.Manoel. All rights reserved.",
         rights: "All rights reserved.",
         developed_with: "Developed with"
+      },
+      cv: {
+        title: "Curriculum Vitae",
+        download: "Download PDF",
+        close: "Close",
+        personal_info: "Personal Info",
+        education: "Education",
+        experience: "Experience",
+        skills: "Skills",
+        profile: "Summary",
+        open_new_tab: "Open in new tab",
+        present: "Present"
       }
     }
   },
@@ -108,7 +122,9 @@ const resources = {
         description: "Especializado em transformar grandes volumes de dados em inteligência de negócio através de Machine Learning e modelagem estatística avançada.",
         about_me: "Dedicado a resolver problemas complexos através da análise de dados e especializado em Data Science.",
         view_projects: "Ver Projetos",
-        scroll: "Role para baixo"
+        scroll: "Role para baixo",
+        view_cv: "Ver CV",
+        download_cv: "Baixar CV"
       },
       skills: {
         title: "Tech Stack",
@@ -137,6 +153,18 @@ const resources = {
         copyright: "© 2026 DS.Manoel. Todos os direitos reservados.",
         rights: "Todos os direitos reservados.",
         developed_with: "Desenvolvido com"
+      },
+      cv: {
+        title: "Currículo Vitae",
+        download: "Baixar PDF",
+        close: "Fechar",
+        personal_info: "Dados Pessoais",
+        education: "Formação Acadêmica",
+        experience: "Experiência Profissional",
+        skills: "Habilidades Técnicas",
+        profile: "Resumo Profissional",
+        open_new_tab: "Abrir em nova aba",
+        present: "Presente"
       }
     }
   },
@@ -174,7 +202,9 @@ const resources = {
         description: "Especializado en transformar grandes volúmenes de datos en inteligencia de negocio a través de Machine Learning y modelado estatístico avanzado.",
         about_me: "Dedicado a resolver problemas complejos a través del análisis de datos y especializado en Ciencia de Datos.",
         view_projects: "Ver Proyectos",
-        scroll: "Desplázate"
+        scroll: "Desplázate",
+        view_cv: "Ver CV",
+        download_cv: "Descargar CV"
       },
       skills: {
         title: "Tech Stack",
@@ -203,6 +233,18 @@ const resources = {
         copyright: "© 2026 DS.Manoel. Todos los derechos reservados.",
         rights: "Todos los derechos reservados.",
         developed_with: "Desarrollado con"
+      },
+      cv: {
+        title: "Curriculum Vitae",
+        download: "Descargar PDF",
+        close: "Cerrar",
+        personal_info: "Datos Personales",
+        education: "Educación",
+        experience: "Experiencia Profesional",
+        skills: "Habilidades Técnicas",
+        profile: "Resumen Profesional",
+        open_new_tab: "Abrir en nueva pestaña",
+        present: "Presente"
       }
     }
   }

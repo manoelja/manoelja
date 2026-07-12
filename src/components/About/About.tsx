@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-import { GraduationCap, BookOpen, Calendar, ChevronDown, User, Target, Globe } from 'lucide-react';
+import { GraduationCap, BookOpen, Calendar, ChevronDown, User, Target, Globe, FileText } from 'lucide-react';
+import CVModal from '../Common/CVModal';
 import './About.css';
 
 const About = () => {
@@ -10,6 +11,7 @@ const About = () => {
   const [isMainExpanded, setIsMainExpanded] = useState(false);
   const [showBirthDate, setShowBirthDate] = useState(false);
   const [showNaturality, setShowNaturality] = useState(false);
+  const [isCVOpen, setIsCVOpen] = useState(false);
   
   const calculateAge = (birthDate: string) => {
     const today = new Date();
@@ -41,7 +43,7 @@ const About = () => {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.8, ease: "easeOut" }
+      transition: { duration: 0.8, ease: "easeOut" as const }
     }
   };
 
@@ -154,6 +156,26 @@ const About = () => {
                     </span>
                   </div>
                 </motion.div>
+                <motion.div
+                  layout
+                  className="detail-item-modern cv-pill"
+                  whileHover={{ scale: 1.05 }}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setIsCVOpen(true);
+                  }}
+                  style={{ cursor: 'pointer' }}
+                >
+                  <div className="detail-icon-wrap">
+                    <FileText size={20} />
+                  </div>
+                  <div className="detail-info-wrap">
+                    <span className="detail-label">Curriculum Vitae</span>
+                    <span className="detail-value">
+                      {t('hero.view_cv')}
+                    </span>
+                  </div>
+                </motion.div>
               </div>
             </motion.div>
           </motion.div>
@@ -249,6 +271,7 @@ const About = () => {
           </motion.div>
         </motion.div>
       </div>
+      <CVModal isOpen={isCVOpen} onClose={() => setIsCVOpen(false)} />
     </section>
   );
 };

@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import './Footer.css';
-import { Mail, Github, Linkedin, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import MagneticButton from '../Common/MagneticButton';
 
 const Footer = () => {

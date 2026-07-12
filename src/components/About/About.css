@@ -137,6 +137,15 @@
   color: var(--text-primary);
 }
 
+.cv-pill {
+  border-color: rgba(0, 245, 255, 0.45);
+}
+
+.cv-pill:hover {
+  border-color: var(--accent-color);
+  box-shadow: 0 4px 15px var(--accent-soft);
+}
+
 /* Education Cards Modern */
 .about-education {
   display: flex;

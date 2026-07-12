@@ -1,14 +1,15 @@
-import { useState, useRef, ReactNode } from 'react';
+import { useState, useRef } from 'react';
+import type { ReactNode, AnchorHTMLAttributes } from 'react';
 import { motion } from 'framer-motion';
 
-interface MagneticButtonProps {
+interface MagneticButtonProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   children: ReactNode;
   className?: string;
   onClick?: () => void;
   href?: string;
 }
 
-const MagneticButton = ({ children, className, onClick, href }: MagneticButtonProps) => {
+const MagneticButton = ({ children, className, onClick, href, ...props }: MagneticButtonProps) => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const ref = useRef<HTMLDivElement>(null);
 
@@ -42,7 +43,11 @@ const MagneticButton = ({ children, className, onClick, href }: MagneticButtonPr
   );
 
   if (href) {
-    return <a href={href}>{content}</a>;
+    return (
+      <a href={href} {...props}>
+        {content}
+      </a>
+    );
   }
 
   return content;

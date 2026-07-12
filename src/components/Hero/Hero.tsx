@@ -1,14 +1,15 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-import { Github, Linkedin, MousePointer2, ChevronDown } from 'lucide-react';
-import NeuralAnimation from '../NeuralAnimation/NeuralAnimation';
+import { Github, Linkedin, MousePointer2, ChevronDown, FileText } from 'lucide-react';
 import MagneticButton from '../Common/MagneticButton';
+import CVModal from '../Common/CVModal';
 import { useTypewriter } from '../../hooks/useTypewriter';
 import './Hero.css';
 
 const Hero = () => {
   const { t, i18n } = useTranslation();
+  const [isCVOpen, setIsCVOpen] = useState(false);
   const { scrollY } = useScroll();
   const opacity = useTransform(scrollY, [0, 200], [1, 0]);
   const y = useTransform(scrollY, [0, 200], [0, 50]);
@@ -37,7 +38,7 @@ const Hero = () => {
     visible: { 
       opacity: 1, 
       y: 0,
-      transition: { duration: 0.6, ease: "easeOut" }
+      transition: { duration: 0.6, ease: "easeOut" as const }
     }
   };
 
@@ -70,6 +71,10 @@ const Hero = () => {
             <motion.div className="hero-btns" variants={itemVariants}>
               <MagneticButton href="#projects" className="btn btn-primary">
                 {t('hero.view_projects')} <MousePointer2 size={18} />
+              </MagneticButton>
+
+              <MagneticButton className="btn btn-secondary" onClick={() => setIsCVOpen(true)}>
+                {t('hero.view_cv')} <FileText size={18} />
               </MagneticButton>
               
               <div className="hero-socials">
@@ -115,6 +120,8 @@ const Hero = () => {
           <ChevronDown size={24} color="var(--accent-color)" />
         </motion.div>
       </motion.div>
+
+      <CVModal isOpen={isCVOpen} onClose={() => setIsCVOpen(false)} />
     </section>
   );
 };
