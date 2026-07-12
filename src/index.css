@@ -1,0 +1,16 @@
+/* Resets e estilos base minimalistas */
+:root {
+  background-color: #050505;
+}
+
+body {
+  margin: 0;
+  background-color: #050505;
+}
+
+#root {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: block;
+}

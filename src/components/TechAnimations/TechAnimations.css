@@ -1,0 +1,47 @@
+.circuit-container {
+  width: 150px;
+  height: 150px;
+  opacity: 0.15;
+  pointer-events: none;
+}
+
+.floating-cube {
+  width: 30px;
+  height: 30px;
+  position: relative;
+  transform-style: preserve-3d;
+  opacity: 0.08;
+  pointer-events: none;
+}
+
+.cube-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--accent-color);
+  background: rgba(0, 245, 255, 0.05);
+}
+
+.cube-face:nth-child(1) { transform: rotateY(0deg) translateZ(15px); }
+.cube-face:nth-child(2) { transform: rotateY(90deg) translateZ(15px); }
+.cube-face:nth-child(3) { transform: rotateY(180deg) translateZ(15px); }
+.cube-face:nth-child(4) { transform: rotateY(-90deg) translateZ(15px); }
+.cube-face:nth-child(5) { transform: rotateX(90deg) translateZ(15px); }
+.cube-face:nth-child(6) { transform: rotateX(-90deg) translateZ(15px); }
+
+.data-beam {
+  width: 1px;
+  height: 200px;
+  background: rgba(255, 255, 255, 0.03);
+  position: relative;
+  overflow: hidden;
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+.beam-pulse {
+  width: 100%;
+  height: 30%;
+  background: linear-gradient(to bottom, transparent, var(--accent-color), transparent);
+  position: absolute;
+}
