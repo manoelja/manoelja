@@ -148,7 +148,7 @@ const Navbar = () => {
               exit={{ opacity: 0 }}
               onClick={() => setIsMobileMenuOpen(false)}
             />
-            <motion.div 
+            <motion.div
               className="mobile-drawer"
               initial={{ x: '100%' }}
               animate={{ x: 0 }}

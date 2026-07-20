@@ -30,8 +30,8 @@ const Hero = () => {
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
       transition: { duration: 0.6, ease: "easeOut" as const }
     }
@@ -41,7 +41,7 @@ const Hero = () => {
     <section id="hero" className="hero">
       <div className="container hero-container">
         <div className="hero-content">
-          <motion.div 
+          <motion.div
             className="hero-text"
             variants={containerVariants}
             initial="hidden"
@@ -51,18 +51,18 @@ const Hero = () => {
               <span className="pulse-dot"></span>
               {t('hero.badge')}
             </motion.div>
-            
+
             <motion.h1 className="hero-title" variants={itemVariants}>
               {t('hero.title_pre')} <br />
               <span className="highlight">
                 {typewriterText}<span className="cursor">|</span>
               </span>
             </motion.h1>
-            
+
             <motion.p className="hero-description" variants={itemVariants}>
               {t('hero.description')}
             </motion.p>
-            
+
             <motion.div className="hero-btns" variants={itemVariants}>
               <MagneticButton href="#projects" className="btn btn-primary">
                 {t('hero.view_projects')} <MousePointer2 size={18} />
@@ -71,44 +71,35 @@ const Hero = () => {
               <MagneticButton className="btn btn-secondary" onClick={() => setIsCVOpen(true)}>
                 {t('hero.view_cv')} <FileText size={18} />
               </MagneticButton>
-              
+
               <div className="hero-socials">
-                <motion.a 
-                  href="#" 
-                  aria-label="Github"
-                  whileHover={{ y: -3, color: 'var(--accent-color)' }}
-                >
+                <a href="#" aria-label="Github" className="social-link">
                   <Github size={24} />
-                </motion.a>
-                <motion.a 
-                  href="#" 
-                  aria-label="Linkedin"
-                  whileHover={{ y: -3, color: 'var(--accent-color)' }}
-                >
+                </a>
+                <a href="#" aria-label="Linkedin" className="social-link">
                   <Linkedin size={24} />
-                </motion.a>
+                </a>
               </div>
             </motion.div>
           </motion.div>
-          
-          <motion.div 
+
+          <motion.div
             className="hero-visual"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.8 }}
           >
-            {/* A animação agora é global e fica no fundo de tudo */}
             <div className="hero-visual-spacer"></div>
           </motion.div>
         </div>
       </div>
 
-      <motion.div 
+      <motion.div
         className="scroll-indicator"
         style={{ opacity, y }}
       >
         <span>{t('hero.scroll')}</span>
-        <motion.div 
+        <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 1.5, repeat: Infinity }}
         >

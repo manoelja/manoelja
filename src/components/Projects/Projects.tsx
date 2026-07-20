@@ -24,19 +24,10 @@ const Projects = () => {
     }
   };
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: "easeOut" as const }
-    }
-  };
-
   return (
     <section id="projects" className="projects">
       <div className="container">
-        <motion.h2 
+        <motion.h2
           className="section-title"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -45,7 +36,7 @@ const Projects = () => {
           {t('projects.title')}
         </motion.h2>
 
-        <motion.div 
+        <motion.div
           className="projects-grid"
           variants={containerVariants}
           initial="hidden"
@@ -53,38 +44,35 @@ const Projects = () => {
           viewport={{ once: true, margin: "-50px" }}
         >
           {projects.map((project) => (
-            <motion.div
+            <div
               key={project.id}
               className="project-card"
-              variants={itemVariants}
-              whileHover={{ y: -3 }}
               onClick={() => toggleProject(project.id)}
               style={{ cursor: 'pointer' }}
             >
               <div className="project-header">
                 <span className="project-category">{project.category[currentLang] || project.category['pt']}</span>
                 <div className="project-links" onClick={(e) => e.stopPropagation()}>
-                  <motion.a
+                  <a
                     href={project.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Github"
-                    whileHover={{ scale: 1.2, color: 'var(--accent-color)' }}
+                    className="modern-link-btn"
                   >
                     <Github size={20} />
-                  </motion.a>
+                  </a>
 
                   {project.caseStudyUrl && (
-                    <motion.a
+                    <a
                       href={project.caseStudyUrl}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="modern-link-btn"
                       aria-label="View Project"
-                      whileHover={{ scale: 1.1, backgroundColor: 'var(--accent-color)', color: '#000' }}
                     >
                       <Plus size={18} />
-                    </motion.a>
+                    </a>
                   )}
                 </div>
               </div>
@@ -124,15 +112,14 @@ const Projects = () => {
                         </div>
 
                         {project.caseStudyUrl && (
-                          <motion.a
+                          <a
                             href={project.caseStudyUrl}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="view-site-link"
-                            whileHover={{ x: 5 }}
                           >
                             {t('projects.view_site') || "Ver Site do Projeto"} <ExternalLink size={14} />
-                          </motion.a>
+                          </a>
                         )}
                       </div>
                     </motion.div>
@@ -145,7 +132,7 @@ const Projects = () => {
                   <span key={tag} className="tag">{tag}</span>
                 ))}
               </div>
-            </motion.div>
+            </div>
           ))}
         </motion.div>
       </div>

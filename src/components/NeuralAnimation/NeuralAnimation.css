@@ -60,3 +60,15 @@
   0% { transform: scale(0.5); opacity: 0.8; }
   100% { transform: scale(2.5); opacity: 0; }
 }
+
+@media (max-width: 768px) {
+  .ai-core {
+    width: 40px;
+    height: 40px;
+  }
+
+  .core-inner {
+    width: 12px;
+    height: 12px;
+  }
+}

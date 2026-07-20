@@ -23,19 +23,10 @@ const Skills = () => {
     }
   };
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.5 }
-    }
-  };
-
   return (
     <section id="skills" className="skills">
       <div className="container">
-        <motion.h2 
+        <motion.h2
           className="section-title"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -43,8 +34,8 @@ const Skills = () => {
         >
           {t('skills.title')}
         </motion.h2>
-        
-        <motion.div 
+
+        <motion.div
           className="skills-grid"
           variants={containerVariants}
           initial="hidden"
@@ -52,12 +43,10 @@ const Skills = () => {
           viewport={{ once: true }}
         >
           {skills.map((skill) => (
-            <motion.div
+            <div
               key={skill.name}
-              className="skill-badge"
-              variants={itemVariants}
+              className={`skill-badge ${expandedSkill === skill.name ? 'expanded' : ''}`}
               onClick={() => toggleSkill(skill.name)}
-              whileHover={{ y: -3 }}
               style={{ cursor: 'pointer' }}
             >
               <div className="skill-content-wrapper">
@@ -91,7 +80,7 @@ const Skills = () => {
                   )}
                 </AnimatePresence>
               </div>
-            </motion.div>
+            </div>
           ))}
         </motion.div>
       </div>

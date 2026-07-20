@@ -7,9 +7,10 @@
   --text-secondary: #94a3b8;
   --card-bg: rgba(255, 255, 255, 0.03);
   --card-border: rgba(255, 255, 255, 0.08);
-  --glass-bg: rgba(5, 5, 5, 0.8);
+  --glass-bg: rgba(3, 3, 3, 0.95);
   --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   --title-gradient: linear-gradient(180deg, #fff 0%, #777 100%);
+  --cyber-radius: 6px;
 }
 
 .light-theme {
@@ -21,7 +22,7 @@
   --text-secondary: #475569;
   --card-bg: rgba(255, 255, 255, 0.7);
   --card-border: rgba(0, 0, 0, 0.06);
-  --glass-bg: rgba(245, 247, 250, 0.9);
+  --glass-bg: rgba(245, 247, 250, 0.98);
   --title-gradient: linear-gradient(180deg, #0f172a 0%, #334155 100%);
 }
 
@@ -29,10 +30,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  transition: background-color 0.6s cubic-bezier(0.4, 0, 0.2, 1), 
-              color 0.6s cubic-bezier(0.4, 0, 0.2, 1), 
-              border-color 0.6s cubic-bezier(0.4, 0, 0.2, 1),
-              backdrop-filter 0.6s ease;
+  -webkit-tap-highlight-color: transparent;
 }
 
 ul {
@@ -87,6 +85,7 @@ button:hover svg,
 
 html {
   scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -190,3 +189,5 @@ section {
     padding: 4rem 0;
   }
 }
+
+

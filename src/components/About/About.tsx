@@ -10,20 +10,20 @@ const About = () => {
   const [isMainExpanded, setIsMainExpanded] = useState(false);
   const [showBirthDate, setShowBirthDate] = useState(false);
   const [showNaturality, setShowNaturality] = useState(false);
-  
+
   const calculateAge = (birthDate: string) => {
     const today = new Date();
     const birth = new Date(birthDate);
     let age = today.getFullYear() - birth.getFullYear();
     const monthDiff = today.getMonth() - birth.getMonth();
-    
+
     if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birth.getDate())) {
       age--;
     }
     return age;
   };
 
-  const age = calculateAge('2005-03-27'); 
+  const age = calculateAge('2005-03-27');
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -36,15 +36,6 @@ const About = () => {
     }
   };
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.8, ease: "easeOut" as const }
-    }
-  };
-
   const toggleEdu = (id: string) => {
     setExpandedEdu(expandedEdu === id ? null : id);
   };
@@ -52,7 +43,7 @@ const About = () => {
   return (
     <section id="about" className="about">
       <div className="container">
-        <motion.h2 
+        <motion.h2
           className="section-title"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -61,18 +52,17 @@ const About = () => {
           {t('about.title')}
         </motion.h2>
 
-        <motion.div 
+        <motion.div
           className="about-grid"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
         >
-          <motion.div className="about-info" variants={itemVariants}>
-            <motion.div
+          <div className="about-info">
+            <div
               className="about-card-main"
               onClick={() => setIsMainExpanded(!isMainExpanded)}
-              whileHover={{ y: -3 }}
               style={{ cursor: 'pointer' }}
             >
               <div className="about-card-header">
@@ -115,9 +105,8 @@ const About = () => {
               </div>
 
               <div className="about-details-list">
-                <motion.div
+                <div
                   className="detail-item-modern"
-                  whileHover={{ scale: 1.05 }}
                   onClick={(e) => {
                     e.stopPropagation();
                     setShowBirthDate(!showBirthDate);
@@ -133,10 +122,9 @@ const About = () => {
                       {showBirthDate ? '27/03/2005' : t('about.age', { count: age })}
                     </span>
                   </div>
-                </motion.div>
-                <motion.div
+                </div>
+                <div
                   className="detail-item-modern"
-                  whileHover={{ scale: 1.05 }}
                   onClick={(e) => {
                     e.stopPropagation();
                     setShowNaturality(!showNaturality);
@@ -152,18 +140,16 @@ const About = () => {
                       {showNaturality ? 'Goiatuba-Goiás' : 'Brasil'}
                     </span>
                   </div>
-                </motion.div>
+                </div>
               </div>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
 
-          <motion.div className="about-education" variants={itemVariants}>
+          <div className="about-education">
             {/* Pós-Graduação UFG */}
-            <motion.div 
-              layout
+            <div
               className={`edu-card-modern ${expandedEdu === 'ufg' ? 'expanded' : ''}`}
               onClick={() => toggleEdu('ufg')}
-              whileHover={expandedEdu === 'ufg' ? {} : { y: -3 }}
               style={{ cursor: 'pointer' }}
             >
               <div className="edu-card-glow"></div>
@@ -175,7 +161,7 @@ const About = () => {
                   <span className="edu-type">{t('about.postgrad_label')}</span>
                   <h3 className="edu-title">{t('about.postgrad_title')}</h3>
                 </div>
-                <motion.div 
+                <motion.div
                   className="expand-arrow"
                   animate={{ rotate: expandedEdu === 'ufg' ? 180 : 0 }}
                 >
@@ -185,7 +171,7 @@ const About = () => {
 
               <AnimatePresence>
                 {expandedEdu === 'ufg' && (
-                  <motion.div 
+                  <motion.div
                     initial={{ opacity: 0, height: 0 }}
                     animate={{ opacity: 1, height: 'auto' }}
                     exit={{ opacity: 0, height: 0 }}
@@ -198,16 +184,14 @@ const About = () => {
                   </motion.div>
                 )}
               </AnimatePresence>
-              
+
               {!expandedEdu && <div className="edu-badge">UFG</div>}
-            </motion.div>
+            </div>
 
             {/* Graduação UniCerrado */}
-            <motion.div 
-              layout
+            <div
               className={`edu-card-modern ${expandedEdu === 'uni' ? 'expanded' : ''}`}
               onClick={() => toggleEdu('uni')}
-              whileHover={expandedEdu === 'uni' ? {} : { y: -3 }}
               style={{ cursor: 'pointer' }}
             >
               <div className="edu-card-glow"></div>
@@ -219,7 +203,7 @@ const About = () => {
                   <span className="edu-type">{t('about.graduation_label')}</span>
                   <h3 className="edu-title">{t('about.graduation_title')}</h3>
                 </div>
-                <motion.div 
+                <motion.div
                   className="expand-arrow"
                   animate={{ rotate: expandedEdu === 'uni' ? 180 : 0 }}
                 >
@@ -229,7 +213,7 @@ const About = () => {
 
               <AnimatePresence>
                 {expandedEdu === 'uni' && (
-                  <motion.div 
+                  <motion.div
                     initial={{ opacity: 0, height: 0 }}
                     animate={{ opacity: 1, height: 'auto' }}
                     exit={{ opacity: 0, height: 0 }}
@@ -241,10 +225,10 @@ const About = () => {
                   </motion.div>
                 )}
               </AnimatePresence>
-              
+
               {!expandedEdu && <div className="edu-badge">Uni</div>}
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
         </motion.div>
       </div>
     </section>
