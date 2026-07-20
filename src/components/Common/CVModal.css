@@ -66,7 +66,7 @@
 }
 
 .header-left h3 {
-  font-size: 1.25rem;
+  font-size: clamp(0.9rem, 2vw, 1.25rem);
   font-weight: 800;
   letter-spacing: -0.5px;
   color: var(--text-primary);
@@ -74,7 +74,7 @@
 }
 
 .cv-lang-tag {
-  font-size: 0.65rem;
+  font-size: clamp(0.5rem, 1vw, 0.65rem);
   font-weight: 900;
   background-color: var(--accent-soft);
   color: var(--accent-color);
@@ -96,7 +96,7 @@
   gap: 0.5rem;
   padding: 0.6rem 1.2rem;
   border-radius: 10px;
-  font-size: 0.85rem;
+  font-size: clamp(0.7rem, 1.5vw, 0.85rem);
   font-weight: 700;
   border: 1px solid rgba(255, 255, 255, 0.2);
   background-color: rgba(255, 255, 255, 0.08);
@@ -209,7 +209,7 @@
 }
 
 .cv-name-section h1 {
-  font-size: 2.5rem;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
   font-weight: 900;
   line-height: 1.1;
   letter-spacing: -1.5px;
@@ -220,7 +220,7 @@
 }
 
 .cv-name-section h2 {
-  font-size: 1rem;
+  font-size: clamp(0.7rem, 1.5vw, 1rem);
   font-weight: 700;
   color: var(--accent-color);
   letter-spacing: 1px;
@@ -231,7 +231,7 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  font-size: 0.85rem;
+  font-size: clamp(0.65rem, 1.2vw, 0.85rem);
   color: var(--text-secondary);
 }
 
@@ -308,7 +308,7 @@
 }
 
 .cv-section-title h3 {
-  font-size: 1.05rem;
+  font-size: clamp(0.75rem, 1.5vw, 1.05rem);
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -316,7 +316,7 @@
 }
 
 .cv-summary-text {
-  font-size: 0.95rem;
+  font-size: clamp(0.7rem, 1.3vw, 0.95rem);
   color: var(--text-secondary);
   line-height: 1.65;
 }
@@ -360,20 +360,20 @@
 }
 
 .cv-timeline-header h4 {
-  font-size: 1.05rem;
+  font-size: clamp(0.75rem, 1.5vw, 1.05rem);
   font-weight: 800;
   color: var(--text-primary);
 }
 
 .cv-timeline-date {
-  font-size: 0.8rem;
+  font-size: clamp(0.6rem, 1.2vw, 0.8rem);
   font-weight: 700;
   color: var(--accent-color);
   white-space: nowrap;
 }
 
 .cv-timeline-desc {
-  font-size: 0.85rem;
+  font-size: clamp(0.65rem, 1.2vw, 0.85rem);
   color: var(--text-secondary);
   margin-bottom: 0.6rem;
   font-style: italic;
@@ -387,7 +387,7 @@
 }
 
 .cv-timeline-bullets li {
-  font-size: 0.9rem;
+  font-size: clamp(0.65rem, 1.2vw, 0.9rem);
   color: var(--text-secondary);
   line-height: 1.5;
   position: relative;
@@ -421,7 +421,7 @@
 
 .cv-edu-header h4 {
   grid-column: 1;
-  font-size: 0.95rem;
+  font-size: clamp(0.7rem, 1.3vw, 0.95rem);
   font-weight: 800;
   color: var(--text-primary);
 }
@@ -429,7 +429,7 @@
 .cv-edu-date {
   grid-column: 2;
   grid-row: 1;
-  font-size: 0.8rem;
+  font-size: clamp(0.6rem, 1.1vw, 0.8rem);
   font-weight: 700;
   color: var(--text-secondary);
   white-space: nowrap;
@@ -438,7 +438,7 @@
 
 .cv-edu-inst {
   grid-column: 1;
-  font-size: 0.85rem;
+  font-size: clamp(0.65rem, 1.2vw, 0.85rem);
   color: var(--accent-color);
 }
 
@@ -456,14 +456,14 @@
 }
 
 .cv-skill-tag-group strong {
-  font-size: 0.8rem;
+  font-size: clamp(0.6rem, 1.1vw, 0.8rem);
   text-transform: uppercase;
   color: var(--accent-color);
   letter-spacing: 0.5px;
 }
 
 .cv-skill-tag-group p {
-  font-size: 0.88rem;
+  font-size: clamp(0.65rem, 1.2vw, 0.88rem);
   color: var(--text-secondary);
   line-height: 1.4;
 }
@@ -472,7 +472,7 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  font-size: 0.88rem;
+  font-size: clamp(0.65rem, 1.2vw, 0.88rem);
   color: var(--text-secondary);
 }
 
@@ -490,7 +490,7 @@
 
 @media (max-width: 768px) {
   .cv-modal-portal {
-    padding: 5rem 1rem 1rem;
+    padding: 4rem 0.75rem 0.75rem;
   }
 
   .cv-modal-container {
@@ -499,7 +499,7 @@
   }
 
   .cv-modal-header {
-    padding: 1rem 1.5rem;
+    padding: 0.8rem 1rem;
   }
 
   .cv-control-btn span {
@@ -507,25 +507,203 @@
   }
 
   .cv-control-btn {
-    padding: 0.6rem;
+    padding: 0.5rem;
     border-radius: 50%;
   }
 
   .cv-modal-body {
-    padding: 1.5rem;
+    padding: 1rem;
   }
 
   .cv-paper {
-    padding: 1.5rem;
+    padding: 1.25rem;
+    border-radius: 12px;
   }
 
   .cv-paper-header {
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.75rem;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
   }
 
   .cv-name-section h1 {
-    font-size: 2rem;
+    font-size: 1.3rem;
+  }
+
+  .cv-name-section h2 {
+    font-size: 0.7rem;
+  }
+
+  .cv-contact-info {
+    font-size: 0.65rem;
+  }
+
+  .cv-section-title h3 {
+    font-size: 0.7rem;
+  }
+
+  .cv-summary-text {
+    font-size: 0.65rem;
+  }
+
+  .cv-timeline-header h4 {
+    font-size: 0.7rem;
+  }
+
+  .cv-timeline-date {
+    font-size: 0.55rem;
+  }
+
+  .cv-timeline-desc {
+    font-size: 0.6rem;
+  }
+
+  .cv-timeline-bullets li {
+    font-size: 0.6rem;
+  }
+
+  .cv-edu-header h4 {
+    font-size: 0.65rem;
+  }
+
+  .cv-edu-date {
+    font-size: 0.55rem;
+  }
+
+  .cv-edu-inst {
+    font-size: 0.6rem;
+  }
+
+  .cv-skill-tag-group strong {
+    font-size: 0.55rem;
+  }
+
+  .cv-skill-tag-group p {
+    font-size: 0.6rem;
+  }
+
+  .cv-additional-content {
+    font-size: 0.6rem;
+  }
+
+  .cv-timeline-item {
+    padding-left: 1rem;
+  }
+
+  .cv-timeline {
+    gap: 1rem;
+  }
+
+  .cv-section {
+    gap: 0.75rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .cv-modal-portal {
+    padding: 3.5rem 0.5rem 0.5rem;
+  }
+
+  .cv-modal-container {
+    border-radius: 12px;
+  }
+
+  .cv-modal-header {
+    padding: 0.6rem 0.75rem;
+  }
+
+  .cv-modal-body {
+    padding: 0.75rem;
+  }
+
+  .cv-paper {
+    padding: 1rem;
+    border-radius: 10px;
+  }
+
+  .cv-name-section h1 {
+    font-size: 1.1rem;
+    letter-spacing: -1px;
+  }
+
+  .cv-name-section h2 {
+    font-size: 0.6rem;
+  }
+
+  .cv-contact-info {
+    font-size: 0.55rem;
+    gap: 0.3rem;
+  }
+
+  .cv-section-title h3 {
+    font-size: 0.6rem;
+  }
+
+  .cv-summary-text {
+    font-size: 0.55rem;
+    line-height: 1.5;
+  }
+
+  .cv-timeline-header h4 {
+    font-size: 0.6rem;
+  }
+
+  .cv-timeline-date {
+    font-size: 0.5rem;
+  }
+
+  .cv-timeline-desc {
+    font-size: 0.5rem;
+  }
+
+  .cv-timeline-bullets li {
+    font-size: 0.5rem;
+    padding-left: 0.75rem;
+  }
+
+  .cv-edu-header h4 {
+    font-size: 0.55rem;
+  }
+
+  .cv-edu-date {
+    font-size: 0.5rem;
+  }
+
+  .cv-edu-inst {
+    font-size: 0.5rem;
+  }
+
+  .cv-skill-tag-group strong {
+    font-size: 0.5rem;
+  }
+
+  .cv-skill-tag-group p {
+    font-size: 0.5rem;
+  }
+
+  .cv-additional-content {
+    font-size: 0.5rem;
+  }
+
+  .cv-timeline-item {
+    padding-left: 0.75rem;
+    border-left-width: 1.5px;
+  }
+
+  .cv-timeline-item::before {
+    width: 8px;
+    height: 8px;
+    left: -5px;
+  }
+
+  .cv-paper-grid {
+    gap: 1.5rem;
+  }
+
+  .cv-main-column,
+  .cv-side-column {
+    gap: 1.25rem;
   }
 }
 

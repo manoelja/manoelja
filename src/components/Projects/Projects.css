@@ -16,6 +16,15 @@
   overflow: hidden;
   height: auto;
   min-height: 280px;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+
+.project-card.selectable {
+  user-select: auto;
+  -webkit-user-select: auto;
+  -webkit-touch-callout: default;
 }
 
 .light-theme .project-card {
@@ -79,7 +88,7 @@
 }
 
 .project-title {
-  font-size: 1.6rem;
+  font-size: clamp(1rem, 2.5vw, 1.6rem);
   font-weight: 700;
   margin-bottom: 0.75rem;
   letter-spacing: -0.5px;
@@ -87,7 +96,7 @@
 }
 
 .project-title-expanded {
-  font-size: 1.3rem;
+  font-size: clamp(0.9rem, 2vw, 1.3rem);
   font-weight: 700;
   margin-bottom: 1rem;
   letter-spacing: -0.5px;
@@ -95,7 +104,7 @@
 }
 
 .project-desc {
-  font-size: 0.95rem;
+  font-size: clamp(0.75rem, 1.8vw, 0.95rem);
   color: var(--text-secondary);
   line-height: 1.6;
   margin: 0;
@@ -108,7 +117,7 @@
 
 .project-details {
   padding: 1.5rem 0;
-  font-size: 0.9rem;
+  font-size: clamp(0.7rem, 1.5vw, 0.9rem);
 }
 
 .detail-item {
@@ -123,7 +132,7 @@
   display: block;
   margin-bottom: 0.2rem;
   text-transform: uppercase;
-  font-size: 0.75rem;
+  font-size: clamp(0.6rem, 1.2vw, 0.75rem);
   letter-spacing: 0.5px;
 }
 
@@ -139,7 +148,7 @@
   margin-top: 1.5rem;
   color: var(--accent-color);
   font-weight: 700;
-  font-size: 0.9rem;
+  font-size: clamp(0.65rem, 1.5vw, 0.9rem);
   text-transform: uppercase;
   letter-spacing: 1px;
 }
@@ -153,7 +162,7 @@
 }
 
 .tag {
-  font-size: 0.7rem;
+  font-size: clamp(0.55rem, 1.2vw, 0.7rem);
   font-weight: 600;
   background-color: rgba(255, 255, 255, 0.05);
   color: var(--text-secondary);
@@ -205,5 +214,70 @@
 @media (max-width: 768px) {
   .project-card {
     text-align: left;
+    padding: 1.5rem;
+  }
+  .project-title {
+    font-size: 1.1rem;
+  }
+  .project-title-expanded {
+    font-size: 0.95rem;
+  }
+  .project-desc {
+    font-size: 0.8rem;
+  }
+  .project-details {
+    font-size: 0.75rem;
+  }
+  .detail-item strong {
+    font-size: 0.65rem;
+  }
+  .view-site-link {
+    font-size: 0.75rem;
+  }
+  .tag {
+    font-size: 0.6rem;
+    padding: 0.25rem 0.6rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .project-card {
+    padding: 1rem;
+    min-height: 200px;
+  }
+  .project-title {
+    font-size: 0.95rem;
+  }
+  .project-title-expanded {
+    font-size: 0.85rem;
+  }
+  .project-desc {
+    font-size: 0.7rem;
+  }
+  .project-category {
+    font-size: 0.55rem;
+  }
+  .project-details {
+    font-size: 0.65rem;
+  }
+  .detail-item strong {
+    font-size: 0.55rem;
+  }
+  .view-site-link {
+    font-size: 0.65rem;
+  }
+  .tag {
+    font-size: 0.5rem;
+    padding: 0.2rem 0.5rem;
+  }
+  .modern-link-btn {
+    width: 28px;
+    height: 28px;
+  }
+  .project-header {
+    margin-bottom: 0.75rem;
+  }
+  .project-tags {
+    padding-top: 1rem;
   }
 }

@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { Calendar, ChevronDown, User, Target, Globe } from 'lucide-react';
 import './About.css';
+import { useLongPress } from '../../hooks/useLongPress';
 
 const About = () => {
   const { t } = useTranslation();
@@ -40,6 +41,21 @@ const About = () => {
     setExpandedEdu(expandedEdu === id ? null : id);
   };
 
+  const mainCardLongPress = useLongPress({
+    onClick: () => setIsMainExpanded(!isMainExpanded),
+    delay: 500
+  });
+
+  const ufgCardLongPress = useLongPress({
+    onClick: () => toggleEdu('ufg'),
+    delay: 500
+  });
+
+  const uniCardLongPress = useLongPress({
+    onClick: () => toggleEdu('uni'),
+    delay: 500
+  });
+
   return (
     <section id="about" className="about">
       <div className="container">
@@ -62,8 +78,8 @@ const About = () => {
           <div className="about-info">
             <div
               className="about-card-main"
-              onClick={() => setIsMainExpanded(!isMainExpanded)}
               style={{ cursor: 'pointer' }}
+              {...mainCardLongPress}
             >
               <div className="about-card-header">
                 <User size={24} className="header-icon" opacity={0.4} />
@@ -149,8 +165,8 @@ const About = () => {
             {/* Pós-Graduação UFG */}
             <div
               className={`edu-card-modern ${expandedEdu === 'ufg' ? 'expanded' : ''}`}
-              onClick={() => toggleEdu('ufg')}
               style={{ cursor: 'pointer' }}
+              {...ufgCardLongPress}
             >
               <div className="edu-card-glow"></div>
               <div className="edu-header-row">
@@ -191,8 +207,8 @@ const About = () => {
             {/* Graduação UniCerrado */}
             <div
               className={`edu-card-modern ${expandedEdu === 'uni' ? 'expanded' : ''}`}
-              onClick={() => toggleEdu('uni')}
               style={{ cursor: 'pointer' }}
+              {...uniCardLongPress}
             >
               <div className="edu-card-glow"></div>
               <div className="edu-header-row">

@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import './Projects.css';
 import { projects } from '../../data/projects';
 import { Github, Plus, ExternalLink } from 'lucide-react';
+import { useLongPress } from '../../hooks/useLongPress';
 
 const Projects = () => {
   const { t, i18n } = useTranslation();
@@ -43,13 +44,19 @@ const Projects = () => {
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
         >
-          {projects.map((project) => (
-            <div
-              key={project.id}
-              className="project-card"
-              onClick={() => toggleProject(project.id)}
-              style={{ cursor: 'pointer' }}
-            >
+          {projects.map((project) => {
+            const longPressHandlers = useLongPress({
+              onClick: () => toggleProject(project.id),
+              delay: 500
+            });
+
+            return (
+              <div
+                key={project.id}
+                className="project-card"
+                style={{ cursor: 'pointer' }}
+                {...longPressHandlers}
+              >
               <div className="project-header">
                 <span className="project-category">{project.category[currentLang] || project.category['pt']}</span>
                 <div className="project-links" onClick={(e) => e.stopPropagation()}>
@@ -133,7 +140,8 @@ const Projects = () => {
                 ))}
               </div>
             </div>
-          ))}
+            );
+          })}
         </motion.div>
       </div>
     </section>

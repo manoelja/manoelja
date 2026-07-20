@@ -157,7 +157,7 @@ body {
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: clamp(1rem, 3vw, 2rem);
 }
 
 section {
@@ -165,9 +165,9 @@ section {
 }
 
 .section-title {
-  font-size: 3rem;
+  font-size: clamp(1.5rem, 4vw, 3rem);
   font-weight: 800;
-  margin-bottom: 4rem;
+  margin-bottom: clamp(2rem, 5vw, 4rem);
   text-align: center;
   background: var(--title-gradient);
   -webkit-background-clip: text;
@@ -177,10 +177,6 @@ section {
 @media (max-width: 768px) {
   section {
     padding: 5rem 0;
-  }
-
-  .section-title {
-    font-size: 2.2rem;
   }
 }
 

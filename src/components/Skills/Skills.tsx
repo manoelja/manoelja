@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { skills } from '../../data/skills';
 import './Skills.css';
+import { useLongPress } from '../../hooks/useLongPress';
 
 const Skills = () => {
   const { t, i18n } = useTranslation();
@@ -42,13 +43,19 @@ const Skills = () => {
           whileInView="visible"
           viewport={{ once: true }}
         >
-          {skills.map((skill) => (
-            <div
-              key={skill.name}
-              className={`skill-badge ${expandedSkill === skill.name ? 'expanded' : ''}`}
-              onClick={() => toggleSkill(skill.name)}
-              style={{ cursor: 'pointer' }}
-            >
+          {skills.map((skill) => {
+            const longPressHandlers = useLongPress({
+              onClick: () => toggleSkill(skill.name),
+              delay: 500
+            });
+
+            return (
+              <div
+                key={skill.name}
+                className={`skill-badge ${expandedSkill === skill.name ? 'expanded' : ''}`}
+                style={{ cursor: 'pointer' }}
+                {...longPressHandlers}
+              >
               <div className="skill-content-wrapper">
                 <AnimatePresence mode="wait">
                   {expandedSkill !== skill.name ? (
@@ -81,7 +88,8 @@ const Skills = () => {
                 </AnimatePresence>
               </div>
             </div>
-          ))}
+            );
+          })}
         </motion.div>
       </div>
     </section>
