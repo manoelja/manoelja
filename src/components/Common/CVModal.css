@@ -102,7 +102,7 @@
   background-color: rgba(255, 255, 255, 0.08);
   color: var(--text-primary);
   cursor: pointer;
-  transition: var(--transition);
+  transition: none !important;
 }
 
 .cv-control-btn svg {
@@ -134,6 +134,9 @@
   background-color: var(--accent-color);
   color: #030303;
   border: none;
+  transition: none;
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 .download-btn svg {
@@ -143,25 +146,20 @@
 .download-btn:hover {
   background-color: #00e1eb;
   color: #030303;
-  box-shadow: 0 4px 15px var(--accent-soft);
+  box-shadow: none;
 }
 
 .download-btn:hover svg {
   color: #030303 !important;
 }
 
-.download-btn.generating {
-  pointer-events: none;
-  opacity: 0.8;
-}
-
-.download-btn .spin {
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.download-btn:active,
+.download-btn:focus,
+.download-btn:focus-visible {
+  transform: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  opacity: 1 !important;
 }
 
 .close-btn {

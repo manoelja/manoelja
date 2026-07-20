@@ -72,21 +72,21 @@ export const cvData: Record<string, CVData> = {
     experienceTitle: "Key Projects / Experience",
     experiences: [
       {
-        role: "Lead Developer - AI Solutions",
+        role: "Lead Developer — AI Solutions",
         period: "2024 - Present",
         description: "End-to-end development of predictive and optimization machine learning models.",
         bullets: [
-          "Churn Prediction: Implemented a Random Forest model projecting a 20% reduction in customer cancellation.",
+          "Churn Prediction: Implemented a Random Forest model projecting a 20% reduction in customer churn.",
           "Inventory Optimization: 12% reduction in perishable inventory levels utilizing seasonal Prophet models.",
           "Fraud Detection: System utilizing Isolation Forest and Autoencoders resulting in a 30% loss reduction."
         ]
       },
       {
-        role: "NLP & Vision Developer / Researcher",
+        role: "NLP & Computer Vision Researcher",
         period: "2023 - 2024",
         description: "Applied Deep Learning applications for unstructured text and image datasets.",
         bullets: [
-          "Sentiment Analysis: Real-time BERT pipeline and dashboard with 92% classification accuracy.",
+          "Sentiment Analysis: Real-time BERT pipeline and dashboard achieving 92% classification accuracy.",
           "Computer Vision: Semantic segmentation U-Net model for environmental satellite monitoring, accelerating analysis by 400%."
         ]
       }
@@ -100,7 +100,7 @@ export const cvData: Record<string, CVData> = {
     },
     additional: "Additional Info",
     ageText: "21 years old",
-    location: "Goiatuba, Goias - Brazil",
+    location: "Goiatuba, Goiás - Brazil",
     email: "manoel.ds@exemplo.com",
     website: "dsmanoel.dev"
   },

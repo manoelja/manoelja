@@ -123,6 +123,7 @@ const About = () => {
               <div className="about-details-list">
                 <div
                   className="detail-item-modern"
+                  onPointerDown={(e) => e.stopPropagation()}
                   onClick={(e) => {
                     e.stopPropagation();
                     setShowBirthDate(!showBirthDate);
@@ -141,6 +142,7 @@ const About = () => {
                 </div>
                 <div
                   className="detail-item-modern"
+                  onPointerDown={(e) => e.stopPropagation()}
                   onClick={(e) => {
                     e.stopPropagation();
                     setShowNaturality(!showNaturality);
@@ -175,7 +177,18 @@ const About = () => {
                 </div>
                 <div className="edu-content">
                   <span className="edu-type">{t('about.postgrad_label')}</span>
-                  <h3 className="edu-title">{t('about.postgrad_title')}</h3>
+                  <AnimatePresence mode="wait">
+                    <motion.h3
+                      key={expandedEdu === 'ufg' ? 'inst' : 'title'}
+                      className="edu-title"
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                      transition={{ duration: 0.25, ease: 'easeInOut' }}
+                    >
+                      {expandedEdu === 'ufg' ? 'UFG - Universidade Federal de Goiás' : t('about.postgrad_title')}
+                    </motion.h3>
+                  </AnimatePresence>
                 </div>
                 <motion.div
                   className="expand-arrow"
@@ -184,22 +197,6 @@ const About = () => {
                   <ChevronDown size={20} opacity={0.5} />
                 </motion.div>
               </div>
-
-              <AnimatePresence>
-                {expandedEdu === 'ufg' && (
-                  <motion.div
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: 'auto' }}
-                    exit={{ opacity: 0, height: 0 }}
-                    className="edu-details-expanded"
-                  >
-                    <div className="edu-institution">
-                      <span className="inst-name">UFG</span>
-                      <span className="inst-full">{t('about.postgrad_inst')}</span>
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
 
               {!expandedEdu && <div className="edu-badge">UFG</div>}
             </div>
@@ -217,7 +214,18 @@ const About = () => {
                 </div>
                 <div className="edu-content">
                   <span className="edu-type">{t('about.graduation_label')}</span>
-                  <h3 className="edu-title">{t('about.graduation_title')}</h3>
+                  <AnimatePresence mode="wait">
+                    <motion.h3
+                      key={expandedEdu === 'uni' ? 'inst' : 'title'}
+                      className="edu-title"
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                      transition={{ duration: 0.25, ease: 'easeInOut' }}
+                    >
+                      {expandedEdu === 'uni' ? 'Centro Universitário de Goiatuba - UniCerrado' : t('about.graduation_title')}
+                    </motion.h3>
+                  </AnimatePresence>
                 </div>
                 <motion.div
                   className="expand-arrow"
@@ -226,21 +234,6 @@ const About = () => {
                   <ChevronDown size={20} opacity={0.5} />
                 </motion.div>
               </div>
-
-              <AnimatePresence>
-                {expandedEdu === 'uni' && (
-                  <motion.div
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: 'auto' }}
-                    exit={{ opacity: 0, height: 0 }}
-                    className="edu-details-expanded"
-                  >
-                    <div className="edu-institution">
-                      <span className="inst-full">CENTRO UNIVERSITÁRIO DE GOIATUBA</span>
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
 
               {!expandedEdu && <div className="edu-badge">Uni</div>}
             </div>

@@ -26,12 +26,12 @@ export const projects: Project[] = [
     },
     description: {
       pt: "Modelo preditivo para identificar clientes com alta probabilidade de cancelamento.",
-      en: "Predictive model to identify customers with high cancellation probability.",
+      en: "Predictive model to identify at-risk customers before churn occurs.",
       es: "Modelo predictivo para identificar clientes con alta probabilidad de cancelación."
     },
     problem: {
       pt: "A empresa estava perdendo 15% da base de clientes mensalmente sem entender os motivos.",
-      en: "The company was losing 15% of its customer base monthly without understanding the reasons.",
+      en: "The company was losing 15% of its customer base monthly with no visibility into the root causes.",
       es: "La empresa perdía el 15% de su base de clientes mensualmente sin entender los motivos."
     },
     solution: {
@@ -62,12 +62,12 @@ export const projects: Project[] = [
     },
     description: {
       pt: "Monitoramento de redes sociais para análise de percepção de marca.",
-      en: "Social media monitoring for brand perception analysis.",
+      en: "Real-time social media monitoring for brand sentiment analysis.",
       es: "Monitoreo de redes sociales para el análisis de la percepción de marca."
     },
     problem: {
       pt: "Dificuldade em reagir rapidamente a crises de imagem no Twitter/X.",
-      en: "Difficulty in reacting quickly to image crises on Twitter/X.",
+      en: "Slow response time to brand reputation crises on social media platforms.",
       es: "Dificultad para reaccionar rápidamente a las crisis de imagen en Twitter/X."
     },
     solution: {
@@ -103,7 +103,7 @@ export const projects: Project[] = [
     },
     problem: {
       pt: "Excesso de estoque gerando prejuízo de R$ 50k/mês em produtos perecíveis.",
-      en: "Excess inventory generating a loss of R$ 50k/month in perishable products.",
+      en: "Excess inventory causing R$ 50k/month in losses on perishable goods.",
       es: "Exceso de stock generando pérdidas de R$ 50k/mes en productos perecederos."
     },
     solution: {
@@ -134,12 +134,12 @@ export const projects: Project[] = [
     },
     description: {
       pt: "Mecanismo de recomendação para e-commerce baseado em filtragem colaborativa e conteúdo.",
-      en: "E-commerce recommendation engine based on collaborative filtering and content.",
+      en: "E-commerce recommendation engine combining collaborative filtering with content-based approaches.",
       es: "Motor de recomendación de comercio electrónico baseado en filtrado colaborativo y contenido."
     },
     problem: {
       pt: "Baixa taxa de conversão em produtos recomendados na página inicial.",
-      en: "Low conversion rate on recommended products on the home page.",
+      en: "Low conversion rate on homepage product recommendations.",
       es: "Baja tasa de conversión en produtos recomendados en la página de inicio."
     },
     solution: {
@@ -247,7 +247,7 @@ export const projects: Project[] = [
     },
     problem: {
       pt: "Lentidão no processo manual de fiscalização de grandes extensões de terra.",
-      en: "Slowness in the manual process of inspection of large land extensions.",
+      en: "Manual inspection processes were too slow to cover large land areas effectively.",
       es: "Lentitud en el proceso manual de fiscalización de grandes extensiones de tierra."
     },
     solution: {
@@ -278,12 +278,12 @@ export const projects: Project[] = [
     },
     description: {
       pt: "Triagem automatizada baseada em históricos clínicos para prever riscos crônicos.",
-      en: "Automated screening based on clinical history to predict chronic risks.",
+      en: "Automated clinical screening to predict chronic disease risks from patient history.",
       es: "Triaje automatizado basado en historiales clínicos para predecir riesgos crónicos."
     },
     problem: {
       pt: "Sobrecarga no sistema de saúde devido a diagnósticos tardios de doenças crônicas.",
-      en: "Healthcare system overload due to late diagnoses of chronic diseases.",
+      en: "Healthcare system overload caused by late-stage diagnoses of chronic conditions.",
       es: "Sobrecarga en el sistema de salud debido a diagnósticos tardíos de enfermedades crónicas."
     },
     solution: {

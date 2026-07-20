@@ -1,7 +1,6 @@
 import { useEffect, useCallback, useRef, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-import { X, Download, Mail, Briefcase, GraduationCap, Code2, Award, Calendar, MapPin, Globe, Loader2 } from 'lucide-react';
+import { X, Download, Mail, Briefcase, GraduationCap, Code2, Award, Calendar, MapPin, Globe } from 'lucide-react';
 import html2pdf from 'html2pdf.js';
 import { cvData } from '../../data/cvData';
 import './CVModal.css';
@@ -273,7 +272,7 @@ const CVModal = ({ isOpen, onClose }: CVModalProps) => {
 
   const currentCV = cvData[activeLang] || cvData.pt;
 
-  const handleDownload = async (e: React.MouseEvent<HTMLAnchorElement>) => {
+  const handleDownload = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     if (!cvPaperRef.current || isGenerating) return;
 
@@ -305,7 +304,8 @@ const CVModal = ({ isOpen, onClose }: CVModalProps) => {
           width: 794,
           windowWidth: 794,
           useCORS: true,
-          backgroundColor: '#ffffff'
+          backgroundColor: '#ffffff',
+          logging: false
         },
         jsPDF: {
           unit: 'mm',
@@ -325,26 +325,19 @@ const CVModal = ({ isOpen, onClose }: CVModalProps) => {
   };
 
   return (
-    <AnimatePresence>
+    <>
       {isOpen && (
         <div className="cv-modal-portal">
-          <motion.div
+          <div
             className="cv-modal-backdrop"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
             onClick={onClose}
           />
 
-          <motion.div
+          <div
             className="cv-modal-container"
             role="dialog"
             aria-modal="true"
             aria-label={t('cv.title')}
-            initial={{ opacity: 0, y: 50, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 30, scale: 0.95 }}
-            transition={{ type: 'spring', damping: 25, stiffness: 220 }}
           >
             <div className="cv-modal-header">
               <div className="header-left">
@@ -352,15 +345,15 @@ const CVModal = ({ isOpen, onClose }: CVModalProps) => {
                 <span className="cv-lang-tag">{activeLang.toUpperCase()}</span>
               </div>
               <div className="header-right">
-                <a
-                  href="#"
-                  className={`cv-control-btn download-btn ${isGenerating ? 'generating' : ''}`}
+                <button
+                  type="button"
+                  className="cv-control-btn download-btn"
                   title={t('cv.download')}
                   onClick={handleDownload}
                 >
-                  {isGenerating ? <Loader2 size={18} className="spin" /> : <Download size={18} />}
-                  <span>{isGenerating ? t('cv.generating', 'Gerando...') : t('cv.download')}</span>
-                </a>
+                  <Download size={18} />
+                  <span>{t('cv.download')}</span>
+                </button>
                 <button
                   className="cv-control-btn close-btn"
                   onClick={onClose}
@@ -501,10 +494,10 @@ const CVModal = ({ isOpen, onClose }: CVModalProps) => {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       )}
-    </AnimatePresence>
+    </>
   );
 };
 

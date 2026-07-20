@@ -13,49 +13,65 @@ export function useLongPress({
 }: UseLongPressOptions = {}) {
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const isLongPress = useRef(false);
-  const targetRef = useRef<EventTarget | null>(null);
+  const firedRef = useRef(false);
 
-  const start = useCallback(
-    (e: React.MouseEvent | React.TouchEvent) => {
+  const clearTimer = useCallback(() => {
+    if (timerRef.current) {
+      clearTimeout(timerRef.current);
+      timerRef.current = null;
+    }
+  }, []);
+
+  const handlePointerDown = useCallback(
+    (e: React.PointerEvent) => {
+      // Only handle primary button / first touch
+      if (e.pointerId !== undefined) {
+        (e.target as HTMLElement)?.setPointerCapture?.(e.pointerId);
+      }
+
       isLongPress.current = false;
-      targetRef.current = e.target;
+      firedRef.current = false;
+
+      clearTimer();
 
       timerRef.current = setTimeout(() => {
         isLongPress.current = true;
-        const el = targetRef.current as HTMLElement;
+        const el = (e.target as HTMLElement)?.closest('.project-card, .skill-badge');
         if (el) {
-          el.closest('.project-card, .skill-badge')?.classList.add('selectable');
+          el.classList.add('selectable');
         }
         onLongPress?.();
       }, delay);
     },
-    [onLongPress, delay]
+    [onLongPress, delay, clearTimer]
   );
 
-  const stop = useCallback(
-    (e: React.MouseEvent | React.TouchEvent) => {
-      if (timerRef.current) {
-        clearTimeout(timerRef.current);
-        timerRef.current = null;
-      }
+  const handlePointerUp = useCallback(
+    (e: React.PointerEvent) => {
+      clearTimer();
 
       const el = (e.target as HTMLElement)?.closest('.project-card, .skill-badge');
       el?.classList.remove('selectable');
 
-      if (!isLongPress.current) {
+      if (!isLongPress.current && !firedRef.current) {
+        firedRef.current = true;
         onClick?.();
       }
 
       isLongPress.current = false;
     },
-    [onClick]
+    [onClick, clearTimer]
   );
 
+  const handlePointerCancel = useCallback(() => {
+    clearTimer();
+    isLongPress.current = false;
+    firedRef.current = false;
+  }, [clearTimer]);
+
   return {
-    onMouseDown: start,
-    onMouseUp: stop,
-    onMouseLeave: stop,
-    onTouchStart: start,
-    onTouchEnd: stop
+    onPointerDown: handlePointerDown,
+    onPointerUp: handlePointerUp,
+    onPointerCancel: handlePointerCancel
   };
 }

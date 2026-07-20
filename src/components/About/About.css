@@ -175,9 +175,10 @@
 }
 
 .edu-details-expanded {
-  margin-top: 1.5rem;
-  padding-top: 1.5rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
   border-top: 1px solid var(--card-border);
+  overflow: hidden;
 }
 
 .light-theme .edu-card-modern {
