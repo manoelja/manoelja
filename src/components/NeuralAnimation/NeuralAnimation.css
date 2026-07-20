@@ -12,7 +12,7 @@
   top: -10vh;
   left: -10vw;
   width: 120vw;
-  height: 120vh;
+  height: 180vh;
   z-index: -1;
   pointer-events: none;
 }

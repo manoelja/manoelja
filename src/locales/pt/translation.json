@@ -1,0 +1,85 @@
+{
+  "nav": {
+    "home": "Início",
+    "about": "Sobre",
+    "skills": "Skills",
+    "projects": "Projetos",
+    "contact": "Contato",
+    "menu_open": "Abrir menu",
+    "menu_close": "Fechar menu",
+    "change_language": "Mudar Idioma"
+  },
+  "about": {
+    "title": "Sobre Mim",
+    "description": "Transformo dados brutos em inteligência estratégica. Unindo uma sólida base em TI com a especialização em Data Science, foco em resolver problemas complexos através de analytics e modelos preditivos que geram valor real para o negócio.",
+    "age": "{{count}} anos",
+    "age_label": "Idade",
+    "birth_date": "Data de Nascimento",
+    "nationality_label": "Nacionalidade",
+    "naturality_label": "Naturalidade",
+    "detailed_profile": "Apaixonado pela intersecção entre tecnologia e negócios. Minha abordagem combina modelagem estatística rigorosa com um olhar atento à eficiência operacional. Especialista em construir pipelines de dados que geram impacto real.",
+    "mission_label": "Minha Missão",
+    "mission_text": "Conectar o abismo entre dados brutos e inteligência acionável, capacitando organizações a tomarem decisões baseadas em dados com total confiança.",
+    "graduation_label": "Tecnólogo",
+    "graduation_title": "Gestão da Tecnologia da Informação",
+    "graduation_inst": "CENTRO UNIVERSITÁRIO DE GOIATUBA",
+    "postgrad_label": "Lato Sensu",
+    "postgrad_title": "Pós-Graduação em Data Science e Estatística Aplicada",
+    "postgrad_inst": "UFG - Universidade Federal de Goiás"
+  },
+  "hero": {
+    "badge": "Disponível para novos projetos",
+    "title_pre": "Manoel",
+    "title_highlight": "Cientista de Dados",
+    "description": "Especializado em transformar grandes volumes de dados em inteligência de negócio através de Machine Learning e modelagem estatística avançada.",
+    "about_me": "Dedicado a resolver problemas complexos através da análise de dados e especializado em Data Science.",
+    "view_projects": "Ver Projetos",
+    "scroll": "Role para baixo",
+    "view_cv": "Curriculum Vitae",
+    "download_cv": "Baixar CV",
+    "typewriter_words": ["Cientista de Dados", "Engenheiro de ML", "Especialista em Analytics"]
+  },
+  "skills": {
+    "title": "Tech Stack",
+    "categories": {
+      "languages": "Linguagens",
+      "databases": "Banco de Dados",
+      "ml": "Machine Learning",
+      "data_manipulation": "Manipulação de Dados",
+      "deep_learning": "Deep Learning",
+      "visualization": "Visualização",
+      "cloud": "Cloud",
+      "mlops": "MLOps",
+      "tools": "Ferramentas"
+    }
+  },
+  "projects": {
+    "title": "Projetos Selecionados",
+    "view_code": "Ver Código",
+    "view_site": "Ver Site do Projeto",
+    "challenge": "Desafio",
+    "impact": "Impacto"
+  },
+  "footer": {
+    "title": "Vamos conversar?",
+    "description": "Estou sempre aberto a novos projetos e colaborações em Ciência de Dados.",
+    "email_label": "Enviar E-mail",
+    "copyright": "© 2026 DS.Manoel. Todos os direitos reservados.",
+    "rights": "Todos os direitos reservados.",
+    "developed_with": "Desenvolvido com"
+  },
+  "cv": {
+    "title": "Currículo Vitae",
+    "download": "Baixar PDF",
+    "download_error": "Erro ao baixar o CV. Tente novamente.",
+    "generating": "Gerando...",
+    "close": "Fechar",
+    "personal_info": "Dados Pessoais",
+    "education": "Formação Acadêmica",
+    "experience": "Experiência Profissional",
+    "skills": "Habilidades Técnicas",
+    "profile": "Resumo Profissional",
+    "open_new_tab": "Abrir em nova aba",
+    "present": "Presente"
+  }
+}

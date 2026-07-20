@@ -8,9 +8,10 @@
   height: 100%;
   z-index: 9999;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  padding: 2rem;
+  padding: 6rem 2rem 2rem;
+  overflow-y: auto;
 }
 
 .cv-modal-backdrop {
@@ -19,9 +20,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(2, 2, 5, 0.75);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: transparent;
 }
 
 .cv-modal-container {
@@ -30,19 +29,17 @@
   width: 100%;
   max-width: 950px;
   max-height: 90vh;
-  background-color: var(--bg-secondary);
-  border: 1px solid var(--card-border);
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 24px;
   box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  backdrop-filter: blur(25px);
-  -webkit-backdrop-filter: blur(25px);
 }
 
 .light-theme .cv-modal-container {
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: transparent;
   border-color: rgba(0, 0, 0, 0.08);
   box-shadow: 0 25px 60px -15px rgba(15, 23, 42, 0.15);
 }
@@ -53,12 +50,12 @@
   justify-content: space-between;
   align-items: center;
   padding: 1.2rem 2.5rem;
-  border-bottom: 1px solid var(--card-border);
-  background-color: rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  background-color: transparent;
 }
 
 .light-theme .cv-modal-header {
-  background-color: rgba(0, 0, 0, 0.02);
+  background-color: transparent;
   border-bottom-color: rgba(0, 0, 0, 0.06);
 }
 
@@ -101,8 +98,8 @@
   border-radius: 10px;
   font-size: 0.85rem;
   font-weight: 700;
-  border: 1px solid var(--card-border);
-  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.08);
   color: var(--text-primary);
   cursor: pointer;
   transition: var(--transition);
@@ -113,7 +110,7 @@
 }
 
 .cv-control-btn:hover {
-  background-color: rgba(255, 255, 255, 0.08);
+  background-color: rgba(255, 255, 255, 0.15);
   border-color: var(--accent-color);
   color: var(--accent-color);
 }
@@ -124,12 +121,12 @@
 }
 
 .light-theme .cv-control-btn {
-  background-color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.5);
   border-color: rgba(0, 0, 0, 0.08);
 }
 
 .light-theme .cv-control-btn:hover {
-  background-color: rgba(0, 245, 255, 0.05);
+  background-color: rgba(255, 255, 255, 0.7);
   border-color: var(--accent-color);
 }
 
@@ -153,6 +150,20 @@
   color: #030303 !important;
 }
 
+.download-btn.generating {
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+.download-btn .spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
 .close-btn {
   padding: 0.6rem;
   border-radius: 50%;
@@ -163,17 +174,17 @@
   flex-grow: 1;
   overflow-y: auto;
   padding: 2.5rem;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: transparent;
 }
 
 .light-theme .cv-modal-body {
-  background-color: rgba(0, 0, 0, 0.01);
+  background-color: transparent;
 }
 
 /* CV Paper look-alike */
 .cv-paper {
-  background-color: rgba(255, 255, 255, 0.015);
-  border: 1px solid var(--card-border);
+  background-color: #0a0a0f;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 16px;
   padding: 3rem;
   box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.01);
@@ -193,6 +204,8 @@
   align-items: flex-start;
   gap: 2rem;
   margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid var(--accent-color);
 }
 
 .cv-name-section h1 {
@@ -200,23 +213,23 @@
   font-weight: 900;
   line-height: 1.1;
   letter-spacing: -1.5px;
-  margin-bottom: 0.4rem;
-  background: var(--title-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+  background: none;
+  -webkit-text-fill-color: unset;
 }
 
 .cv-name-section h2 {
-  font-size: 1.15rem;
+  font-size: 1rem;
   font-weight: 700;
   color: var(--accent-color);
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
   text-transform: uppercase;
 }
 
 .cv-contact-info {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: column;
   gap: 0.5rem;
   font-size: 0.85rem;
   color: var(--text-secondary);
@@ -230,12 +243,19 @@
 
 .cv-contact-item svg {
   color: var(--accent-color);
-  opacity: 0.7 !important;
+  opacity: 1 !important;
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+.cv-contact-item span {
+  text-align: left;
 }
 
 .cv-divider {
   height: 1px;
-  background-color: var(--card-border);
+  background-color: rgba(255, 255, 255, 0.15);
   margin-bottom: 2rem;
 }
 
@@ -274,7 +294,7 @@
   align-items: center;
   gap: 0.6rem;
   color: var(--text-primary);
-  border-bottom: 1.5px solid var(--card-border);
+  border-bottom: 1.5px solid rgba(255, 255, 255, 0.15);
   padding-bottom: 0.5rem;
 }
 
@@ -312,7 +332,7 @@
 .cv-timeline-item {
   position: relative;
   padding-left: 1.5rem;
-  border-left: 2px solid var(--card-border);
+  border-left: 2px solid rgba(255, 255, 255, 0.15);
 }
 
 .light-theme .cv-timeline-item {
@@ -390,31 +410,34 @@
 }
 
 .cv-edu-item {
-  display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.5rem;
 }
 
 .cv-edu-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 1rem;
+  display: contents;
 }
 
 .cv-edu-header h4 {
+  grid-column: 1;
   font-size: 0.95rem;
   font-weight: 800;
   color: var(--text-primary);
 }
 
 .cv-edu-date {
+  grid-column: 2;
+  grid-row: 1;
   font-size: 0.8rem;
   font-weight: 700;
   color: var(--text-secondary);
+  white-space: nowrap;
+  align-self: start;
 }
 
 .cv-edu-inst {
+  grid-column: 1;
   font-size: 0.85rem;
   color: var(--accent-color);
 }
@@ -467,9 +490,9 @@
 
 @media (max-width: 768px) {
   .cv-modal-portal {
-    padding: 1rem;
+    padding: 5rem 1rem 1rem;
   }
-  
+
   .cv-modal-container {
     max-height: 95vh;
     border-radius: 16px;
@@ -506,31 +529,141 @@
   }
 }
 
-/* Print CSS */
+/* Print CSS - A4 sizing */
 @media print {
+  @page {
+    size: A4;
+    margin: 15mm;
+  }
+
   body * {
     visibility: hidden;
   }
-  .cv-paper, .cv-paper * {
+
+  .cv-modal-portal,
+  .cv-modal-portal * {
     visibility: visible;
   }
-  .cv-paper {
+
+  .cv-modal-portal {
     position: absolute;
     left: 0;
     top: 0;
     width: 100%;
+    height: auto;
+    padding: 0;
+    z-index: auto;
+  }
+
+  .cv-modal-backdrop {
+    display: none;
+  }
+
+  .cv-modal-container {
+    position: static;
+    width: 100%;
+    max-width: none;
+    max-height: none;
+    background: white;
     border: none;
+    border-radius: 0;
+    box-shadow: none;
+    backdrop-filter: none;
+    overflow: visible;
+  }
+
+  .cv-modal-header {
+    display: none;
+  }
+
+  .cv-modal-body {
+    overflow: visible;
     padding: 0;
     background: white;
-    color: black;
   }
+
+  .cv-paper {
+    background: white;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    box-shadow: none;
+    color: black;
+    max-width: 100%;
+  }
+
   .cv-name-section h1 {
     color: black;
     -webkit-text-fill-color: initial;
     background: none;
+    font-size: 24pt;
   }
+
+  .cv-name-section h2 {
+    color: #333;
+    font-size: 12pt;
+  }
+
+  .cv-contact-info {
+    color: #444;
+  }
+
+  .cv-contact-item svg {
+    color: #333;
+  }
+
+  .cv-divider {
+    background-color: #ccc;
+  }
+
+  .cv-section-title {
+    border-bottom-color: #ccc;
+  }
+
+  .cv-section-title h3 {
+    color: black;
+  }
+
+  .cv-section-title svg {
+    color: #333;
+  }
+
+  .cv-summary-text,
+  .cv-timeline-desc,
+  .cv-timeline-bullets li,
+  .cv-edu-inst,
+  .cv-skill-tag-group p,
+  .cv-additional-content {
+    color: #333;
+  }
+
+  .cv-timeline-date {
+    color: #555;
+  }
+
+  .cv-timeline-item {
+    border-left-color: #ccc;
+  }
+
   .cv-timeline-item::before {
     box-shadow: none;
-    background-color: black;
+    background-color: #333;
+  }
+
+  .cv-timeline-bullets li::before {
+    color: #333;
+  }
+
+  .cv-skill-tag-group strong {
+    color: #333;
+  }
+
+  .cv-edu-inst {
+    color: #333;
+  }
+
+  .cv-paper-grid {
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
   }
 }

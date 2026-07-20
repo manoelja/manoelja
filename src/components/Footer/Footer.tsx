@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-import './Footer.css';
-import { ArrowRight } from 'lucide-react';
+import { Mail, ArrowRight } from 'lucide-react';
 import MagneticButton from '../Common/MagneticButton';
+import './Footer.css';
 
 const Footer = () => {
   const { t } = useTranslation();
@@ -10,29 +10,33 @@ const Footer = () => {
   return (
     <footer id="contact" className="footer">
       <div className="container">
-        <div className="footer-content">
-          <motion.div 
-            className="footer-info"
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
+        <motion.div
+          className="footer-main"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <div className="footer-header">
+            <span className="footer-label">{t('nav.contact')}</span>
             <h2 className="footer-title">{t('footer.title')}</h2>
-            <p className="footer-desc">
-              {t('footer.description')}
-            </p>
-            
-            <MagneticButton className="footer-cta" href="mailto:seuemail@exemplo.com">
-              <span className="cta-content">
-                {t('footer.email_label') || "Enviar E-mail"} <ArrowRight size={18} />
-              </span>
-            </MagneticButton>
-          </motion.div>
+            <p className="footer-desc">{t('footer.description')}</p>
+          </div>
+
+          <MagneticButton className="footer-cta" href="mailto:manoel.ds@exemplo.com">
+            <span className="cta-content">
+              <Mail size={18} />
+              {t('footer.email_label')}
+              <ArrowRight size={16} />
+            </span>
+          </MagneticButton>
+        </motion.div>
+
+        <div className="footer-divider"></div>
+
+        <div className="footer-bottom">
+          <p className="footer-copyright">{t('footer.copyright')}</p>
         </div>
-      </div>
-      <div className="footer-bottom">
-        <p>{t('footer.copyright')}</p>
       </div>
     </footer>
   );

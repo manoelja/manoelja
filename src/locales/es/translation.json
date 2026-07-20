@@ -1,0 +1,82 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "about": "Sobre Mí",
+    "skills": "Habilidades",
+    "projects": "Proyectos",
+    "contact": "Contacto",
+    "menu_open": "Abrir menú",
+    "menu_close": "Cerrar menú",
+    "change_language": "Cambiar Idioma"
+  },
+  "about": {
+    "title": "Sobre Mí",
+    "description": "Transformo datos brutos en inteligencia estratégica. Combinando una base sólida en TI con la especialización en Ciencia de Datos, me enfoco en resolver problemas complejos a través de analítica y modelos predictivos que generan valor real para el negocio.",
+    "age": "{{count}} años",
+    "age_label": "Edad",
+    "birth_date": "Fecha de Nacimiento",
+    "nationality_label": "Nacionalidad",
+    "naturality_label": "Naturalidad",
+    "graduation_label": "Tecnólogo",
+    "graduation_title": "Gestión de la Tecnología de la Información",
+    "graduation_inst": "CENTRO UNIVERSITÁRIO DE GOIATUBA",
+    "postgrad_label": "Postgrado",
+    "postgrad_title": "Postgrado en Ciencia de Datos y Estadística Aplicada",
+    "postgrad_inst": "UFG - Universidad Federal de Goiás"
+  },
+  "hero": {
+    "badge": "Disponible para nuevos proyectos",
+    "title_pre": "Manoel",
+    "title_highlight": "Científico de Datos",
+    "description": "Especializado en transformar grandes volúmenes de datos en inteligencia de negocio a través de Machine Learning y modelado estatístico avanzado.",
+    "about_me": "Dedicado a resolver problemas complejos a través del análisis de datos y especializado en Ciencia de Datos.",
+    "view_projects": "Ver Proyectos",
+    "scroll": "Desplázate",
+    "view_cv": "Curriculum Vitae",
+    "download_cv": "Descargar CV",
+    "typewriter_words": ["Científico de Datos", "Ingeniero de ML", "Especialista en Analytics"]
+  },
+  "skills": {
+    "title": "Tech Stack",
+    "categories": {
+      "languages": "Idiomas",
+      "databases": "Bases de Datos",
+      "ml": "Machine Learning",
+      "data_manipulation": "Manipulación de Dados",
+      "deep_learning": "Deep Learning",
+      "visualization": "Visualización",
+      "cloud": "Cloud",
+      "mlops": "MLOps",
+      "tools": "Herramientas"
+    }
+  },
+  "projects": {
+    "title": "Proyectos Seleccionados",
+    "view_code": "Ver Código",
+    "view_site": "Ver Sitio del Proyecto",
+    "challenge": "Desafío",
+    "impact": "Impacto"
+  },
+  "footer": {
+    "title": "¿Hablamos?",
+    "description": "Siempre estoy abierto a novos proyectos y colaboraciones en Ciencia de Dados.",
+    "email_label": "Enviar E-mail",
+    "copyright": "© 2026 DS.Manoel. Todos los derechos reservados.",
+    "rights": "Todos los derechos reservados.",
+    "developed_with": "Desarrollado con"
+  },
+  "cv": {
+    "title": "Curriculum Vitae",
+    "download": "Descargar PDF",
+    "download_error": "Error al descargar el CV. Por favor, inténtelo de nuevo.",
+    "generating": "Generando...",
+    "close": "Cerrar",
+    "personal_info": "Datos Personales",
+    "education": "Educación",
+    "experience": "Experiencia Profesional",
+    "skills": "Habilidades Técnicas",
+    "profile": "Resumen Profesional",
+    "open_new_tab": "Abrir en nueva pestaña",
+    "present": "Presente"
+  }
+}

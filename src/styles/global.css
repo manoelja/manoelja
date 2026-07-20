@@ -108,7 +108,7 @@ body {
   pointer-events: none;
 }
 
-.container, section, main {
+.container, section, main, footer {
   position: relative;
   z-index: 1; /* Garante que o conteúdo fique na frente da animação */
 }
@@ -176,7 +176,17 @@ section {
 }
 
 @media (max-width: 768px) {
+  section {
+    padding: 5rem 0;
+  }
+
   .section-title {
     font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  section {
+    padding: 4rem 0;
   }
 }

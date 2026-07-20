@@ -8,15 +8,12 @@
 /* Main Text Card - Follows Education standard */
 .about-card-main {
   position: relative;
-  background-color: var(--bg-secondary);
+  background-color: transparent;
   border: 1px solid var(--card-border);
   padding: 2.5rem;
   border-radius: 24px;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
   transition: var(--transition);
   overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
   height: auto;
 }
 
@@ -27,10 +24,14 @@
   margin-bottom: 1.5rem;
 }
 
+.about-content-wrapper {
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+}
+
 .about-details-expanded {
-  margin-bottom: 2rem;
-  padding-bottom: 2rem;
-  border-bottom: 1px solid var(--card-border);
+  margin-bottom: 1.5rem;
 }
 
 .profile-deep-dive .deep-text {
@@ -72,9 +73,8 @@
 }
 
 .light-theme .about-card-main {
-  background-color: #ffffff;
-  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.06);
-  border-color: rgba(0, 0, 0, 0.04);
+  background-color: transparent;
+  border-color: rgba(0, 0, 0, 0.1);
 }
 
 .about-card-main:hover {
@@ -137,15 +137,6 @@
   color: var(--text-primary);
 }
 
-.cv-pill {
-  border-color: rgba(0, 245, 255, 0.45);
-}
-
-.cv-pill:hover {
-  border-color: var(--accent-color);
-  box-shadow: 0 4px 15px var(--accent-soft);
-}
-
 /* Education Cards Modern */
 .about-education {
   display: flex;
@@ -156,16 +147,13 @@
 .edu-card-modern {
   position: relative;
   padding: 2rem;
-  background-color: var(--bg-secondary);
+  background-color: transparent;
   border: 1px solid var(--card-border);
   border-radius: 24px;
   overflow: hidden;
   transition: var(--transition);
   z-index: 1;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  min-height: 140px; /* Tamanho uniforme base */
+  min-height: 140px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -185,9 +173,8 @@
 }
 
 .light-theme .edu-card-modern {
-  background-color: #ffffff;
-  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.06);
-  border-color: rgba(0, 0, 0, 0.04);
+  background-color: transparent;
+  border-color: rgba(0, 0, 0, 0.1);
 }
 
 .edu-card-glow {
@@ -221,16 +208,25 @@
   justify-content: center;
   flex-shrink: 0;
   transition: var(--transition);
+  overflow: hidden;
+}
+
+.edu-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .ufg-theme {
-  background: linear-gradient(135deg, #004a80 0%, #002d4d 100%);
+  background: #ffffff;
   color: #fff;
+  padding: 8px;
 }
 
 .uni-theme {
-  background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+  background: #ffffff;
   color: #fff;
+  padding: 8px;
 }
 
 .edu-content {

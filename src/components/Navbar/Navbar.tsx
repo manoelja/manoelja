@@ -28,7 +28,13 @@ const Navbar = () => {
       document.documentElement.classList.remove('light-theme');
       localStorage.setItem('theme', 'dark');
     }
-  }, [isLight]);
+
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+  }, [isLight, isMobileMenuOpen]);
 
   const changeLanguage = (lng: string) => {
     i18n.changeLanguage(lng);

@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-import { GraduationCap, BookOpen, Calendar, ChevronDown, User, Target, Globe, FileText } from 'lucide-react';
-import CVModal from '../Common/CVModal';
+import { GraduationCap, BookOpen, Calendar, ChevronDown, User, Target, Globe } from 'lucide-react';
 import './About.css';
 
 const About = () => {
@@ -11,7 +10,6 @@ const About = () => {
   const [isMainExpanded, setIsMainExpanded] = useState(false);
   const [showBirthDate, setShowBirthDate] = useState(false);
   const [showNaturality, setShowNaturality] = useState(false);
-  const [isCVOpen, setIsCVOpen] = useState(false);
   
   const calculateAge = (birthDate: string) => {
     const today = new Date();
@@ -71,38 +69,39 @@ const About = () => {
           viewport={{ once: true, margin: "-100px" }}
         >
           <motion.div className="about-info" variants={itemVariants}>
-            <motion.div 
-              layout
-              className={`about-card-main ${isMainExpanded ? 'expanded' : ''}`}
+            <motion.div
+              className="about-card-main"
               onClick={() => setIsMainExpanded(!isMainExpanded)}
-              whileHover={isMainExpanded ? {} : { y: -3 }}
+              whileHover={{ y: -3 }}
               style={{ cursor: 'pointer' }}
             >
               <div className="about-card-header">
                 <User size={24} className="header-icon" opacity={0.4} />
-                <motion.div 
-                  className="expand-indicator"
-                  animate={{ rotate: isMainExpanded ? 180 : 0 }}
-                >
-                  <ChevronDown size={20} opacity={0.5} />
-                </motion.div>
               </div>
 
-              <motion.p layout className="about-text">
-                {t('about.description')}
-              </motion.p>
-
-              <AnimatePresence>
-                {isMainExpanded && (
-                  <motion.div 
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: 'auto' }}
-                    exit={{ opacity: 0, height: 0 }}
-                    className="about-details-expanded"
-                  >
-                    <div className="profile-deep-dive">
+              <div className="about-content-wrapper">
+                <AnimatePresence mode="wait">
+                  {!isMainExpanded ? (
+                    <motion.p
+                      key="description"
+                      className="about-text"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      {t('about.description')}
+                    </motion.p>
+                  ) : (
+                    <motion.div
+                      key="detailed"
+                      className="about-details-expanded"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                    >
                       <p className="deep-text">{t('about.detailed_profile')}</p>
-                      
                       <div className="mission-box">
                         <div className="mission-header">
                           <Target size={18} color="var(--accent-color)" />
@@ -110,14 +109,13 @@ const About = () => {
                         </div>
                         <p>{t('about.mission_text')}</p>
                       </div>
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
 
               <div className="about-details-list">
                 <motion.div
-                  layout
                   className="detail-item-modern"
                   whileHover={{ scale: 1.05 }}
                   onClick={(e) => {
@@ -137,7 +135,6 @@ const About = () => {
                   </div>
                 </motion.div>
                 <motion.div
-                  layout
                   className="detail-item-modern"
                   whileHover={{ scale: 1.05 }}
                   onClick={(e) => {
@@ -153,26 +150,6 @@ const About = () => {
                     <span className="detail-label">{showNaturality ? t('about.naturality_label') : t('about.nationality_label')}</span>
                     <span className="detail-value">
                       {showNaturality ? 'Goiatuba-Goiás' : 'Brasil'}
-                    </span>
-                  </div>
-                </motion.div>
-                <motion.div
-                  layout
-                  className="detail-item-modern cv-pill"
-                  whileHover={{ scale: 1.05 }}
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setIsCVOpen(true);
-                  }}
-                  style={{ cursor: 'pointer' }}
-                >
-                  <div className="detail-icon-wrap">
-                    <FileText size={20} />
-                  </div>
-                  <div className="detail-info-wrap">
-                    <span className="detail-label">Curriculum Vitae</span>
-                    <span className="detail-value">
-                      {t('hero.view_cv')}
                     </span>
                   </div>
                 </motion.div>
@@ -192,7 +169,7 @@ const About = () => {
               <div className="edu-card-glow"></div>
               <div className="edu-header-row">
                 <div className="edu-icon-container ufg-theme">
-                  <GraduationCap size={28} />
+                  <img src="/UFG_logo.svg.webp" alt="UFG Logo" className="edu-logo-img" />
                 </div>
                 <div className="edu-content">
                   <span className="edu-type">{t('about.postgrad_label')}</span>
@@ -236,7 +213,7 @@ const About = () => {
               <div className="edu-card-glow"></div>
               <div className="edu-header-row">
                 <div className="edu-icon-container uni-theme">
-                  <BookOpen size={28} />
+                  <img src="/unicerrado_logo.png" alt="UniCerrado Logo" className="edu-logo-img" />
                 </div>
                 <div className="edu-content">
                   <span className="edu-type">{t('about.graduation_label')}</span>
@@ -259,8 +236,7 @@ const About = () => {
                     className="edu-details-expanded"
                   >
                     <div className="edu-institution">
-                      <span className="inst-name">UniCerrado</span>
-                      <span className="inst-full">{t('about.graduation_inst')}</span>
+                      <span className="inst-full">CENTRO UNIVERSITÁRIO DE GOIATUBA</span>
                     </div>
                   </motion.div>
                 )}
@@ -271,7 +247,6 @@ const About = () => {
           </motion.div>
         </motion.div>
       </div>
-      <CVModal isOpen={isCVOpen} onClose={() => setIsCVOpen(false)} />
     </section>
   );
 };

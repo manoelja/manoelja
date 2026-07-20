@@ -1,0 +1,84 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "skills": "Skills",
+    "projects": "Projects",
+    "contact": "Contact",
+    "menu_open": "Open menu",
+    "menu_close": "Close menu",
+    "change_language": "Change Language"
+  },
+  "about": {
+    "title": "About Me",
+    "description": "I transform raw data into strategic intelligence. Combining a solid foundation in IT with specialization in Data Science, I focus on solving complex problems through analytics and predictive models that generate real business value.",
+    "age": "{{count}} years old",
+    "age_label": "Age",
+    "birth_date": "Birth Date",
+    "nationality_label": "Nationality",
+    "naturality_label": "Place of Birth",
+    "detailed_profile": "Passionate about the intersection of technology and business. My approach combines rigorous statistical modeling with a keen eye for operational efficiency. Expert in building data pipelines that drive real-world impact.",
+    "graduation_label": "Technologist",
+    "graduation_title": "Information Technology Management",
+    "graduation_inst": "CENTRO UNIVERSITÁRIO DE GOIATUBA",
+    "postgrad_label": "Postgraduate",
+    "postgrad_title": "Postgraduate in Data Science and Applied Statistics",
+    "postgrad_inst": "UFG - Federal University of Goiás"
+  },
+  "hero": {
+    "badge": "Available for new projects",
+    "greeting": "Hi, I'm",
+    "title_pre": "",
+    "title_highlight": "Data Scientist",
+    "description": "Specialized in transforming large volumes of data into business intelligence through Machine Learning and advanced statistical modeling.",
+    "about_me": "Dedicated to solving complex problems through data analysis and specialized in Data Science.",
+    "view_projects": "View Projects",
+    "scroll": "Scroll",
+    "view_cv": "Curriculum Vitae",
+    "download_cv": "Download CV",
+    "typewriter_words": ["Data Scientist", "ML Engineer", "Analytics Specialist"]
+  },
+  "skills": {
+    "title": "Tech Stack",
+    "categories": {
+      "languages": "Languages",
+      "databases": "Databases",
+      "ml": "Machine Learning",
+      "data_manipulation": "Data Manipulation",
+      "deep_learning": "Deep Learning",
+      "visualization": "Visualization",
+      "cloud": "Cloud",
+      "mlops": "MLOps",
+      "tools": "Tools"
+    }
+  },
+  "projects": {
+    "title": "Selected Projects",
+    "view_code": "View Code",
+    "view_site": "View Project Site",
+    "challenge": "Challenge",
+    "impact": "Impact"
+  },
+  "footer": {
+    "title": "Let's talk?",
+    "description": "I'm always open to new projects and collaborations in Data Science.",
+    "email_label": "Send Email",
+    "copyright": "© 2026 DS.Manoel. All rights reserved.",
+    "rights": "All rights reserved.",
+    "developed_with": "Developed with"
+  },
+  "cv": {
+    "title": "Curriculum Vitae",
+    "download": "Download PDF",
+    "download_error": "Error downloading CV. Please try again.",
+    "generating": "Generating...",
+    "close": "Close",
+    "personal_info": "Personal Info",
+    "education": "Education",
+    "experience": "Experience",
+    "skills": "Skills",
+    "profile": "Summary",
+    "open_new_tab": "Open in new tab",
+    "present": "Present"
+  }
+}

@@ -1,6 +1,6 @@
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(360px, 100%), 1fr));
   gap: 2rem;
   align-items: flex-start;
 }
@@ -8,25 +8,21 @@
 /* Unified with Education style (UFG/UniCerrado) */
 .project-card {
   position: relative;
-  background-color: var(--bg-secondary);
+  background-color: transparent;
   padding: 2.25rem;
   border: 1px solid var(--card-border);
   border-radius: 24px;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
+  transition: border-color 0.4s ease, transform 0.4s ease;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
   height: auto;
   min-height: 280px;
 }
 
 .light-theme .project-card {
-  background-color: #ffffff;
-  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.06);
-  border-color: rgba(0, 0, 0, 0.04);
+  background-color: transparent;
+  border-color: rgba(0, 0, 0, 0.1);
 }
 
 .project-card::before {
@@ -92,6 +88,17 @@
   border-color: var(--accent-color);
 }
 
+.project-content-wrapper {
+  min-height: 120px;
+  display: flex;
+  flex-direction: flex-start;
+}
+
+.project-preview {
+  display: flex;
+  flex-direction: column;
+}
+
 .project-title {
   font-size: 1.6rem;
   font-weight: 700;
@@ -100,18 +107,24 @@
   color: var(--text-primary);
 }
 
+.project-title-expanded {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  letter-spacing: -0.5px;
+  color: var(--accent-color);
+}
+
 .project-desc {
   font-size: 0.95rem;
   color: var(--text-secondary);
-  margin-bottom: 1.75rem;
   line-height: 1.6;
+  margin: 0;
 }
 
-/* Expanded Synopsis Styling */
-.project-synopsis {
-  overflow: hidden;
-  border-top: 1px solid var(--card-border);
-  margin-top: 0.5rem;
+.project-details-expanded {
+  display: flex;
+  flex-direction: column;
 }
 
 .project-details {

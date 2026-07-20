@@ -8,18 +8,13 @@ import { useTypewriter } from '../../hooks/useTypewriter';
 import './Hero.css';
 
 const Hero = () => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const [isCVOpen, setIsCVOpen] = useState(false);
   const { scrollY } = useScroll();
   const opacity = useTransform(scrollY, [0, 200], [1, 0]);
   const y = useTransform(scrollY, [0, 200], [0, 50]);
 
-  const words = i18n.language === 'pt' 
-    ? ["Cientista de Dados", "Engenheiro de ML", "Especialista em Analytics"]
-    : i18n.language === 'es'
-    ? ["Científico de Datos", "Ingeniero de ML", "Especialista en Analytics"]
-    : ["Data Scientist", "ML Engineer", "Analytics Specialist"];
-    
+  const words = t('hero.typewriter_words', { returnObjects: true }) as string[];
   const typewriterText = useTypewriter(words, 80, 2000);
 
   const containerVariants = {

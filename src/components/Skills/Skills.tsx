@@ -1,25 +1,13 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-import { ChevronDown } from 'lucide-react';
+import { skills } from '../../data/skills';
 import './Skills.css';
 
 const Skills = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [expandedSkill, setExpandedSkill] = useState<string | null>(null);
-
-  const skills = [
-    { name: 'Python', category: t('skills.categories.languages'), detail: 'Especialista em automação, análise e scripts complexos.' },
-    { name: 'SQL', category: t('skills.categories.databases'), detail: 'Consultas avançadas, otimização e modelagem relacional.' },
-    { name: 'R', category: t('skills.categories.languages'), detail: 'Análise estatística profunda e visualização científica.' },
-    { name: 'Scikit-Learn', category: t('skills.categories.ml'), detail: 'Construção de pipelines de ML e modelos preditivos.' },
-    { name: 'Pandas / NumPy', category: t('skills.categories.data_manipulation'), detail: 'Manipulação massiva de dataframes e matrizes.' },
-    { name: 'PyTorch / TensorFlow', category: t('skills.categories.deep_learning'), detail: 'Desenvolvimento de Redes Neurais e Deep Learning.' },
-    { name: 'PowerBI / Tableau', category: t('skills.categories.visualization'), detail: 'Dashboards executivos e storytelling de dados.' },
-    { name: 'AWS / Azure', category: t('skills.categories.cloud'), detail: 'Deploy e gerenciamento de infraestrutura DS em nuvem.' },
-    { name: 'Docker', category: t('skills.categories.mlops'), detail: 'Containerização de ambientes de desenvolvimento e produção.' },
-    { name: 'Git', category: t('skills.categories.tools'), detail: 'Versionamento e colaboração em times técnicos.' },
-  ];
+  const currentLang = i18n.language.split('-')[0] as keyof typeof skills[0]['detail'];
 
   const toggleSkill = (name: string) => {
     setExpandedSkill(expandedSkill === name ? null : name);
@@ -64,40 +52,45 @@ const Skills = () => {
           viewport={{ once: true }}
         >
           {skills.map((skill) => (
-            <motion.div 
-              layout
-              key={skill.name} 
-              className={`skill-badge ${expandedSkill === skill.name ? 'expanded' : ''}`}
+            <motion.div
+              key={skill.name}
+              className="skill-badge"
               variants={itemVariants}
               onClick={() => toggleSkill(skill.name)}
-              whileHover={expandedSkill === skill.name ? {} : { y: -3 }}
+              whileHover={{ y: -3 }}
               style={{ cursor: 'pointer' }}
             >
-              <div className="skill-header">
-                <div className="skill-main-info">
-                  <span className="skill-name">{skill.name}</span>
-                  <span className="skill-category">{skill.category}</span>
-                </div>
-                <motion.div 
-                  className="skill-expand-icon"
-                  animate={{ rotate: expandedSkill === skill.name ? 180 : 0 }}
-                >
-                  <ChevronDown size={16} opacity={0.4} />
-                </motion.div>
+              <div className="skill-content-wrapper">
+                <AnimatePresence mode="wait">
+                  {expandedSkill !== skill.name ? (
+                    <motion.div
+                      key="header"
+                      className="skill-header"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <div className="skill-main-info">
+                        <span className="skill-name">{skill.name}</span>
+                        <span className="skill-category">{t(skill.categoryKey)}</span>
+                      </div>
+                    </motion.div>
+                  ) : (
+                    <motion.div
+                      key="detail"
+                      className="skill-detail-content"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <span className="skill-name-detail">{skill.name}</span>
+                      <p>{skill.detail[currentLang] || skill.detail.pt}</p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
-
-              <AnimatePresence>
-                {expandedSkill === skill.name && (
-                  <motion.div 
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: 'auto' }}
-                    exit={{ opacity: 0, height: 0 }}
-                    className="skill-detail-text"
-                  >
-                    <p>{skill.detail}</p>
-                  </motion.div>
-                )}
-              </AnimatePresence>
             </motion.div>
           ))}
         </motion.div>

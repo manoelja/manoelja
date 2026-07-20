@@ -53,20 +53,19 @@ const Projects = () => {
           viewport={{ once: true, margin: "-50px" }}
         >
           {projects.map((project) => (
-            <motion.div 
-              key={project.id} 
-              className={`project-card ${expandedId === project.id ? 'expanded' : ''}`}
+            <motion.div
+              key={project.id}
+              className="project-card"
               variants={itemVariants}
-              whileHover={expandedId === project.id ? {} : { y: -3 }}
-              layout
+              whileHover={{ y: -3 }}
               onClick={() => toggleProject(project.id)}
               style={{ cursor: 'pointer' }}
             >
-              <motion.div layout className="project-header">
+              <div className="project-header">
                 <span className="project-category">{project.category[currentLang] || project.category['pt']}</span>
                 <div className="project-links" onClick={(e) => e.stopPropagation()}>
-                  <motion.a 
-                    href={project.githubUrl} 
+                  <motion.a
+                    href={project.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Github"
@@ -74,10 +73,10 @@ const Projects = () => {
                   >
                     <Github size={20} />
                   </motion.a>
-                  
+
                   {project.caseStudyUrl && (
-                    <motion.a 
-                      href={project.caseStudyUrl} 
+                    <motion.a
+                      href={project.caseStudyUrl}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="modern-link-btn"
@@ -88,51 +87,64 @@ const Projects = () => {
                     </motion.a>
                   )}
                 </div>
-              </motion.div>
-              
-              <motion.h3 layout className="project-title">{project.title[currentLang] || project.title['pt']}</motion.h3>
-              <motion.p layout className="project-desc">
-                {project.description[currentLang] || project.description['pt']}
-              </motion.p>
+              </div>
 
-              <AnimatePresence>
-                {expandedId === project.id && (
-                  <motion.div 
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: 'auto' }}
-                    exit={{ opacity: 0, height: 0 }}
-                    transition={{ duration: 0.3 }}
-                    className="project-synopsis"
-                  >
-                    <div className="project-details">
-                      <div className="detail-item">
-                        <strong>{t('projects.challenge')}:</strong> {project.problem[currentLang] || project.problem['pt']}
-                      </div>
-                      <div className="detail-item">
-                        <strong>{t('projects.impact')}:</strong> <span className="highlight">{project.result[currentLang] || project.result['pt']}</span>
-                      </div>
-                      
-                      {project.caseStudyUrl && (
-                        <motion.a 
-                          href={project.caseStudyUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="view-site-link"
-                          whileHover={{ x: 5 }}
-                        >
-                          {t('projects.view_site') || "Ver Site do Projeto"} <ExternalLink size={14} />
-                        </motion.a>
-                      )}
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
+              <div className="project-content-wrapper">
+                <AnimatePresence mode="wait">
+                  {expandedId !== project.id ? (
+                    <motion.div
+                      key="preview"
+                      className="project-preview"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <h3 className="project-title">{project.title[currentLang] || project.title['pt']}</h3>
+                      <p className="project-desc">
+                        {project.description[currentLang] || project.description['pt']}
+                      </p>
+                    </motion.div>
+                  ) : (
+                    <motion.div
+                      key="details"
+                      className="project-details-expanded"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <h3 className="project-title-expanded">{project.title[currentLang] || project.title['pt']}</h3>
+                      <div className="project-details">
+                        <div className="detail-item">
+                          <strong>{t('projects.challenge')}:</strong> {project.problem[currentLang] || project.problem['pt']}
+                        </div>
+                        <div className="detail-item">
+                          <strong>{t('projects.impact')}:</strong> <span className="highlight">{project.result[currentLang] || project.result['pt']}</span>
+                        </div>
 
-              <motion.div layout className="project-tags">
+                        {project.caseStudyUrl && (
+                          <motion.a
+                            href={project.caseStudyUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="view-site-link"
+                            whileHover={{ x: 5 }}
+                          >
+                            {t('projects.view_site') || "Ver Site do Projeto"} <ExternalLink size={14} />
+                          </motion.a>
+                        )}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
+              <div className="project-tags">
                 {project.tags.map(tag => (
                   <span key={tag} className="tag">{tag}</span>
                 ))}
-              </motion.div>
+              </div>
             </motion.div>
           ))}
         </motion.div>
