@@ -1,5 +1,8 @@
-# Hi, I'm Manoel! 👋
-
+<p align="center"> 
+  <img src="public/svg/manoelja.svg" width="80" height="80" alt="manoelja">  
+</p> 
+<h1 align="center">Hi, I'm Manoel!</h1>   
+ 
 ## 🚀 About Me
 
 I am a developer passionate about technology and innovation. I work with modern web development, focusing on creating intuitive and efficient user experiences.
@@ -40,7 +43,7 @@ I'm always looking for new challenges and opportunities to learn and grow in the
     <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" alt="GitHub">
   </a>
   <a href="https://manoelja.vercel.app" target="_blank">
-    <img src="https://img.shields.io/badge/Portfólio-00f5ff?style=for-the-badge&logo=google-chrome&logoColor=black" alt="Portfólio">
+    <img src="https://img.shields.io/badge/Portfólio-00f5ff?style=for-the-badge" alt="Portfólio">
   </a>
 </p>
 
