@@ -9,295 +9,320 @@ export interface Project {
   tags: string[];
   githubUrl: string;
   caseStudyUrl?: string;
+  image?: string;
+  imageDark?: string;
+  imageLight?: string;
+  hasPngStep?: boolean;
+  comingSoon?: boolean;
 }
 
 export const projects: Project[] = [
   {
     id: 1,
     title: {
-      pt: "Previsão de Churn de Clientes",
-      en: "Customer Churn Prediction",
-      es: "Predicción de Churn de Clientes"
+      pt: "DB Analysis",
+      en: "DB Analysis",
+      es: "DB Analysis"
     },
     category: {
-      pt: "Machine Learning",
-      en: "Machine Learning",
-      es: "Aprendizaje Automático"
+      pt: "DB Analysis",
+      en: "DB Analysis",
+      es: "DB Analysis"
     },
     description: {
-      pt: "Modelo preditivo para identificar clientes com alta probabilidade de cancelamento.",
-      en: "Predictive model to identify at-risk customers before churn occurs.",
-      es: "Modelo predictivo para identificar clientes con alta probabilidad de cancelación."
+      pt: "Dashboard interativo que visualiza dados de nascidos vivos no Brasil (2019–2023) usando informações reais do SINASC/DataSUS, permitindo explorar indicadores de saúde pública de forma acessível.",
+      en: "Interactive dashboard visualizing Brazilian live birth data (2019–2023) using real SINASC/DataSUS data, enabling accessible exploration of public health indicators.",
+      es: "Dashboard interactivo que visualiza datos de nacidos vivos en Brasil (2019–2023) usando datos reales del SINASC/DataSUS, permitiendo explorar indicadores de salud pública de forma accesible."
     },
     problem: {
-      pt: "A empresa estava perdendo 15% da base de clientes mensalmente sem entender os motivos.",
-      en: "The company was losing 15% of its customer base monthly with no visibility into the root causes.",
-      es: "La empresa perdía el 15% de su base de clientes mensualmente sin entender los motivos."
+      pt: "Dados brutos de saúde pública são difíceis de analisar — planilhas enormes, registros inconsistentes e ausência de visualizações acessíveis dificultam a tomada de decisão.",
+      en: "Raw public health data is hard to analyze — massive spreadsheets, inconsistent records, and lack of accessible visualizations hinder decision-making.",
+      es: "Los datos brutos de salud pública son difíciles de analizar — hojas de cálculo enormes, registros inconsistentes y falta de visualizaciones accesibles dificultan la toma de decisiones."
     },
     solution: {
-      pt: "Desenvolvimento de um modelo Random Forest com engenharia de atributos focada em comportamento de uso.",
-      en: "Development of a Random Forest model with feature engineering focused on usage behavior.",
-      es: "Desarrollo de un modelo de Random Forest con ingeniería de atributos centrada en el comportamiento de uso."
+      pt: "Dashboard interativo construído com React + TypeScript, processamento de dados em R com persistência em SQLite, e limpeza rigorosa removendo 9,4% de registros inconsistentes.",
+      en: "Interactive dashboard built with React + TypeScript, data processing in R with SQLite persistence, and rigorous cleaning removing 9.4% of inconsistent records.",
+      es: "Dashboard interactivo construido con React + TypeScript, procesamiento de datos en R con persistencia en SQLite, y limpieza rigurosa eliminando el 9,4% de registros inconsistentes."
     },
     result: {
-      pt: "Redução projetada de 20% no churn através de campanhas de retenção direcionadas.",
-      en: "Projected 20% reduction in churn through targeted retention campaigns.",
-      es: "Reducción proyectada del 20% en el churn a través de campañas de retención dirigidas."
+      pt: "5.510 registros limpos analisados com 7 tipos de gráficos interativos, suporte a 3 idiomas e análise de 27 estados brasileiros.",
+      en: "5,510 cleaned records analyzed with 7 interactive chart types, 3-language support, and analysis across all 27 Brazilian states.",
+      es: "5.510 registros limpios analizados con 7 tipos de gráficos interactivos, soporte a 3 idiomas y análisis de los 27 estados brasileños."
     },
-    tags: ["Python", "Scikit-Learn", "Pandas"],
-    githubUrl: "#",
-    caseStudyUrl: "#"
+    tags: ["React", "TypeScript", "R", "SQLite", "DataSUS"],
+    githubUrl: "https://github.com/manoelja/data-base-analysis",
+    caseStudyUrl: "https://data-base-analysis.vercel.app",
+    image: "/data-base-analysis.svg",
+    imageDark: "/data-base-analysis-dark.png",
+    imageLight: "/data-base-analysis-light.png",
+    hasPngStep: true
   },
   {
     id: 2,
     title: {
-      pt: "Análise de Sentimento em Tempo Real",
-      en: "Real-time Sentiment Analysis",
-      es: "Análisis de Sentimiento en Tempo Real"
+      pt: "About LogosAI",
+      en: "About LogosAI",
+      es: "About LogosAI"
     },
     category: {
-      pt: "NLP",
-      en: "NLP",
-      es: "PLN"
+      pt: "About LogosAI",
+      en: "About LogosAI",
+      es: "About LogosAI"
     },
     description: {
-      pt: "Monitoramento de redes sociais para análise de percepção de marca.",
-      en: "Real-time social media monitoring for brand sentiment analysis.",
-      es: "Monitoreo de redes sociales para el análisis de la percepción de marca."
+      pt: "Plataforma multiplataforma (Mobile e Web) de personalização espiritual com IA Generativa — o usuário define duração e tema do devocional e a IA gera conteúdo teologicamente fundamentado na Bíblia via arquitetura RAG.",
+      en: "Multiplatform (Mobile & Web) spiritual personalization platform with Generative AI — users set duration and theme, and AI generates theologically grounded Bible content via RAG architecture.",
+      es: "Plataforma multiplataforma (Mobile y Web) de personalización espiritual con IA Generativa — el usuario define duración y tema, y la IA genera contenido teológicamente fundamentado en la Biblia via arquitectura RAG."
     },
     problem: {
-      pt: "Dificuldade em reagir rapidamente a crises de imagem no Twitter/X.",
-      en: "Slow response time to brand reputation crises on social media platforms.",
-      es: "Dificultad para reaccionar rápidamente a las crisis de imagen en Twitter/X."
+      pt: "Dificuldade em encontrar devocionais personalizados que se adaptem ao momento emocional e à duração desejada pelo usuário.",
+      en: "Difficulty finding personalized devotionals that adapt to the user's emotional state and desired duration.",
+      es: "Dificultad para encontrar devocionales personalizados que se adapten al momento emocional y a la duración deseada por el usuario."
     },
     solution: {
-      pt: "Pipeline de dados com extração via API e processamento usando BERT para classificação de sentimento.",
-      en: "Data pipeline with API extraction and processing using BERT for sentiment classification.",
-      es: "Pipeline de datos con extracción vía API y procesamiento utilizando BERT para la clasificación de sentimientos."
+      pt: "Plataforma com backend FastAPI + Python, frontend Next.js + TypeScript + Redux, mobile React Native e arquitetura RAG para gerar devocionais personalizados com fundamentação bíblica.",
+      en: "Platform with FastAPI + Python backend, Next.js + TypeScript + Redux frontend, React Native mobile, and RAG architecture to generate personalized devotionals with biblical foundation.",
+      es: "Plataforma con backend FastAPI + Python, frontend Next.js + TypeScript + Redux, mobile React Native y arquitectura RAG para generar devocionales personalizados con fundamentación bíblica."
     },
     result: {
-      pt: "Dashboard com 92% de precisão na detecção de sentimentos negativos.",
-      en: "Dashboard with 92% accuracy in negative sentiment detection.",
-      es: "Dashboard con 92% de precisión en la detección de sentimientos negativos."
+      pt: "Aplicação multiplataforma completa com API REST, web app e mobile, gerando devocionais personalizados por IA com base teológica sólida.",
+      en: "Complete multiplatform application with REST API, web app, and mobile, generating AI-powered personalized devotionals with solid theological foundation.",
+      es: "Aplicación multiplataforma completa con API REST, web app y mobile, generando devocionales personalizados por IA con base teológica sólida."
     },
-    tags: ["NLP", "PyTorch", "Streamlit"],
+    tags: ["FastAPI", "Python", "Next.js", "TypeScript", "RAG", "AI"],
     githubUrl: "#",
-    caseStudyUrl: "#"
+    caseStudyUrl: "#",
+    image: "/About-LogosAI.svg",
+    imageDark: "/About-LogosAI-dark.png",
+    imageLight: "/About-LogosAI-light.png",
+    hasPngStep: true
   },
   {
     id: 3,
     title: {
-      pt: "Otimização de Estoque",
-      en: "Inventory Optimization",
-      es: "Optimización de Inventario"
+      pt: "Dataguia",
+      en: "Dataguia",
+      es: "Dataguia"
     },
     category: {
-      pt: "Time Series",
-      en: "Time Series",
-      es: "Series Temporales"
+      pt: "Dataguia",
+      en: "Dataguia",
+      es: "Dataguia"
     },
     description: {
-      pt: "Previsão de demanda para redução de custos operacionais.",
-      en: "Demand forecasting for operational cost reduction.",
-      es: "Previsión de demanda para la reducción de costes operativos."
+      pt: "Plataforma educacional gratuita que mapeia todo o universo da área de dados — história, subáreas, profissões, ferramentas e tecnologias — em português brasileiro.",
+      en: "Free educational platform that maps the entire data universe — history, subareas, careers, tools and technologies — in Brazilian Portuguese.",
+      es: "Plataforma educativa gratuita que mapea todo el universo del área de datos — historia, subáreas, profesiones, herramientas y tecnologías — en portugués brasileño."
     },
     problem: {
-      pt: "Excesso de estoque gerando prejuízo de R$ 50k/mês em produtos perecíveis.",
-      en: "Excess inventory causing R$ 50k/month in losses on perishable goods.",
-      es: "Exceso de stock generando pérdidas de R$ 50k/mes en productos perecederos."
+      pt: "A área de dados é enorme, fragmentada e intimidadora para iniciantes. Conteúdos desatualizados e dispersos dificultam o aprendizado.",
+      en: "The data field is vast, fragmented, and intimidating for beginners. Outdated and scattered content makes learning difficult.",
+      es: "El área de datos es enorme, fragmentada e intimidante para principiantes. Contenidos desactualizados y dispersos dificultan el aprendizaje."
     },
     solution: {
-      pt: "Implementação de modelo Prophet para previsão de demanda sazonal.",
-      en: "Implementation of Prophet model for seasonal demand forecasting.",
-      es: "Implementación del modelo Prophet para la previsión de la demanda estacional."
+      pt: "Recurso centralizado e curado com mais de 15 artigos sobre a história dos dados, perfis de subáreas, guias de carreira, filtro por trilha, tema claro/escuro e animações suaves.",
+      en: "Centralized, curated resource with over 15 articles on data history, subarea profiles, career guides, trail filtering, light/dark theme, and smooth animations.",
+      es: "Recurso centralizado y curado con más de 15 artículos sobre la historia de los datos, perfiles de subáreas, guías de carrera, filtro por trilha, tema claro/oscuro y animaciones suaves."
     },
     result: {
-      pt: "Otimização de 12% nos níveis de estoque no primeiro trimestre.",
-      en: "12% optimization in inventory levels in the first quarter.",
-      es: "Optimización del 12% en los niveles de stock en el primer trimestre."
+      pt: "Plataforma educacional completa com 15+ artigos, 7+ guias de profissões, cobertura da evolução dos dados (da estatística antiga à IA generativa) e experiência responsiva.",
+      en: "Complete educational platform with 15+ articles, 7+ career guides, coverage of data evolution (from ancient statistics to generative AI), and responsive experience.",
+      es: "Plataforma educativa completa con 15+ artículos, 7+ guías de profesiones, cobertura de la evolución de los datos (de la estadística antigua a la IA generativa) y experiencia responsiva."
     },
-    tags: ["Forecasting", "Prophet", "SQL"],
-    githubUrl: "#",
-    caseStudyUrl: "#"
+    tags: ["React", "TypeScript", "Vite", "Framer Motion", "SEO"],
+    githubUrl: "https://github.com/manoelja/dataguia",
+    caseStudyUrl: "https://dataguia.vercel.app/",
+    image: "/dataguia.svg",
+    imageDark: "/dataguia-dark.png",
+    imageLight: "/dataguia-light.png",
+    hasPngStep: true
   },
   {
     id: 4,
     title: {
-      pt: "Sistema de Recomendação Híbrido",
-      en: "Hybrid Recommendation System",
-      es: "Sistema de Recomendación Híbrido"
+      pt: "Cyber Data Security",
+      en: "Cyber Data Security",
+      es: "Cyber Data Security"
     },
     category: {
-      pt: "Data Engineering",
-      en: "Data Engineering",
-      es: "Ingeniería de Datos"
+      pt: "Cyber Data Security",
+      en: "Cyber Data Security",
+      es: "Cyber Data Security"
     },
     description: {
-      pt: "Mecanismo de recomendação para e-commerce baseado em filtragem colaborativa e conteúdo.",
-      en: "E-commerce recommendation engine combining collaborative filtering with content-based approaches.",
-      es: "Motor de recomendación de comercio electrónico baseado en filtrado colaborativo y contenido."
+      pt: "Hub educacional que explora a dualidade entre cibersegurança e ciência de dados — inteligência defensiva, criptografia, detecção de ameaças e ética digital.",
+      en: "Educational hub exploring the duality between cybersecurity and data science — defensive intelligence, cryptography, threat detection, and digital ethics.",
+      es: "Hub educativo que explora la dualidad entre ciberseguridad y ciencia de datos — inteligencia defensiva, criptografía, detección de amenazas y ética digital."
     },
     problem: {
-      pt: "Baixa taxa de conversão em produtos recomendados na página inicial.",
-      en: "Low conversion rate on homepage product recommendations.",
-      es: "Baja tasa de conversión en produtos recomendados en la página de inicio."
+      pt: "Falta de conhecimento acessível sobre cibersegurança e análise de dados em um mundo digital onde a informação é o ativo mais valioso.",
+      en: "Lack of accessible knowledge about cybersecurity and data analysis in a digital world where information is the most valuable asset.",
+      es: "Falta de conocimiento accesible sobre ciberseguridad y análisis de datos en un mundo digital donde la información es el activo más valioso."
     },
     solution: {
-      pt: "Arquitetura Lambda para processamento batch e real-time com Spark.",
-      en: "Lambda architecture for batch and real-time processing with Spark.",
-      es: "Arquitectura Lambda para procesamiento batch y en tiempo real con Spark."
+      pt: "Site educativo com design imersivo cyberpunk, módulos sobre fundamentos digitais, simbiose entre dados e segurança, currículo educacional e casos de estudo práticos.",
+      en: "Educational site with immersive cyberpunk design, modules on digital fundamentals, data-security symbiosis, educational curriculum, and practical case studies.",
+      es: "Sitio educativo con diseño inmersivo cyberpunk, módulos sobre fundamentos digitales, simbiosis entre datos y seguridad, currículo educativo y casos de estudio prácticos."
     },
     result: {
-      pt: "Aumento de 18% no Ticket Médio através de recomendações precisas.",
-      en: "18% increase in Average Ticket through precise recommendations.",
-      es: "Aumento del 18% en o Ticket Médio através de recomendaciones precisas."
+      pt: "Plataforma educacional bilíngue com design imersivo, tema claro/escuro, animações fluidas e conteúdo acessível sobre segurança digital e análise de dados.",
+      en: "Bilingual educational platform with immersive design, light/dark theme, smooth animations, and accessible content on digital security and data analysis.",
+      es: "Plataforma educativa bilingüe con diseño inmersivo, tema claro/oscuro, animaciones fluidas y contenido accesible sobre seguridad digital y análisis de datos."
     },
-    tags: ["Spark", "TensorFlow", "Redis"],
-    githubUrl: "#",
-    caseStudyUrl: "#"
+    tags: ["React", "TypeScript", "Cyber Security", "Data Science", "Education"],
+    githubUrl: "https://github.com/manoelja/cyber-data-security",
+    caseStudyUrl: "https://cyber-data-security.vercel.app/",
+    image: "/cyber-data-security.svg",
+    imageDark: "/cyber-data-security-dark.png",
+    imageLight: "/cyber-data-security-light.png",
+    hasPngStep: true
   },
   {
-    id: 5,
+    id: 9,
     title: {
-      pt: "Detecção de Fraudes Bancárias",
-      en: "Fraud Detection System",
-      es: "Sistema de Detección de Fraudes"
+      pt: "DATAONE",
+      en: "DATAONE",
+      es: "DATAONE"
     },
     category: {
-      pt: "Cybersecurity",
-      en: "Cybersecurity",
-      es: "Ciberseguridad"
+      pt: "DATAONE",
+      en: "DATAONE",
+      es: "DATAONE"
     },
     description: {
-      pt: "Identificação de transações suspeitas em tempo real usando Anomaly Detection.",
-      en: "Identification of suspicious transactions in real-time using Anomaly Detection.",
-      es: "Identificación de transacciones sospechosas en tiempo real usando Detección de Anomalías."
+      pt: "Plataforma web que transforma dados brutos em informações úteis — upload de CSV/Excel, limpeza, formatação, análise automática e exportação com poucos cliques.",
+      en: "Web platform that turns raw data into useful information — upload CSV/Excel, clean, format, auto-analyze, and export in just a few clicks.",
+      es: "Plataforma web que convierte datos brutos en información útil — carga de CSV/Excel, limpieza, formato, análisis automático y exportación con pocos clics."
     },
     problem: {
-      pt: "Alta incidência de estornos e fraudes não detectadas em cartões de crédito.",
-      en: "High incidence of chargebacks and undetected fraud on credit cards.",
-      es: "Alta incidencia de contracargos y fraudes no detectados en tarjetas de crédito."
+      pt: "Dados brutos são difíceis de tratar — planilhas desorganizadas, formatação inconsistente e falta de ferramentas acessíveis para limpeza e análise.",
+      en: "Raw data is hard to process — messy spreadsheets, inconsistent formatting, and lack of accessible tools for cleaning and analysis.",
+      es: "Los datos brutos son difíciles de procesar — hojas de cálculo desorganizadas, formato inconsistente y falta de herramientas accesibles para limpieza y análisis."
     },
     solution: {
-      pt: "Modelagem com Isolation Forest e Autoencoders para detecção de anomalias.",
-      en: "Modeling with Isolation Forest and Autoencoders for anomaly detection.",
-      es: "Modelado con Isolation Forest y Autoencoders para detección de anomalías."
+      pt: "Plataforma web com upload inteligente, limpeza de dados, formatação de texto, análise automática com Plotly, central de fórmulas Excel e exportação formatada.",
+      en: "Web platform with smart upload, data cleaning, text formatting, automatic analysis with Plotly, Excel formula hub, and formatted export.",
+      es: "Plataforma web con carga inteligente, limpieza de datos, formato de texto, análisis automático con Plotly, centro de fórmulas Excel y exportación formateada."
     },
     result: {
-      pt: "Redução de 30% em perdas por fraude nos primeiros 6 meses.",
-      en: "30% reduction in fraud losses in the first 6 months.",
-      es: "Reducción del 30% en pérdidas por fraude en los primeros 6 meses."
+      pt: "Ferramenta completa de tratamento de dados que democratiza o acesso à limpeza e análise para profissionais e empresas brasileiras.",
+      en: "Complete data processing tool that democratizes access to data cleaning and analysis for Brazilian professionals and businesses.",
+      es: "Herramienta completa de procesamiento de datos que democratiza el acceso a la limpieza y análisis para profesionales y empresas brasileñas."
     },
-    tags: ["XGBoost", "Keras", "Kafka"],
-    githubUrl: "#",
-    caseStudyUrl: "#"
+    tags: ["Streamlit", "Python", "Pandas", "Plotly", "Data Processing"],
+    githubUrl: "https://github.com/manoelja/dataone",
+    caseStudyUrl: "https://dataone.streamlit.app/",
+    image: "/dataone.svg",
+    imageDark: "/dataone-dark.png",
+    imageLight: "/dataone-light.png",
+    hasPngStep: true
   },
   {
-    id: 6,
+    id: 10,
     title: {
-      pt: "Segmentação de Clientes LTV",
-      en: "Customer Lifetime Value Segmentation",
-      es: "Segmentación de Valor de Vida del Cliente"
+      pt: "Em Breve",
+      en: "Coming Soon",
+      es: "Próximamente"
     },
     category: {
-      pt: "Marketing Analytics",
-      en: "Marketing Analytics",
-      es: "Analítica de Marketing"
+      pt: "Em Breve",
+      en: "Coming Soon",
+      es: "Próximamente"
     },
     description: {
-      pt: "Clustering de base de clientes para otimização de investimento em marketing.",
-      en: "Customer base clustering to optimize marketing investment.",
-      es: "Clustering de base de clientes para optimización de inversión en marketing."
+      pt: "",
+      en: "",
+      es: ""
     },
     problem: {
-      pt: "Investimento de marketing distribuído de forma ineficiente entre clientes.",
-      en: "Marketing investment inefficiently distributed among customers.",
-      es: "Inversión de marketing distribuida de forma ineficiente entre clientes."
+      pt: "",
+      en: "",
+      es: ""
     },
     solution: {
-      pt: "Algoritmo K-Means aplicado a métricas RFM (Recência, Frequência e Valor).",
-      en: "K-Means algorithm applied to RFM metrics (Recency, Frequency, and Monetary).",
-      es: "Algoritmo K-Means aplicado a métricas RFM (Recencia, Frecuencia y Valor)."
+      pt: "",
+      en: "",
+      es: ""
     },
     result: {
-      pt: "Melhoria de 25% no ROI das campanhas de marketing.",
-      en: "25% improvement in marketing campaign ROI.",
-      es: "Mejora del 25% en o ROI de las campañas de marketing."
+      pt: "",
+      en: "",
+      es: ""
     },
-    tags: ["K-Means", "RFM", "Tableau"],
+    tags: [],
     githubUrl: "#",
-    caseStudyUrl: "#"
+    comingSoon: true
   },
   {
-    id: 7,
+    id: 11,
     title: {
-      pt: "Monitoramento Ambiental via Satélite",
-      en: "Environmental Satellite Monitoring",
-      es: "Monitoreo Ambiental por Satélite"
+      pt: "Em Breve",
+      en: "Coming Soon",
+      es: "Próximamente"
     },
     category: {
-      pt: "Computer Vision",
-      en: "Computer Vision",
-      es: "Visión por Computador"
+      pt: "Em Breve",
+      en: "Coming Soon",
+      es: "Próximamente"
     },
     description: {
-      pt: "Detecção automática de áreas desmatadas usando imagens de satélite.",
-      en: "Automatic detection of deforested areas using satellite imagery.",
-      es: "Detección automática de áreas deforestadas usando imágenes de satélite."
+      pt: "",
+      en: "",
+      es: ""
     },
     problem: {
-      pt: "Lentidão no processo manual de fiscalização de grandes extensões de terra.",
-      en: "Manual inspection processes were too slow to cover large land areas effectively.",
-      es: "Lentitud en el proceso manual de fiscalización de grandes extensiones de tierra."
+      pt: "",
+      en: "",
+      es: ""
     },
     solution: {
-      pt: "Rede Neural U-Net para segmentação semântica de imagens multiespectrais.",
-      en: "U-Net Neural Network for semantic segmentation of multispectral images.",
-      es: "Red Neuronal U-Net para segmentación semántica de imágenes multiespectrales."
+      pt: "",
+      en: "",
+      es: ""
     },
     result: {
-      pt: "Aumento de 400% na velocidade de identificação de focos de desmatamento.",
-      en: "400% increase in the speed of identifying deforestation hotspots.",
-      es: "Aumento del 400% en la velocidad de identificación de focos de deforestación."
+      pt: "",
+      en: "",
+      es: ""
     },
-    tags: ["Deep Learning", "PyTorch", "OpenCV"],
+    tags: [],
     githubUrl: "#",
-    caseStudyUrl: "#"
+    comingSoon: true
   },
   {
-    id: 8,
+    id: 12,
     title: {
-      pt: "Analytics de Saúde Preventiva",
-      en: "Healthcare Preventive Analytics",
-      es: "Analítica de Salud Preventiva"
+      pt: "Em Breve",
+      en: "Coming Soon",
+      es: "Próximamente"
     },
     category: {
-      pt: "Health Tech",
-      en: "Health Tech",
-      es: "Tecnología de la Salud"
+      pt: "Em Breve",
+      en: "Coming Soon",
+      es: "Próximamente"
     },
     description: {
-      pt: "Triagem automatizada baseada em históricos clínicos para prever riscos crônicos.",
-      en: "Automated clinical screening to predict chronic disease risks from patient history.",
-      es: "Triaje automatizado basado en historiales clínicos para predecir riesgos crónicos."
+      pt: "",
+      en: "",
+      es: ""
     },
     problem: {
-      pt: "Sobrecarga no sistema de saúde devido a diagnósticos tardios de doenças crônicas.",
-      en: "Healthcare system overload caused by late-stage diagnoses of chronic conditions.",
-      es: "Sobrecarga en el sistema de salud debido a diagnósticos tardíos de enfermedades crónicas."
+      pt: "",
+      en: "",
+      es: ""
     },
     solution: {
-      pt: "Modelagem estatística avançada e Gradient Boosting para análise de risco populacional.",
-      en: "Advanced statistical modeling and Gradient Boosting for population risk analysis.",
-      es: "Modelado estadístico avanzado y Gradient Boosting para el análisis de riesgo poblacional."
+      pt: "",
+      en: "",
+      es: ""
     },
     result: {
-      pt: "Redução de 15% nas internações de emergência através de prevenção.",
-      en: "15% reduction in emergency hospitalizations through prevention.",
-      es: "Reducción del 15% en las hospitalizaciones de emergencia a través de la prevención."
+      pt: "",
+      en: "",
+      es: ""
     },
-    tags: ["Statistical Modeling", "R", "SQL"],
+    tags: [],
     githubUrl: "#",
-    caseStudyUrl: "#"
+    comingSoon: true
   }
 ];
