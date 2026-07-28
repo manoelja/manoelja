@@ -1,0 +1,303 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <style>
+      @keyframes float {
+        0%, 100% { transform: translateY(0px) rotateX(0deg); }
+        25% { transform: translateY(-6px) rotateX(2deg); }
+        50% { transform: translateY(0px) rotateX(0deg); }
+        75% { transform: translateY(-3px) rotateX(-1deg); }
+      }
+      @keyframes float2 {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-8px); }
+      }
+      @keyframes pulse-glow {
+        0%, 100% { opacity: 0.6; transform: scale(1); }
+        50% { opacity: 1; transform: scale(1.08); }
+      }
+      @keyframes spin-slow {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      @keyframes spin-reverse {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(-360deg); }
+      }
+      @keyframes sparkle {
+        0%, 100% { opacity: 0; transform: scale(0); }
+        50% { opacity: 1; transform: scale(1); }
+      }
+      .core-float { animation: float 6s ease-in-out infinite; transform-style: preserve-3d; }
+      .core-float-2 { animation: float2 4s ease-in-out infinite; }
+      .core-pulse { animation: pulse-glow 3s ease-in-out infinite; }
+      .ring-spin-1 { animation: spin-slow 20s linear infinite; transform-origin: 200px 200px; }
+      .ring-spin-2 { animation: spin-reverse 25s linear infinite; transform-origin: 200px 200px; }
+      .ring-spin-3 { animation: spin-slow 15s linear infinite; transform-origin: 200px 200px; }
+      .sparkle-a { animation: sparkle 2s ease-in-out 0s infinite; }
+      .sparkle-b { animation: sparkle 2s ease-in-out 0.5s infinite; }
+      .sparkle-c { animation: sparkle 2s ease-in-out 1s infinite; }
+      .sparkle-d { animation: sparkle 2s ease-in-out 1.5s infinite; }
+    </style>
+
+    <!-- Main Core Gradient (Purple/Violet AI theme) -->
+    <linearGradient id="core-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8b5cf6" />
+      <stop offset="40%" stop-color="#7c3aed" />
+      <stop offset="100%" stop-color="#5b21b6" />
+    </linearGradient>
+
+    <!-- Ring Gradient -->
+    <linearGradient id="ring-grad-1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#5b21b6" stop-opacity="0.3" />
+      <stop offset="50%" stop-color="#7c3aed" stop-opacity="0.5" />
+      <stop offset="100%" stop-color="#5b21b6" stop-opacity="0.3" />
+    </linearGradient>
+
+    <linearGradient id="ring-grad-2" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#5b21b6" stop-opacity="0.2" />
+      <stop offset="50%" stop-color="#7c3aed" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#5b21b6" stop-opacity="0.2" />
+    </linearGradient>
+
+    <!-- Small Card Gradient -->
+    <linearGradient id="small-card-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2a1b4e" />
+      <stop offset="100%" stop-color="#160d29" />
+    </linearGradient>
+
+    <!-- Glow Filters -->
+    <filter id="glow-soft" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+    <filter id="drop-shadow-3d">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000" flood-opacity="0.4" />
+      <feDropShadow dx="0" dy="-1" stdDeviation="2" flood-color="#7c3aed" flood-opacity="0.15" />
+    </filter>
+  </defs>
+
+  <!-- === DEEP ORBIT RINGS (Animated) === -->
+
+  <!-- Outer Ring 1 -->
+  <g class="ring-spin-1">
+    <ellipse cx="200" cy="200" rx="130" ry="130" fill="none" 
+             stroke="url(#ring-grad-1)" stroke-width="1" opacity="0.8" />
+    <!-- Orbital dots on outer ring -->
+    <circle cx="330" cy="200" r="3" fill="#7c3aed" opacity="0.7" />
+    <circle cx="70" cy="200" r="2" fill="#7c3aed" opacity="0.5" />
+  </g>
+
+  <!-- Outer Ring 2 -->
+  <g class="ring-spin-2">
+    <ellipse cx="200" cy="200" rx="108" ry="108" fill="none" 
+             stroke="url(#ring-grad-2)" stroke-width="0.8" opacity="0.7" 
+             stroke-dasharray="4 8" />
+    <circle cx="308" cy="200" r="2.5" fill="#7c3aed" opacity="0.7" />
+  </g>
+
+  <!-- Outer Ring 3 -->
+  <g class="ring-spin-3">
+    <ellipse cx="200" cy="200" rx="148" ry="148" fill="none" 
+             stroke="#5b21b6" stroke-width="0.5" opacity="0.4" 
+             stroke-dasharray="2 12" />
+  </g>
+
+  <!-- === FLOATING ORBITAL ELEMENTS === -->
+
+  <!-- Top Left - Book/Knowledge Icon with float -->
+  <g class="core-float-2" style="animation-delay: 1s">
+    <g transform="translate(90, 72)">
+      <rect x="0" y="0" width="44" height="44" rx="12" fill="url(#small-card-grad)" 
+            stroke="#4c1d95" stroke-width="1.5" filter="url(#drop-shadow-3d)" />
+      <!-- Book Icon -->
+      <g transform="translate(12, 12)" stroke="#7c3aed" stroke-width="2" 
+         stroke-linecap="round" stroke-linejoin="round" fill="none">
+        <path d="M4 6 C6 4 8 4 10 6 L10 16 C8 14 6 14 4 16 Z" />
+        <path d="M10 6 C12 4 14 4 16 6 L16 16 C14 14 12 14 10 16 Z" />
+        <line x1="10" y1="6" x2="10" y2="16" />
+      </g>
+    </g>
+  </g>
+
+  <!-- Top Right - Plus/Knowledge icon with float -->
+  <g class="core-float-2" style="animation-delay: 2s">
+    <g transform="translate(270, 85)">
+      <rect x="0" y="0" width="38" height="38" rx="10" fill="url(#small-card-grad)" 
+            stroke="#4c1d95" stroke-width="1.5" filter="url(#drop-shadow-3d)" />
+      <!-- Lightbulb/DNA-like icon -->
+      <g transform="translate(11, 9)" stroke="#7c3aed" stroke-width="2" 
+         stroke-linecap="round" fill="none">
+        <circle cx="8" cy="6" r="4" />
+        <path d="M5 14 L11 14" stroke-width="1.5" />
+        <path d="M6 17 L10 17" stroke-width="1.5" />
+        <path d="M7 20 L9 20" stroke-width="1.5" />
+      </g>
+    </g>
+  </g>
+
+  <!-- Bottom Right - Data icon -->
+  <g class="core-float-2" style="animation-delay: 0.5s">
+    <g transform="translate(268, 262)">
+      <rect x="0" y="0" width="40" height="40" rx="10" fill="url(#small-card-grad)" 
+            stroke="#4c1d95" stroke-width="1.5" filter="url(#drop-shadow-3d)" />
+      <!-- Database/Network icon -->
+      <g transform="translate(10, 8)" stroke="#7c3aed" stroke-width="1.8" 
+         stroke-linecap="round" fill="none">
+        <ellipse cx="10" cy="5" rx="10" ry="4" />
+        <path d="M0 5 L0 19" />
+        <path d="M20 5 L20 19" />
+        <ellipse cx="10" cy="12" rx="10" ry="4" />
+        <ellipse cx="10" cy="19" rx="10" ry="4" />
+      </g>
+    </g>
+  </g>
+
+  <!-- Bottom Left - Brain icon -->
+  <g class="core-float-2" style="animation-delay: 1.5s">
+    <g transform="translate(85, 268)">
+      <rect x="0" y="0" width="40" height="40" rx="10" fill="url(#small-card-grad)" 
+            stroke="#4c1d95" stroke-width="1.5" filter="url(#drop-shadow-3d)" />
+      <!-- Brain/AI icon -->
+      <g transform="translate(8, 10)" stroke="#7c3aed" stroke-width="1.8" 
+         stroke-linecap="round" stroke-linejoin="round" fill="none">
+        <path d="M12 2 C8 0 4 4 4 8 C2 9 2 12 4 13 C2 15 4 18 7 17" />
+        <path d="M12 2 C16 0 20 4 20 8 C22 9 22 12 20 13 C22 15 20 18 17 17" />
+        <path d="M7 10 L17 10" />
+        <path d="M7 13 L17 13" />
+      </g>
+    </g>
+  </g>
+
+  <!-- === CENTRAL GLOWING CORE === -->
+
+  <!-- Core 3D Card Body with parallax-like shadow -->
+  <g class="core-float">
+    <!-- Shadow layer -->
+    <rect x="136" y="138" width="128" height="128" rx="24" fill="#000" opacity="0.3" 
+          filter="url(#glow-soft)" />
+    <!-- Main card body -->
+    <rect x="132" y="132" width="128" height="128" rx="24" fill="url(#core-gradient)" 
+          filter="url(#drop-shadow-3d)" />
+    <!-- Inner border glow -->
+    <rect x="136" y="136" width="120" height="120" rx="21" fill="none" 
+          stroke="rgba(255,255,255,0.15)" stroke-width="1.5" />
+    
+    <!-- Animated shimmer line across core -->
+    <rect x="140" y="190" width="112" height="4" rx="2" fill="#7c3aed" 
+          opacity="0.2" />
+
+    <!-- === AI/STAR SYMBOL INSIDE CORE === -->
+    <g transform="translate(196, 196)">
+      <!-- Main star - 4-pointed curved -->
+      <path d="M 0 -24 C 2 -8 8 -2 24 0 C 8 2 2 8 0 24 C -2 8 -8 2 -24 0 C -8 -2 -2 -8 0 -24 Z" 
+            fill="rgba(255,255,255,0.15)" stroke="#ffffff" stroke-width="1.5" 
+            stroke-linecap="round" stroke-linejoin="round" filter="url(#glow-soft)" />
+      <!-- Inner star -->
+      <path d="M 0 -14 C 1 -4 4 -1 14 0 C 4 1 1 4 0 14 C -1 4 -4 1 -14 0 C -4 -1 -1 -4 0 -14 Z" 
+            fill="none" stroke="#ffffff" stroke-width="1" stroke-linecap="round" 
+            stroke-linejoin="round" opacity="0.6" />
+      
+      <!-- Floating particles around star -->
+      <g class="sparkle-a">
+        <circle cx="20" cy="0" r="1.5" fill="#fff" opacity="0.6" />
+      </g>
+      <g class="sparkle-b">
+        <circle cx="-18" cy="0" r="1" fill="#fff" opacity="0.5" />
+      </g>
+      <g class="sparkle-c">
+        <circle cx="0" cy="20" r="1.2" fill="#fff" opacity="0.7" />
+      </g>
+      <g class="sparkle-d">
+        <circle cx="0" cy="-18" r="1" fill="#fff" opacity="0.4" />
+      </g>
+    </g>
+
+    <!-- AI Label Text -->
+    <g transform="translate(196, 248)" fill="rgba(255,255,255,0.4)" 
+       font-family="sans-serif" font-size="8" font-weight="700" 
+       letter-spacing="3" text-anchor="middle">
+      <text y="0">AI</text>
+    </g>
+
+    <!-- Bottom decorative dots -->
+    <circle cx="180" cy="239" r="1.5" fill="#fff" opacity="0.2" />
+    <circle cx="188" cy="239" r="1.5" fill="#fff" opacity="0.3" />
+    <circle cx="196" cy="239" r="2" fill="#fff" opacity="0.4" class="core-pulse" 
+            style="transform-origin: 196px 239px; animation-duration: 2s;" />
+    <circle cx="204" cy="239" r="1.5" fill="#fff" opacity="0.3" />
+    <circle cx="212" cy="239" r="1.5" fill="#fff" opacity="0.2" />
+  </g>
+
+  <!-- === MID-ORBIT ELEMENTS === -->
+
+  <!-- Orbiting Data Node 1 -->
+  <g class="ring-spin-1">
+    <g transform="translate(200, 200)">
+      <g transform="translate(90, 0)">
+        <circle r="4" fill="#6d28d9" opacity="0.6" filter="url(#glow-soft)" />
+        <circle r="2" fill="#fff" opacity="0.8" />
+      </g>
+    </g>
+  </g>
+
+  <!-- Orbiting Data Node 2 -->
+  <g class="ring-spin-2">
+    <g transform="translate(200, 200)">
+      <g transform="translate(75, 0)">
+        <circle r="3" fill="#7c3aed" opacity="0.5" filter="url(#glow-soft)" />
+        <circle r="1.5" fill="#fff" opacity="0.7" />
+      </g>
+    </g>
+  </g>
+
+  <!-- Orbiting Data Node 3 -->
+  <g class="ring-spin-2" style="animation-delay: -5s">
+    <g transform="translate(200, 200)">
+      <g transform="translate(-75, 0)">
+        <circle r="3" fill="#7c3aed" opacity="0.4" />
+        <circle r="1.5" fill="#fff" opacity="0.6" />
+      </g>
+    </g>
+  </g>
+
+  <!-- Orbiting Data Node 4 -->
+  <g class="ring-spin-1" style="animation-delay: -10s">
+    <g transform="translate(200, 200)">
+      <g transform="translate(-90, 0)">
+        <circle r="3.5" fill="#6d28d9" opacity="0.5" filter="url(#glow-soft)" />
+        <circle r="1.5" fill="#fff" opacity="0.7" />
+      </g>
+    </g>
+  </g>
+
+  <!-- === FLOATING TECH DECORATIONS === -->
+
+  <!-- Small floating hexagons -->
+  <g class="core-float-2" style="animation-delay: 0.3s">
+    <g transform="translate(140, 75)">
+      <polygon points="6,0 12,3 12,9 6,12 0,9 0,3" fill="none" 
+               stroke="#4c1d95" stroke-width="1" opacity="0.3" />
+    </g>
+  </g>
+  <g class="core-float-2" style="animation-delay: 0.8s">
+    <g transform="translate(260, 310)">
+      <polygon points="6,0 12,3 12,9 6,12 0,9 0,3" fill="none" 
+               stroke="#4c1d95" stroke-width="1" opacity="0.25" />
+    </g>
+  </g>
+
+  <!-- Dots pattern background -->
+  <g opacity="0.08">
+    <circle cx="50" cy="50" r="1.5" fill="#6d28d9" />
+    <circle cx="100" cy="40" r="1" fill="#6d28d9" />
+    <circle cx="300" cy="60" r="1.5" fill="#6d28d9" />
+    <circle cx="350" cy="100" r="1" fill="#6d28d9" />
+    <circle cx="60" cy="320" r="1.5" fill="#6d28d9" />
+    <circle cx="340" cy="340" r="1" fill="#6d28d9" />
+    <circle cx="320" cy="350" r="1.5" fill="#6d28d9" />
+    <circle cx="40" cy="350" r="1" fill="#6d28d9" />
+    <circle cx="180" cy="30" r="1" fill="#6d28d9" />
+    <circle cx="360" cy="200" r="1" fill="#6d28d9" />
+    <circle cx="40" cy="180" r="1" fill="#6d28d9" />
+  </g>
+</svg>

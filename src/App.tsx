@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Navbar from './components/Navbar/Navbar';
 import Hero from './components/Hero/Hero';
 import About from './components/About/About';
@@ -9,6 +10,8 @@ import { CircuitAnimation, FloatingCube, DataBeam } from './components/TechAnima
 import './styles/global.css';
 
 function App() {
+  const [isCVOpen, setIsCVOpen] = useState(false);
+
   return (
     <div className="App">
       {/* Elementos de fundo (Blobs) */}
@@ -34,10 +37,10 @@ function App() {
         <DataBeam style={{ position: 'absolute', top: '40%', left: '50%' }} />
       </div>
 
-      <Navbar />
+      <Navbar isCvActive={isCVOpen} />
 
       <main className="container">
-        <Hero />
+        <Hero isCVOpen={isCVOpen} setIsCVOpen={setIsCVOpen} />
         <About />
         <Skills />
         <Projects />

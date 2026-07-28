@@ -33,7 +33,7 @@
 }
 
 .light-theme .project-card {
-  background-color: rgba(255, 255, 255, 0.95);
+  background-color: transparent;
   border-color: rgba(0, 0, 0, 0.1);
 }
 

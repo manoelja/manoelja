@@ -22,7 +22,29 @@
     "graduation_inst": "CENTRO UNIVERSITÁRIO DE GOIATUBA",
     "postgrad_label": "Postgrado",
     "postgrad_title": "Postgrado en Ciencia de Datos y Estadística Aplicada",
-    "postgrad_inst": "UFG - Universidad Federal de Goiás"
+    "postgrad_inst": "UFG - Universidad Federal de Goiás",
+    "certificates_title": "Certificados Data Science Academy",
+    "certificates": {
+      "data-science-ia": "Fundamentos de Data Science e Inteligencia Artificial",
+      "eng-dados": "Fundamentos de Ingeniería de Datos",
+      "python": "Fundamentos de Lenguaje Python (Básico a Aplicaciones de IA)",
+      "python-2": "Fundamentos de Lenguaje Python",
+      "power-bi": "Microsoft Power BI para Business Intelligence y Data Science"
+    },
+    "published_article": {
+      "title": "Artículo Publicado",
+      "article_title": "OS IMPACTOS SOCIOECONÔMICOS DAS CRIPTOMOEDAS E DA TECNOLOGIA BLOCKCHAIN NO FUTURO DO BRASIL: DESAFIOS E OPORTUNIDADES",
+      "summary": "La presente investigación analiza los impactos socioeconómicos de las criptomonedas y la tecnología blockchain en Brasil, destacando sus oportunidades y desafíos. El estudio, de naturaleza descriptiva y bibliográfica, parte del presupuesto de que el potencial transformador de estas tecnologías depende directamente de un marco regulatorio claro y seguro. Las oportunidades identificadas incluyen el fortalecimiento de la inclusión financiera a través de las Finanzas Descentralizadas (DeFi), la democratización de inversiones mediante la tokenización de activos, el aumento de la transparencia en la gestión pública y el fomento a la economía creativa a través de los NFTs. El blockchain también se presenta como base para la modernización del sistema financiero, ejemplificada por el proyecto Drex. En contrapartida, los principales desafíos observados involucran la inseguridad jurídica, la complejidad de la tributación, la volatilidad de los criptoactivos, los riesgos de ciberseguridad y la falta de interoperabilidad entre sistemas.",
+      "read_article": "Leer Artículo Completo",
+      "show_more": "Más",
+      "show_less": "Menos"
+    },
+    "extensions_title": "Extensiones",
+    "open_certificate": "Abrir Certificado",
+    "close_certificate": "Cerrar",
+    "loading_certificate": "Cargando certificado...",
+    "open_in_new_tab": "Abrir en nueva pestaña",
+    "view_all": "Ver Todos"
   },
   "hero": {
     "badge": "Disponible para nuevos proyectos",

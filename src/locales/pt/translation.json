@@ -25,7 +25,29 @@
     "graduation_inst": "CENTRO UNIVERSITÁRIO DE GOIATUBA",
     "postgrad_label": "Lato Sensu",
     "postgrad_title": "Pós-Graduação em Data Science e Estatística Aplicada",
-    "postgrad_inst": "UFG - Universidade Federal de Goiás"
+    "postgrad_inst": "UFG - Universidade Federal de Goiás",
+    "certificates_title": "Certificados Data Science Academy",
+    "certificates": {
+      "data-science-ia": "Fundamentos de Data Science e Inteligência Artificial",
+      "eng-dados": "Fundamentos de Engenharia de Dados",
+      "python": "Fundamentos de Linguagem Python do Básico a Aplicações de IA",
+      "python-2": "Fundamentos de Linguagem Python",
+      "power-bi": "Microsoft Power BI para Business Intelligence e Data Science"
+    },
+    "published_article": {
+      "title": "Artigo Publicado",
+      "article_title": "OS IMPACTOS SOCIOECONÔMICOS DAS CRIPTOMOEDAS E DA TECNOLOGIA BLOCKCHAIN NO FUTURO DO BRASIL: DESAFIOS E OPORTUNIDADES",
+      "summary": "A presente pesquisa analisa os impactos socioeconômicos das criptomoedas e da tecnologia blockchain no Brasil destacando suas oportunidades e desafios. O estudo, de natureza descritiva e bibliográfica, parte do pressuposto de que o potencial transformador dessas tecnologias depende diretamente de um marco regulatório claro e seguro. As oportunidades identificadas incluem o fortalecimento da inclusão financeira por meio das Finanças Descentralizadas (DeFi), a democratização de investimentos via tokenização de ativos, o aumento da transparência na gestão pública e o fomento à economia criativa através dos NFTs. O blockchain também se apresenta como base para a modernização do sistema financeiro, exemplificada pelo projeto Drex, conduzido pelo Banco Central. Em contrapartida, os principais desafios observados envolvem a insegurança jurídica decorrente da ausência de regulamentações consolidadas, a complexidade da tributação, a volatilidade dos criptoativos, os riscos de cibersegurança e a falta de interoperabilidade entre sistemas. Conclui-se que, embora o blockchain ofereça caminhos promissores para o desenvolvimento econômico, sua adoção sustentável exige políticas públicas eficazes, educação digital e um ambiente regulatório capaz de equilibrar inovação e proteção.",
+      "read_article": "Ler Artigo Completo",
+      "show_more": "Mais",
+      "show_less": "Menos"
+    },
+    "extensions_title": "Extensões",
+    "open_certificate": "Abrir Certificado",
+    "close_certificate": "Fechar",
+    "loading_certificate": "Carregando certificado...",
+    "open_in_new_tab": "Abrir em nova aba",
+    "view_all": "Ver Todos"
   },
   "hero": {
     "badge": "Disponível para novos projetos",

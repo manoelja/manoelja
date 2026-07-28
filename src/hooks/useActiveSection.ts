@@ -16,7 +16,7 @@ export const useActiveSection = (sectionIds: string[]) => {
             }
           });
         },
-        { threshold: 0.5 } // Trigger when 50% of the section is visible
+        { threshold: 0.15 }
       );
 
       observer.observe(element);

@@ -52,9 +52,9 @@ export const projects: Project[] = [
     tags: ["React", "TypeScript", "R", "SQLite", "DataSUS"],
     githubUrl: "https://github.com/manoelja/data-base-analysis",
     caseStudyUrl: "https://data-base-analysis.vercel.app",
-    image: "/data-base-analysis.svg",
-    imageDark: "/data-base-analysis-dark.png",
-    imageLight: "/data-base-analysis-light.png",
+    image: "/svg/data-base-analysis.svg",
+    imageDark: "/dark/data-base-analysis-dark.png",
+    imageLight: "/light/data-base-analysis-light.png",
     hasPngStep: true
   },
   {
@@ -92,9 +92,9 @@ export const projects: Project[] = [
     tags: ["FastAPI", "Python", "Next.js", "TypeScript", "RAG", "AI"],
     githubUrl: "#",
     caseStudyUrl: "#",
-    image: "/About-LogosAI.svg",
-    imageDark: "/About-LogosAI-dark.png",
-    imageLight: "/About-LogosAI-light.png",
+    image: "/svg/About-LogosAI.svg",
+    imageDark: "/dark/About-LogosAI-dark.png",
+    imageLight: "/light/About-LogosAI-light.png",
     hasPngStep: true
   },
   {
@@ -132,9 +132,9 @@ export const projects: Project[] = [
     tags: ["React", "TypeScript", "Vite", "Framer Motion", "SEO"],
     githubUrl: "https://github.com/manoelja/dataguia",
     caseStudyUrl: "https://dataguia.vercel.app/",
-    image: "/dataguia.svg",
-    imageDark: "/dataguia-dark.png",
-    imageLight: "/dataguia-light.png",
+    image: "/svg/dataguia.svg",
+    imageDark: "/dark/dataguia-dark.png",
+    imageLight: "/light/dataguia-light.png",
     hasPngStep: true
   },
   {
@@ -172,9 +172,9 @@ export const projects: Project[] = [
     tags: ["React", "TypeScript", "Cyber Security", "Data Science", "Education"],
     githubUrl: "https://github.com/manoelja/cyber-data-security",
     caseStudyUrl: "https://cyber-data-security.vercel.app/",
-    image: "/cyber-data-security.svg",
-    imageDark: "/cyber-data-security-dark.png",
-    imageLight: "/cyber-data-security-light.png",
+    image: "/svg/cyber-data-security.svg",
+    imageDark: "/dark/cyber-data-security-dark.png",
+    imageLight: "/light/cyber-data-security-light.png",
     hasPngStep: true
   },
   {
@@ -212,46 +212,50 @@ export const projects: Project[] = [
     tags: ["Streamlit", "Python", "Pandas", "Plotly", "Data Processing"],
     githubUrl: "https://github.com/manoelja/dataone",
     caseStudyUrl: "https://dataone.streamlit.app/",
-    image: "/dataone.svg",
-    imageDark: "/dataone-dark.png",
-    imageLight: "/dataone-light.png",
+    image: "/svg/dataone.svg",
+    imageDark: "/dark/dataone-dark.png",
+    imageLight: "/light/dataone-light.png",
     hasPngStep: true
   },
   {
     id: 10,
     title: {
-      pt: "Em Breve",
-      en: "Coming Soon",
-      es: "Próximamente"
+      pt: "SAAU",
+      en: "SAAU",
+      es: "SAAU"
     },
     category: {
-      pt: "Em Breve",
-      en: "Coming Soon",
-      es: "Próximamente"
+      pt: "SAAU",
+      en: "SAAU",
+      es: "SAAU"
     },
     description: {
-      pt: "",
-      en: "",
-      es: ""
+      pt: "Sistema de Agendamento de Avaliações Universitárias — plataforma web para gerenciamento de provas e avaliações acadêmicas com integração institucional.",
+      en: "University Exam Scheduling System — web platform for managing exams and academic evaluations with institutional integration.",
+      es: "Sistema de Programación de Evaluaciones Universitarias — plataforma web para gestión de exámenes y evaluaciones académicas con integración institucional."
     },
     problem: {
-      pt: "",
-      en: "",
-      es: ""
+      pt: "Universidades enfrentam dificuldades no gerenciamento de calendários de provas — conflitos de horário, falta de comunicação centralizada e processos manuais ineficientes.",
+      en: "Universities face difficulties managing exam calendars — schedule conflicts, lack of centralized communication, and inefficient manual processes.",
+      es: "Las universidades enfrentan dificultades en la gestión de calendarios de exámenes — conflictos de horario, falta de comunicación centralizada y procesos manuales ineficientes."
     },
     solution: {
-      pt: "",
-      en: "",
-      es: ""
+      pt: "Plataforma web moderna com sistema de agendamento inteligente, notificações automáticas, dashboard administrativo e interface intuitiva para alunos e professores.",
+      en: "Modern web platform with intelligent scheduling system, automatic notifications, administrative dashboard, and intuitive interface for students and faculty.",
+      es: "Plataforma web moderna con sistema de programación inteligente, notificaciones automáticas, panel administrativo e interfaz intuitiva para estudiantes y profesores."
     },
     result: {
-      pt: "",
-      en: "",
-      es: ""
+      pt: "Sistema completo de gestão acadêmica com eliminação de conflitos de horário, comunicação automatizada e redução significativa da carga administrativa.",
+      en: "Complete academic management system eliminating schedule conflicts, automated communication, and significant reduction in administrative workload.",
+      es: "Sistema completo de gestión académica con eliminación de conflictos de horario, comunicación automatizada y reducción significativa de la carga administrativa."
     },
-    tags: [],
-    githubUrl: "#",
-    comingSoon: true
+    tags: ["React", "TypeScript", "Node.js", "PostgreSQL", "UI/UX"],
+    githubUrl: "https://github.com/manoelja/agendamento-avaliacoes",
+    caseStudyUrl: "https://agendamento-avaliacoes-xujc.vercel.app/login",
+    image: "/svg/agendamento-avaliacoes.svg",
+    imageDark: "/dark/agendamento-avaliacoes-dark.png",
+    imageLight: "/light/agendamento-avaliacoes-light.png",
+    hasPngStep: true
   },
   {
     id: 11,

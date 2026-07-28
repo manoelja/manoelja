@@ -19,6 +19,11 @@
   padding: 0.6rem 0;
 }
 
+.navbar.hidden {
+  pointer-events: none;
+  opacity: 0;
+}
+
 .navbar.shrunk .logo {
   font-size: 1.2rem;
 }
@@ -244,6 +249,7 @@
 .mobile-nav-links a {
   display: block;
   padding: 0.8rem 1rem;
+  padding-left: 1.2rem;
   font-size: 0.9rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -254,12 +260,21 @@
   min-height: 48px;
   display: flex;
   align-items: center;
+  position: relative;
+  border-left: 3px solid transparent;
 }
 
-.mobile-nav-links a:hover,
+.mobile-nav-links a:hover {
+  background: var(--accent-soft);
+  color: var(--accent-color);
+}
+
 .mobile-nav-links a.active {
   background: var(--accent-soft);
   color: var(--accent-color);
+  border-left-color: var(--accent-color);
+  font-weight: 800;
+  box-shadow: inset 3px 0 10px -3px rgba(0, 245, 255, 0.25);
 }
 
 .mobile-drawer-footer {

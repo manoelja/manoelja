@@ -23,7 +23,29 @@
     "graduation_inst": "Centro Universitário de Goiatuba",
     "postgrad_label": "Postgraduate",
     "postgrad_title": "Data Science & Applied Statistics",
-    "postgrad_inst": "UFG - Federal University of Goiás"
+    "postgrad_inst": "UFG - Federal University of Goiás",
+    "certificates_title": "Data Science Academy Certificates",
+    "certificates": {
+      "data-science-ia": "Data Science and Artificial Intelligence Fundamentals",
+      "eng-dados": "Data Engineering Fundamentals",
+      "python": "Python Language Fundamentals (Basic to AI Applications)",
+      "python-2": "Python Language Fundamentals",
+      "power-bi": "Microsoft Power BI for Business Intelligence and Data Science"
+    },
+    "published_article": {
+      "title": "Published Article",
+      "article_title": "OS IMPACTOS SOCIOECONÔMICOS DAS CRIPTOMOEDAS E DA TECNOLOGIA BLOCKCHAIN NO FUTURO DO BRASIL: DESAFIOS E OPORTUNIDADES",
+      "summary": "This research analyzes the socioeconomic impacts of cryptocurrencies and blockchain technology in Brazil, highlighting their opportunities and challenges. The study, descriptive and bibliographic in nature, assumes that the transformative potential of these technologies depends directly on a clear and secure regulatory framework. Identified opportunities include strengthening financial inclusion through Decentralized Finance (DeFi), democratizing investments via asset tokenization, increasing transparency in public management, and fostering the creative economy through NFTs. Blockchain also presents itself as a foundation for modernizing the financial system, exemplified by the Drex project led by the Central Bank. Conversely, the main challenges observed involve legal uncertainty due to the lack of consolidated regulations, tax complexity, crypto-asset volatility, cybersecurity risks, and lack of interoperability between systems.",
+      "read_article": "Read Full Article",
+      "show_more": "More",
+      "show_less": "Less"
+    },
+    "extensions_title": "Extensions",
+    "open_certificate": "Open Certificate",
+    "close_certificate": "Close",
+    "loading_certificate": "Loading certificate...",
+    "open_in_new_tab": "Open in new tab",
+    "view_all": "View All"
   },
   "hero": {
     "badge": "Open to new opportunities",

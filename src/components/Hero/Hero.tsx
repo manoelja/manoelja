@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { Github, Linkedin, MousePointer2, ChevronDown, FileText } from 'lucide-react';
@@ -7,9 +6,13 @@ import CVModal from '../Common/CVModal';
 import { useTypewriter } from '../../hooks/useTypewriter';
 import './Hero.css';
 
-const Hero = () => {
+interface HeroProps {
+  isCVOpen: boolean;
+  setIsCVOpen: (open: boolean) => void;
+}
+
+const Hero = ({ isCVOpen, setIsCVOpen }: HeroProps) => {
   const { t } = useTranslation();
-  const [isCVOpen, setIsCVOpen] = useState(false);
   const { scrollY } = useScroll();
   const opacity = useTransform(scrollY, [0, 200], [1, 0]);
   const y = useTransform(scrollY, [0, 200], [0, 50]);
@@ -73,10 +76,10 @@ const Hero = () => {
               </MagneticButton>
 
               <div className="hero-socials">
-                <a href="#" aria-label="Github" className="social-link">
+                <a href="https://github.com/manoelja" target="_blank" rel="noopener noreferrer" aria-label="Github" className="social-link">
                   <Github size={24} />
                 </a>
-                <a href="#" aria-label="Linkedin" className="social-link">
+                <a href="https://www.linkedin.com/in/manoelja" target="_blank" rel="noopener noreferrer" aria-label="Linkedin" className="social-link">
                   <Linkedin size={24} />
                 </a>
               </div>
