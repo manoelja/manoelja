@@ -19,128 +19,175 @@ export interface CVData {
     viz: string;
   };
   additional: string;
+  additionalItems: string[];
   ageText: string;
   location: string;
-  email: string;
+  linkedin: string;
+  github: string;
   website: string;
 }
 
 export const cvData: Record<string, CVData> = {
   pt: {
     name: "Manoel",
-    title: "Cientista de Dados & Engenheiro de ML",
-    summary: "Profissional de tecnologia focado em gerar valor de negócio através de inteligência de dados. Especialista em construir modelos preditivos, pipelines de dados robustos e análises estatísticas para resolver problemas operacionais complexos. Combina uma base sólida em gestão de TI com especialização avançada em ciência de dados pela UFG.",
-    experienceTitle: "Projetos de Destaque / Experiência",
+    title: "Analista de TI | Pós-Graduando em Data Science & Estatística Aplicada",
+    summary: "Tecnólogo em Gestão da TI e pós-graduando em Data Science e Estatística Aplicada pela UFG. Possui experiência prática em análise de dados, administração e infraestrutura de TI no setor público, além de desenvolvimento de sistemas web, automação de processos e suporte. Atuação destacada na gestão tecnológica municipal, na liderança e criação de sistemas de agendamento acadêmico e na participação em projetos governamentais de Saúde Digital e Inovação Tecnológica.",
+    experienceTitle: "Experiência Profissional",
     experiences: [
       {
-        role: "Líder de Desenvolvimento - Soluções de IA",
-        period: "2024 - Presente",
-        description: "Desenvolvimento de modelos de ponta a ponta para otimização de negócios.",
+        role: "Analista de TI",
+        period: "Fev 2026 - Dez 2026",
+        description: "Prefeitura Municipal de Edealina — Edealina, GO",
         bullets: [
-          "Previsão de Churn: Implementação de modelo Random Forest com redução de 20% projetada no cancelamento de clientes.",
-          "Otimização de Estoque: Redução de 12% nos níveis de estoque de produtos perecíveis com modelo Prophet.",
-          "Detecção de Fraude: Sistema utilizando Isolation Forest e Autoencoders com redução de 30% em perdas."
+          "Gestão de Infraestrutura e Sistemas: Atuação no suporte, gerenciamento e otimização dos sistemas de informação e da infraestrutura tecnológica municipal.",
+          "Análise de Dados e Processos: Implementação de rotinas para controle de dados operacionais e melhoria de fluxos de trabalho administrativos.",
+          "Suporte Técnico e Soluções: Atendimento especializado aos setores governamentais, garantindo a continuidade, segurança e eficiência dos serviços tecnológicos públicos."
         ]
       },
       {
-        role: "Pesquisador & Desenvolvedor NLP / Vision",
-        period: "2023 - 2024",
-        description: "Aplicações de Deep Learning para dados não estruturados.",
+        role: "Estagiário de TI / Desenvolvedor de Sistemas",
+        period: "Mar 2025 - Dez 2025",
+        description: "FESG / UniCerrado — Goiatuba, GO",
         bullets: [
-          "Análise de Sentimento: Pipeline BERT em tempo real com dashboard e 92% de precisão.",
-          "Visão Computacional: Segmentação semântica U-Net para monitoramento ambiental via satélite, com aumento de 400% na velocidade de análise."
+          "Desenvolvimento de Software: Idealizou e desenvolveu o novo Sistema de Agendamento de Avaliações da UniCerrado (SAAU), aplicando boas práticas de desenvolvimento de código para atender aos requisitos operacionais da instituição.",
+          "Gestão & Cronogramas: Realizou o planejamento e controle do cronograma do projeto, definindo etapas, metas e datas limite para assegurar a entrega da solução rigorosamente dentro do prazo.",
+          "Garantia de Qualidade (QA): Monitorou a qualidade do trabalho executado, sugerindo melhorias de processos e intervenções técnicas para otimizar o desempenho das equipes."
+        ]
+      },
+      {
+        role: "Estagiário de TI/Suporte e Analise de TI",
+        period: "Mar 2025 - Dez 2025",
+        description: "IEL — Edealina, GO",
+        bullets: [
+          "Gestão de Dados: Elaborou e atualizou planilhas de controle e registro de informações essenciais, otimizando a consulta rápida de contatos e dados organizacionais.",
+          "Organização Documental: Responsável pela padronização, arquivamento e organização de documentos físicos e digitais para fácil rastreabilidade e consulta."
         ]
       }
     ],
     skillsList: {
-      languages: "Linguagens: Python, R, SQL, TypeScript",
-      ml: "Machine Learning: Scikit-Learn, XGBoost, Prophet",
-      dl: "Deep Learning & NLP: PyTorch, TensorFlow, Keras, BERT, OpenCV",
-      data: "Engenharia de Dados: Spark, Kafka, Redis, SQL Server",
-      viz: "Visualização: Tableau, Streamlit, Pandas, Matplotlib"
+      languages: "Linguagens: Python, SQL, TypeScript",
+      ml: "Machine Learning & Analytics: Power BI, Scikit-Learn, Estatística Aplicada",
+      dl: "Deep Learning & NLP: Fundamentos de IA e Data Science",
+      data: "Engenharia de Dados: SQL, Fundamentos de Engenharia de Dados, Automação",
+      viz: "Visualização: Power BI, Streamlit, Python (Matplotlib)"
     },
-    additional: "Informações Adicionais",
+    additional: "Projetos & Publicações",
+    additionalItems: [
+      "PET - Saúde Digital: Do Cerrado à Nuvem — Projeto aprovado pelo Ministério da Saúde, atuando no desenvolvimento de ferramentas digitais e soluções baseadas em computação em nuvem para o SUS (Ago 2025 - Dez 2025).",
+      "Artigo Publicado: \"Os Impactos Socioeconômicos das Criptomoedas e da Tecnologia Blockchain no Futuro do Brasil: Desafios e Oportunidades\" — Revista FOCO."
+    ],
     ageText: "21 anos",
-    location: "Goiatuba, Goiás - Brasil",
-    email: "manoel.ds@exemplo.com",
-    website: "dsmanoel.dev"
+    location: "Edealina, Goiás - Brasil",
+    linkedin: "linkedin.com/in/manoelja",
+    github: "github.com/manoelja",
+    website: "https://manoelja.vercel.app"
   },
   en: {
     name: "Manoel",
-    title: "Data Scientist & ML Engineer",
-    summary: "Technology professional focused on generating business value through data intelligence. Specialist in building predictive models, robust data pipelines, and statistical analyses to solve complex operational problems. Combines a solid foundation in IT management with advanced specialization in Data Science from UFG.",
-    experienceTitle: "Key Projects / Experience",
+    title: "IT Analyst | Postgraduate Student in Data Science & Applied Statistics",
+    summary: "IT Management Technologist and postgraduate student in Data Science and Applied Statistics at UFG. Has practical experience in data analysis, IT administration and infrastructure in the public sector, as well as web systems development, process automation and support. Notable work in municipal technology management, leading the creation of academic scheduling systems, and participating in government Digital Health and Technological Innovation projects.",
+    experienceTitle: "Professional Experience",
     experiences: [
       {
-        role: "Lead Developer — AI Solutions",
-        period: "2024 - Present",
-        description: "End-to-end development of predictive and optimization machine learning models.",
+        role: "IT Analyst",
+        period: "Feb 2026 - Dec 2026",
+        description: "Municipal Government of Edealina — Edealina, GO",
         bullets: [
-          "Churn Prediction: Implemented a Random Forest model projecting a 20% reduction in customer churn.",
-          "Inventory Optimization: 12% reduction in perishable inventory levels utilizing seasonal Prophet models.",
-          "Fraud Detection: System utilizing Isolation Forest and Autoencoders resulting in a 30% loss reduction."
+          "Infrastructure & Systems Management: Support, management and optimization of municipal information systems and technological infrastructure.",
+          "Data Analysis & Processes: Implementation of routines for operational data control and improvement of administrative workflows.",
+          "Technical Support & Solutions: Specialized service to government sectors, ensuring continuity, security and efficiency of public technology services."
         ]
       },
       {
-        role: "NLP & Computer Vision Researcher",
-        period: "2023 - 2024",
-        description: "Applied Deep Learning applications for unstructured text and image datasets.",
+        role: "IT Intern / Systems Developer",
+        period: "Mar 2025 - Dec 2025",
+        description: "FESG / UniCerrado — Goiatuba, GO",
         bullets: [
-          "Sentiment Analysis: Real-time BERT pipeline and dashboard achieving 92% classification accuracy.",
-          "Computer Vision: Semantic segmentation U-Net model for environmental satellite monitoring, accelerating analysis by 400%."
+          "Software Development: Conceived and developed the new UniCerrado Exam Scheduling System (SAAU), applying good coding practices to meet the institution's operational requirements.",
+          "Project Management: Planned and controlled the project schedule, defining stages, goals and deadlines to ensure delivery strictly on time.",
+          "Quality Assurance: Monitored work quality, suggesting process improvements and technical interventions to optimize team performance."
+        ]
+      },
+      {
+        role: "IT/Support Intern and IT Analysis",
+        period: "Mar 2025 - Dec 2025",
+        description: "IEL — Edealina, GO",
+        bullets: [
+          "Data Management: Created and updated control spreadsheets and records of essential information, optimizing quick consultation of contacts and organizational data.",
+          "Document Organization: Responsible for standardization, filing and organization of physical and digital documents for easy traceability and consultation."
         ]
       }
     ],
     skillsList: {
-      languages: "Languages: Python, R, SQL, TypeScript",
-      ml: "Machine Learning: Scikit-Learn, XGBoost, Prophet",
-      dl: "Deep Learning & NLP: PyTorch, TensorFlow, Keras, BERT, OpenCV",
-      data: "Data Engineering: Spark, Kafka, Redis, SQL Server",
-      viz: "Visualization: Tableau, Streamlit, Pandas, Matplotlib"
+      languages: "Languages: Python, SQL, TypeScript",
+      ml: "Machine Learning & Analytics: Power BI, Scikit-Learn, Applied Statistics",
+      dl: "Deep Learning & NLP: AI and Data Science Fundamentals",
+      data: "Data Engineering: SQL, Data Engineering Fundamentals, Automation",
+      viz: "Visualization: Power BI, Streamlit, Python (Matplotlib)"
     },
-    additional: "Additional Info",
+    additional: "Projects & Publications",
+    additionalItems: [
+      "PET - Digital Health: From the Cerrado to the Cloud — Project approved by the Ministry of Health, working on digital tools and cloud-based solutions for the public health system (SUS) (Aug 2025 - Dec 2025).",
+      "Published Article: \"The Socioeconomic Impacts of Cryptocurrencies and Blockchain Technology on the Future of Brazil: Challenges and Opportunities\" — FOCO Journal."
+    ],
     ageText: "21 years old",
-    location: "Goiatuba, Goiás - Brazil",
-    email: "manoel.ds@exemplo.com",
-    website: "dsmanoel.dev"
+    location: "Edealina, Goiás - Brazil",
+    linkedin: "linkedin.com/in/manoelja",
+    github: "github.com/manoelja",
+    website: "https://manoelja.vercel.app"
   },
   es: {
     name: "Manoel",
-    title: "Científico de Datos & Ingeniero de ML",
-    summary: "Profesional de tecnología enfocado en generar valor comercial a través de la inteligencia de datos. Especialista en la construcción de modelos predictivos, pipelines de datos robustos y análisis estadísticos para resolver problemas operativos complejos. Combina una sólida base en gestión de TI con especialización avanzada en Ciencia de Datos por la UFG.",
-    experienceTitle: "Proyectos Destacados / Experiencia",
+    title: "Analista de TI | Estudiante de Posgrado en Ciencia de Datos y Estadística Aplicada",
+    summary: "Tecnólogo en Gestión de TI y estudiante de posgrado en Ciencia de Datos y Estadística Aplicada en la UFG. Tiene experiencia práctica en análisis de datos, administración e infraestructura de TI en el sector público, así como desarrollo de sistemas web, automatización de procesos y soporte. Actuación destacada en la gestión tecnológica municipal, liderando la creación de sistemas de programación académica y participando en proyectos gubernamentales de Salud Digital e Innovación Tecnológica.",
+    experienceTitle: "Experiencia Profesional",
     experiences: [
       {
-        role: "Desarrollador Líder - Soluciones de IA",
-        period: "2024 - Presente",
-        description: "Desarrollo de extremo a extremo de modelos de aprendizaje automático predictivos y de optimización.",
+        role: "Analista de TI",
+        period: "Feb 2026 - Dic 2026",
+        description: "Gobierno Municipal de Edealina — Edealina, GO",
         bullets: [
-          "Predicción de Churn: Implementación de modelo Random Forest con reducción proyectada de 20% en cancelaciones.",
-          "Optimización de Inventario: Reducción de 12% en inventario perecedero utilizando modelos estacionales Prophet.",
-          "Detección de Fraude: Sistema utilizando Isolation Forest y Autoencoders resultando en reducción de 30% en pérdidas."
+          "Gestión de Infraestructura y Sistemas: Soporte, gestión y optimización de sistemas de información e infraestructura tecnológica municipal.",
+          "Análisis de Datos y Procesos: Implementación de rutinas para control de datos operativos y mejora de flujos de trabajo administrativos.",
+          "Soporte Técnico y Soluciones: Atención especializada a sectores gubernamentales, garantizando continuidad, seguridad y eficiencia de los servicios tecnológicos públicos."
         ]
       },
       {
-        role: "Desarrollador NLP & Visión / Investigador",
-        period: "2023 - 2024",
-        description: "Aplicación de redes neuronales profundas para procesamiento de textos e imágenes.",
+        role: "Pasante de TI / Desarrollador de Sistemas",
+        period: "Mar 2025 - Dic 2025",
+        description: "FESG / UniCerrado — Goiatuba, GO",
         bullets: [
-          "Análisis de Sentimiento: Pipeline BERT en tiempo real con panel de control y 92% de precisión.",
-          "Visión por Computador: Segmentación semántica U-Net para monitoreo ambiental satelital, acelerando el análisis en 400%."
+          "Desarrollo de Software: Concibió y desarrolló el nuevo Sistema de Programación de Exámenes de UniCerrado (SAAU), aplicando buenas prácticas de codificación.",
+          "Gestión de Proyectos: Planificó y controló el cronograma del proyecto, definiendo etapas, metas y plazos para garantizar la entrega a tiempo.",
+          "Aseguramiento de Calidad (QA): Monitoreó la calidad del trabajo, sugiriendo mejoras de procesos e intervenciones técnicas."
+        ]
+      },
+      {
+        role: "Pasante de TI/Soporte y Análisis de TI",
+        period: "Mar 2025 - Dic 2025",
+        description: "IEL — Edealina, GO",
+        bullets: [
+          "Gestión de Datos: Creó y actualizó hojas de cálculo de control y registro de información esencial.",
+          "Organización Documental: Responsable de estandarización, archivo y organización de documentos físicos y digitales."
         ]
       }
     ],
     skillsList: {
-      languages: "Idiomas: Python, R, SQL, TypeScript",
-      ml: "Machine Learning: Scikit-Learn, XGBoost, Prophet",
-      dl: "Deep Learning & NLP: PyTorch, TensorFlow, Keras, BERT, OpenCV",
-      data: "Ingeniería de Datos: Spark, Kafka, Redis, SQL Server",
-      viz: "Visualización: Tableau, Streamlit, Pandas, Matplotlib"
+      languages: "Idiomas: Python, SQL, TypeScript",
+      ml: "Machine Learning y Analytics: Power BI, Scikit-Learn, Estadística Aplicada",
+      dl: "Deep Learning y NLP: Fundamentos de IA y Ciencia de Datos",
+      data: "Ingeniería de Datos: SQL, Fundamentos de Ingeniería de Datos, Automatización",
+      viz: "Visualización: Power BI, Streamlit, Python (Matplotlib)"
     },
-    additional: "Información Adicional",
+    additional: "Proyectos y Publicaciones",
+    additionalItems: [
+      "PET - Salud Digital: Del Cerrado a la Nube — Proyecto aprobado por el Ministerio de Salud, trabajando en herramientas digitales y soluciones basadas en la nube para el SUS (Ago 2025 - Dic 2025).",
+      "Artículo Publicado: \"Los Impactos Socioeconómicos de las Criptomonedas y la Tecnología Blockchain en el Futuro de Brasil: Desafíos y Oportunidades\" — Revista FOCO."
+    ],
     ageText: "21 años",
-    location: "Goiatuba, Goiás - Brasil",
-    email: "manoel.ds@exemplo.com",
-    website: "dsmanoel.dev"
+    location: "Edealina, Goiás - Brasil",
+    linkedin: "linkedin.com/in/manoelja",
+    github: "github.com/manoelja",
+    website: "https://manoelja.vercel.app"
   }
 };

@@ -64,12 +64,6 @@
   box-shadow: 0 0 30px var(--accent-soft);
 }
 
-.footer-divider {
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--card-border), transparent);
-  margin-bottom: 2rem;
-}
-
 .footer-bottom {
   display: flex;
   justify-content: center;

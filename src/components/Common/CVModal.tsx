@@ -1,6 +1,6 @@
 import { useEffect, useCallback, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { X, Download, Mail, Briefcase, GraduationCap, Code2, Award, Calendar, MapPin, Globe } from 'lucide-react';
+import { X, Download, Briefcase, GraduationCap, Code2, Award, Calendar, MapPin, Globe, Linkedin, Github } from 'lucide-react';
 import html2pdf from 'html2pdf.js';
 import { cvData } from '../../data/cvData';
 import './CVModal.css';
@@ -15,7 +15,7 @@ const normalizeLang = (lang: string): string => {
   return base in cvData ? base : 'pt';
 };
 
-const CV_PDF_STYLES = `
+const getCVPDFStyles = (accentColor: string) => `
   @page { size: A4; margin: 0; }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
@@ -27,18 +27,18 @@ const CV_PDF_STYLES = `
   }
   .cv-pdf-container {
     width: 794px;
-    padding: 40px 50px;
+    padding: 30px 40px;
     background: white;
   }
-  .cv-paper-header {
+  .cv-pdf-container .cv-paper-header {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     margin-bottom: 24px;
     padding-bottom: 20px;
-    border-bottom: 2px solid #00d4aa;
+    border-bottom: 2px solid ${accentColor};
   }
-  .cv-name-section h1 {
+  .cv-pdf-container .cv-name-section h1 {
     font-size: 36px;
     font-weight: 900;
     line-height: 1.1;
@@ -50,14 +50,14 @@ const CV_PDF_STYLES = `
     -webkit-text-fill-color: initial;
     background-clip: unset;
   }
-  .cv-name-section h2 {
+  .cv-pdf-container .cv-name-section h2 {
     font-size: 12px;
     font-weight: 700;
-    color: #00d4aa;
+    color: ${accentColor};
     letter-spacing: 1px;
     text-transform: uppercase;
   }
-  .cv-contact-info {
+  .cv-pdf-container .cv-contact-info {
     display: flex;
     flex-direction: column;
     gap: 8px;
@@ -68,78 +68,82 @@ const CV_PDF_STYLES = `
     border-radius: 8px;
     border: 1px solid #e2e8f0;
   }
-  .cv-contact-item {
+  .cv-pdf-container .cv-contact-item {
     display: flex;
     align-items: center;
     gap: 10px;
   }
-  .cv-contact-item svg {
+  .cv-pdf-container .cv-contact-item svg {
     width: 14px;
     height: 14px;
-    color: #00d4aa;
+    color: ${accentColor};
     flex-shrink: 0;
   }
-  .cv-contact-item span {
+  .cv-pdf-container .cv-contact-item span {
     text-align: left;
     font-size: 11px;
     color: #334155;
     font-weight: 500;
   }
-  .cv-divider {
-    height: 0;
-    border: none;
-    margin: 0;
-  }
-  .cv-paper-grid {
+
+  .cv-pdf-container .cv-paper-grid {
     display: flex;
     gap: 30px;
   }
-  .cv-main-column {
+  .cv-pdf-container .cv-main-column {
     flex: 2;
     display: flex;
     flex-direction: column;
     gap: 22px;
   }
-  .cv-side-column {
+  .cv-pdf-container .cv-side-column {
     flex: 1;
     display: flex;
     flex-direction: column;
     gap: 22px;
   }
-  .cv-section { display: flex; flex-direction: column; gap: 10px; }
-  .cv-section-title {
+  .cv-pdf-container .cv-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .cv-pdf-container .cv-section-title {
     display: flex;
     align-items: center;
     gap: 8px;
-    border-bottom: 2px solid #00d4aa;
+    border-bottom: 2px solid ${accentColor};
     padding-bottom: 6px;
   }
-  .cv-section-title svg {
+  .cv-pdf-container .cv-section-title svg {
     width: 16px;
     height: 16px;
-    color: #00d4aa;
+    color: ${accentColor};
     flex-shrink: 0;
   }
-  .cv-section-title h3 {
+  .cv-pdf-container .cv-section-title h3 {
     font-size: 11px;
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 0.5px;
     color: #1a1a2e;
   }
-  .cv-summary-text {
+  .cv-pdf-container .cv-summary-text {
     font-size: 10px;
     color: #475569;
     line-height: 1.6;
     text-align: justify;
   }
-  .cv-timeline { display: flex; flex-direction: column; gap: 14px; }
-  .cv-timeline-item {
+  .cv-pdf-container .cv-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .cv-pdf-container .cv-timeline-item {
     padding-left: 14px;
     border-left: 2px solid #e2e8f0;
     position: relative;
   }
-  .cv-timeline-item::before {
+  .cv-pdf-container .cv-timeline-item::before {
     content: '';
     position: absolute;
     left: -5px;
@@ -147,38 +151,38 @@ const CV_PDF_STYLES = `
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background: #00d4aa;
+    background: ${accentColor};
   }
-  .cv-timeline-header {
+  .cv-pdf-container .cv-timeline-header {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
     margin-bottom: 4px;
   }
-  .cv-timeline-header h4 {
+  .cv-pdf-container .cv-timeline-header h4 {
     font-size: 10px;
     font-weight: 800;
     color: #1a1a2e;
   }
-  .cv-timeline-date {
+  .cv-pdf-container .cv-timeline-date {
     font-size: 9px;
     font-weight: 700;
-    color: #00d4aa;
+    color: ${accentColor};
   }
-  .cv-timeline-desc {
+  .cv-pdf-container .cv-timeline-desc {
     font-size: 9px;
     color: #64748b;
     font-style: italic;
     margin-bottom: 6px;
     text-align: justify;
   }
-  .cv-timeline-bullets {
+  .cv-pdf-container .cv-timeline-bullets {
     list-style: none;
     display: flex;
     flex-direction: column;
     gap: 4px;
   }
-  .cv-timeline-bullets li {
+  .cv-pdf-container .cv-timeline-bullets li {
     font-size: 9px;
     color: #475569;
     line-height: 1.5;
@@ -186,27 +190,33 @@ const CV_PDF_STYLES = `
     position: relative;
     text-align: justify;
   }
-  .cv-timeline-bullets li::before {
+  .cv-pdf-container .cv-timeline-bullets li::before {
     content: "•";
     position: absolute;
     left: 0;
-    color: #00d4aa;
+    color: ${accentColor};
     font-weight: bold;
   }
-  .cv-education-list { display: flex; flex-direction: column; gap: 12px; }
-  .cv-edu-item {
+  .cv-pdf-container .cv-education-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .cv-pdf-container .cv-edu-item {
     display: grid;
     grid-template-columns: 1fr auto;
     gap: 6px;
   }
-  .cv-edu-header { display: contents; }
-  .cv-edu-header h4 {
+  .cv-pdf-container .cv-edu-header {
+    display: contents;
+  }
+  .cv-pdf-container .cv-edu-header h4 {
     grid-column: 1;
     font-size: 10px;
     font-weight: 800;
     color: #1a1a2e;
   }
-  .cv-edu-date {
+  .cv-pdf-container .cv-edu-date {
     grid-column: 2;
     grid-row: 1;
     font-size: 9px;
@@ -215,32 +225,45 @@ const CV_PDF_STYLES = `
     white-space: nowrap;
     align-self: start;
   }
-  .cv-edu-inst {
+  .cv-pdf-container .cv-edu-inst {
     grid-column: 1;
     font-size: 9px;
-    color: #00d4aa;
+    color: ${accentColor};
+    text-align: justify;
   }
-  .cv-skills-group { display: flex; flex-direction: column; gap: 10px; }
-  .cv-skill-tag-group { display: flex; flex-direction: column; gap: 2px; }
-  .cv-skill-tag-group strong {
+  .cv-pdf-container .cv-skills-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .cv-pdf-container .cv-skill-tag-group {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .cv-pdf-container .cv-skill-tag-group strong {
     font-size: 8px;
     text-transform: uppercase;
-    color: #00d4aa;
+    color: ${accentColor};
     letter-spacing: 0.3px;
   }
-  .cv-skill-tag-group p {
+  .cv-pdf-container .cv-skill-tag-group p {
     font-size: 9px;
     color: #475569;
     line-height: 1.4;
+    text-align: justify;
   }
-  .cv-additional-content {
+  .cv-pdf-container .cv-additional-content {
     display: flex;
     flex-direction: column;
     gap: 6px;
     font-size: 9px;
     color: #475569;
+    text-align: justify;
   }
-  .cv-additional-content strong { color: #1a1a2e; }
+  .cv-pdf-container .cv-additional-content strong {
+    color: #1a1a2e;
+  }
 `;
 
 const CVModal = ({ isOpen, onClose }: CVModalProps) => {
@@ -279,12 +302,15 @@ const CVModal = ({ isOpen, onClose }: CVModalProps) => {
     setIsGenerating(true);
 
     try {
+      const isLightTheme = document.body.classList.contains('light-theme') || document.documentElement.classList.contains('light-theme');
+      const accentColor = isLightTheme ? '#00d4aa' : '#0a2a4a';
+
       const container = document.createElement('div');
       container.className = 'cv-pdf-container';
       container.innerHTML = cvPaperRef.current.innerHTML;
 
       const style = document.createElement('style');
-      style.textContent = CV_PDF_STYLES;
+      style.textContent = getCVPDFStyles(accentColor);
 
       const wrapper = document.createElement('div');
       wrapper.appendChild(style);
@@ -327,7 +353,7 @@ const CVModal = ({ isOpen, onClose }: CVModalProps) => {
   return (
     <>
       {isOpen && (
-        <div className="cv-modal-portal">
+        <div className={`cv-modal-portal${isGenerating ? ' generating' : ''}`}>
           <div
             className="cv-modal-backdrop"
             onClick={onClose}
@@ -364,7 +390,7 @@ const CVModal = ({ isOpen, onClose }: CVModalProps) => {
               </div>
             </div>
 
-            <div className="cv-modal-body">
+            <div className={`cv-modal-body${isGenerating ? ' generating' : ''}`}>
               <div className="cv-paper" ref={cvPaperRef}>
                 <div className="cv-paper-header">
                   <div className="cv-name-section">
@@ -372,26 +398,31 @@ const CVModal = ({ isOpen, onClose }: CVModalProps) => {
                     <h2>{currentCV.title}</h2>
                   </div>
                   <div className="cv-contact-info">
-                    <div className="cv-contact-item">
-                      <MapPin size={14} />
-                      <span>{currentCV.location}</span>
-                    </div>
-                    <div className="cv-contact-item">
-                      <Calendar size={14} />
-                      <span>{currentCV.ageText}</span>
-                    </div>
-                    <div className="cv-contact-item">
-                      <Mail size={14} />
-                      <span>{currentCV.email}</span>
-                    </div>
-                    <div className="cv-contact-item">
-                      <Globe size={14} />
-                      <span>{currentCV.website}</span>
+                    <div className="cv-contact-grid">
+                      <div className="cv-contact-item">
+                        <MapPin size={14} />
+                        <span>{currentCV.location}</span>
+                      </div>
+                      <div className="cv-contact-item">
+                        <Calendar size={14} />
+                        <span>{currentCV.ageText}</span>
+                      </div>
+
+                      <div className="cv-contact-item">
+                        <Globe size={14} />
+                        <span>{currentCV.website}</span>
+                      </div>
+                      <div className="cv-contact-item">
+                        <Linkedin size={14} />
+                        <span>in/{currentCV.linkedin.split('/').pop()}</span>
+                      </div>
+                      <div className="cv-contact-item">
+                        <Github size={14} />
+                        <span>{currentCV.github}</span>
+                      </div>
                     </div>
                   </div>
                 </div>
-
-                <div className="cv-divider"></div>
 
                 <div className="cv-paper-grid">
                   <div className="cv-main-column">
@@ -437,12 +468,12 @@ const CVModal = ({ isOpen, onClose }: CVModalProps) => {
                             <h4>{t('about.postgrad_title')}</h4>
                             <span className="cv-edu-date">2025 - 2026</span>
                           </div>
-                          <p className="cv-edu-inst">{t('about.postgrad_inst')} (UFG)</p>
+                          <p className="cv-edu-inst">{t('about.postgrad_inst')} (UFG) — Em andamento</p>
                         </div>
                         <div className="cv-edu-item">
                           <div className="cv-edu-header">
                             <h4>{t('about.graduation_title')}</h4>
-                            <span className="cv-edu-date">2021 - 2024</span>
+                            <span className="cv-edu-date">2024 - 2025</span>
                           </div>
                           <p className="cv-edu-inst">{t('about.graduation_inst')} (UniCerrado)</p>
                         </div>
@@ -459,23 +490,23 @@ const CVModal = ({ isOpen, onClose }: CVModalProps) => {
                       <div className="cv-skills-group">
                         <div className="cv-skill-tag-group">
                           <strong>{t('skills.categories.languages') || "Languages"}:</strong>
-                          <p>Python, R, SQL, TypeScript</p>
+                          <p>Python, SQL, TypeScript</p>
                         </div>
                         <div className="cv-skill-tag-group">
-                          <strong>{t('skills.categories.ml') || "Machine Learning"}:</strong>
-                          <p>Scikit-Learn, XGBoost, Prophet, RFM Clustering</p>
+                          <strong>{t('skills.categories.ml') || "Machine Learning & Analytics"}:</strong>
+                          <p>Power BI, Scikit-Learn, Estatística Aplicada</p>
                         </div>
                         <div className="cv-skill-tag-group">
-                          <strong>{t('skills.categories.deep_learning') || "Deep Learning"}:</strong>
-                          <p>PyTorch, TensorFlow, Keras, BERT, U-Net, OpenCV</p>
+                          <strong>{t('skills.categories.deep_learning') || "AI & Data Science"}:</strong>
+                          <p>Fundamentos de IA, Data Science, Automação</p>
                         </div>
                         <div className="cv-skill-tag-group">
-                          <strong>{t('skills.categories.databases') || "Databases"}:</strong>
-                          <p>PostgreSQL, SQL Server, Redis</p>
+                          <strong>{t('skills.categories.databases') || "Data Engineering"}:</strong>
+                          <p>SQL, Fundamentos de Engenharia de Dados</p>
                         </div>
                         <div className="cv-skill-tag-group">
-                          <strong>{t('skills.categories.mlops') || "MLOps"}:</strong>
-                          <p>Git, Docker, Linux, Apache Spark, Kafka</p>
+                          <strong>{t('skills.categories.visualization') || "Visualization"}:</strong>
+                          <p>Power BI, Streamlit, Python (Matplotlib)</p>
                         </div>
                       </div>
                     </div>
@@ -486,14 +517,26 @@ const CVModal = ({ isOpen, onClose }: CVModalProps) => {
                         <h3>{currentCV.additional}</h3>
                       </div>
                       <div className="cv-additional-content">
-                        <p><strong>{activeLang === 'pt' ? 'Estatística e Análise' : activeLang === 'es' ? 'Estadística' : 'Statistics'}:</strong> UFG Postgrad Focus</p>
-                        <p><strong>{activeLang === 'pt' ? 'Idiomas' : activeLang === 'es' ? 'Idiomas' : 'Languages'}:</strong> Português (Native), English, Español</p>
+                        {currentCV.additionalItems.map((item, idx) => (
+                          <p key={idx}>{item}</p>
+                        ))}
+                        <p style={{ marginTop: '0.5rem' }}>
+                          <strong>{activeLang === 'pt' ? 'Idiomas' : activeLang === 'es' ? 'Idiomas' : 'Languages'}:</strong> Português (Nativo), English, Español
+                        </p>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      )}
+      {isOpen && isGenerating && (
+        <div className="cv-fullscreen-loading">
+          <div className="cv-loading-spinner">
+            <div className="cv-spinner-ring"></div>
+            <span className="cv-loading-text">Gerando PDF...</span>
           </div>
         </div>
       )}
