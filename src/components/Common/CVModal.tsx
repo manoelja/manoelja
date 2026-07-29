@@ -291,7 +291,7 @@ const CVModal = ({ isOpen, onClose }: CVModalProps) => {
   }, [isOpen, handleClose]);
 
   const activeLang = normalizeLang(i18n.language);
-  const cvFileName = `cv-${activeLang}.pdf`;
+  const cvFileName = `CV_Manoel_Jose_${activeLang}.pdf`;
 
   const currentCV = cvData[activeLang] || cvData.pt;
 
@@ -466,7 +466,7 @@ const CVModal = ({ isOpen, onClose }: CVModalProps) => {
                         <div className="cv-edu-item">
                           <div className="cv-edu-header">
                             <h4>{t('about.postgrad_title')}</h4>
-                            <span className="cv-edu-date">2025 - 2026</span>
+                            <span className="cv-edu-date">2026 - 2027</span>
                           </div>
                           <p className="cv-edu-inst">{t('about.postgrad_inst')} (UFG) — Em andamento</p>
                         </div>
