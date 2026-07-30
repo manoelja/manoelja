@@ -99,8 +99,26 @@ const CertificatesCarousel = () => {
   const [pan, setPan] = useState({ x: 0, y: 0 });
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const [isPaused, setIsPaused] = useState(false);
+  const [isInView, setIsInView] = useState(false);
+  const carouselRef = useRef<HTMLDivElement>(null);
   const imageWrapperRef = useRef<HTMLDivElement>(null);
   const slideContainerRef = useRef<HTMLDivElement>(null);
+
+  // IntersectionObserver: pausa autoplay quando o carrossel sai da tela
+  useEffect(() => {
+    const el = carouselRef.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInView(entry.isIntersecting);
+      },
+      { threshold: 0 }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   // Manual wheel listener on the stable parent container (never unmounts)
   // { passive: false } ensures preventDefault() is respected by the browser
@@ -137,31 +155,31 @@ const CertificatesCarousel = () => {
   }, []);
 
   useEffect(() => {
-    if (!isPaused) startAutoPlay();
+    if (!isPaused && isInView) startAutoPlay();
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
     };
-  }, [isPaused, startAutoPlay]);
+  }, [isPaused, isInView, startAutoPlay]);
 
   const goTo = (index: number) => {
     setDirection(index > currentIndex ? 1 : -1);
     setCurrentIndex(index);
     setImgLoaded(false);
-    if (!isPaused) startAutoPlay();
+    if (!isPaused && isInView) startAutoPlay();
   };
 
   const goNext = () => {
     setDirection(1);
     setCurrentIndex((prev) => (prev + 1) % certificates.length);
     setImgLoaded(false);
-    if (!isPaused) startAutoPlay();
+    if (!isPaused && isInView) startAutoPlay();
   };
 
   const goPrev = () => {
     setDirection(-1);
     setCurrentIndex((prev) => (prev - 1 + certificates.length) % certificates.length);
     setImgLoaded(false);
-    if (!isPaused) startAutoPlay();
+    if (!isPaused && isInView) startAutoPlay();
   };
 
   const slideVariants = {
@@ -198,6 +216,7 @@ const CertificatesCarousel = () => {
 
   return (
     <div
+      ref={carouselRef}
       className="certificates-carousel-card"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
@@ -301,28 +320,50 @@ const ExtensionsCard = () => {
   const [direction, setDirection] = useState(1);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const [imgLoaded, setImgLoaded] = useState(false);
+  const [isInView, setIsInView] = useState(false);
+  const carouselRef = useRef<HTMLDivElement>(null);
+
+  // IntersectionObserver: pausa autoplay quando o card sai da tela
+  useEffect(() => {
+    const el = carouselRef.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInView(entry.isIntersecting);
+      },
+      { threshold: 0 }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   const goTo = (index: number) => {
     const newDirection = index > currentIndex ? 1 : -1;
     setDirection(newDirection);
     setCurrentIndex(index);
     setImgLoaded(false);
+    if (isInView) startAutoPlay();
   };
 
   const goNext = () => {
     setDirection(1);
     setCurrentIndex((prev) => (prev + 1) % extensions.length);
     setImgLoaded(false);
+    if (isInView) startAutoPlay();
   };
 
   const goPrev = () => {
     setDirection(-1);
     setCurrentIndex((prev) => (prev - 1 + extensions.length) % extensions.length);
     setImgLoaded(false);
+    if (isInView) startAutoPlay();
   };
 
-  const resetAutoPlay = () => {
+  const startAutoPlay = () => {
     if (intervalRef.current) clearInterval(intervalRef.current);
+    if (!isInView) return;
     intervalRef.current = setInterval(() => {
       setDirection(1);
       setCurrentIndex((prev) => (prev + 1) % extensions.length);
@@ -331,18 +372,22 @@ const ExtensionsCard = () => {
   };
 
   useEffect(() => {
-    resetAutoPlay();
+    if (isInView) {
+      startAutoPlay();
+    } else {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+    }
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
     };
-  }, []);
+  }, [isInView]);
 
   useEffect(() => {
-    if (imgLoaded) {
+    if (imgLoaded && isInView) {
       // Clear and restart the timer once image is loaded
-      resetAutoPlay();
+      startAutoPlay();
     }
-  }, [imgLoaded]);
+  }, [imgLoaded, isInView]);
 
   const current = extensions[currentIndex];
   const nextIndex = (currentIndex + 1) % extensions.length;
@@ -350,6 +395,7 @@ const ExtensionsCard = () => {
 
   return (
     <motion.div
+      ref={carouselRef}
       className="extensions-card"
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}

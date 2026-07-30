@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import './Projects.css';
@@ -17,9 +17,30 @@ interface ProjectCardProps {
 }
 
 const ProjectCard = ({ project, isExpanded, clickStep, onToggle, setClickStep, currentLang, t }: ProjectCardProps) => {
+  const cardRef = useRef<HTMLDivElement>(null);
+  const [isInView, setIsInView] = useState(false);
   const [isDarkTheme, setIsDarkTheme] = useState(
     () => typeof document !== 'undefined' && !document.documentElement.classList.contains('light-theme')
   );
+
+  // IntersectionObserver: só carrega o SVG animado quando o card está perto do viewport
+  useEffect(() => {
+    const card = cardRef.current;
+    if (!card || isInView) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsInView(true);
+          observer.unobserve(card);
+        }
+      },
+      { rootMargin: '150px' }
+    );
+
+    observer.observe(card);
+    return () => observer.disconnect();
+  }, [isInView]);
 
   useEffect(() => {
     const observer = new MutationObserver(() => {
@@ -77,6 +98,7 @@ const ProjectCard = ({ project, isExpanded, clickStep, onToggle, setClickStep, c
 
   return (
     <motion.div
+      ref={cardRef}
       className={`project-card ${isExpanded ? 'expanded' : ''}`}
       style={{ cursor: 'pointer' }}
       role="button"
@@ -87,31 +109,37 @@ const ProjectCard = ({ project, isExpanded, clickStep, onToggle, setClickStep, c
       {/* SVG Background - ocupa todo o card */}
       {project.image && (
         <div className="project-card-bg">
-          <AnimatePresence mode="wait">
-            {!showPng ? (
-              <motion.img
-                key="svg"
-                src={project.image}
-                alt={project.title[currentLang] || project.title['pt']}
-                className="project-bg-image"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.4 }}
-              />
-            ) : (
-              <motion.img
-                key="png"
-                src={currentPng}
-                alt={project.title[currentLang] || project.title['pt']}
-                className="project-bg-image project-bg-png"
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.4 }}
-              />
-            )}
-          </AnimatePresence>
+          {isInView ? (
+            <AnimatePresence mode="wait">
+              {!showPng ? (
+                <motion.img
+                  key="svg"
+                  src={project.image}
+                  alt={project.title[currentLang] || project.title['pt']}
+                  className="project-bg-image"
+                  loading="lazy"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.4 }}
+                />
+              ) : (
+                <motion.img
+                  key="png"
+                  src={currentPng}
+                  alt={project.title[currentLang] || project.title['pt']}
+                  className="project-bg-image project-bg-png"
+                  loading="lazy"
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{ duration: 0.4 }}
+                />
+              )}
+            </AnimatePresence>
+          ) : (
+            <div className="project-bg-placeholder" />
+          )}
           <div className="project-bg-overlay"></div>
         </div>
       )}
