@@ -38,117 +38,85 @@
   <!-- ─── GRUPO FLUTUANTE (FLOATING) ─── -->
   <g>
     <!-- Flutuação suave vertical -->
-    <animateTransform 
-      attributeName="transform" type="translate" 
-      values="0,0; 0,-18; 0,0; 0,-10; 0,0" 
-      dur="7s" repeatCount="indefinite" 
+    <animateTransform
+      attributeName="transform" type="translate"
+      values="0,0; 0,-18; 0,0; 0,-10; 0,0"
+      dur="7s" repeatCount="indefinite"
       calcMode="spline"
       keySplines="0.45 0 0.55 1; 0.45 0 0.55 1; 0.45 0 0.55 1; 0.45 0 0.55 1"
     />
 
-    <!-- Partículas de Fundo Distribuídas -->
-    <g fill="#ff3344" opacity="0.6" filter="url(#soft-glow)">
-      <circle cx="150" cy="200" r="2">
-        <animate attributeName="opacity" values="0.3;1;0.3" dur="2.5s" repeatCount="indefinite" />
-        <animate attributeName="cy" values="200;190;200" dur="4s" repeatCount="indefinite" />
+    <!-- Estrelas em Órbita - Órbita 1 (vertical) -->
+    <g fill="#ff3344" filter="url(#soft-glow)">
+      <circle cx="0" cy="0" r="2.5">
+        <animateMotion path="M400,60 A90,340 0 1,1 400,740 A90,340 0 1,1 400,60" dur="10s" repeatCount="indefinite" />
+        <animate attributeName="opacity" values="0.3;1;0.3" dur="2s" repeatCount="indefinite" />
       </circle>
-      <circle cx="680" cy="180" r="2.5">
-        <animate attributeName="opacity" values="0.5;1;0.5" dur="3s" repeatCount="indefinite" />
-        <animate attributeName="cy" values="180;170;180" dur="5s" repeatCount="indefinite" />
+      <circle cx="0" cy="0" r="2">
+        <animateMotion path="M400,740 A90,340 0 1,1 400,60 A90,340 0 1,1 400,740" dur="10s" repeatCount="indefinite" />
+        <animate attributeName="opacity" values="0.5;1;0.5" dur="2.8s" repeatCount="indefinite" begin="1s" />
       </circle>
-      <circle cx="230" cy="650" r="1.5">
-        <animate attributeName="opacity" values="0.2;0.9;0.2" dur="2s" repeatCount="indefinite" />
-        <animate attributeName="cy" values="650;640;650" dur="3.5s" repeatCount="indefinite" />
+      <circle cx="0" cy="0" r="1.8">
+        <animateMotion path="M490,400 A90,340 0 1,1 310,400 A90,340 0 1,1 490,400" dur="10s" repeatCount="indefinite" />
+        <animate attributeName="opacity" values="0.4;0.9;0.4" dur="3.5s" repeatCount="indefinite" begin="0.5s" />
       </circle>
-      <circle cx="620" cy="600" r="2">
-        <animate attributeName="opacity" values="0.4;1;0.4" dur="3.5s" repeatCount="indefinite" />
-        <animate attributeName="cy" values="600;590;600" dur="4.5s" repeatCount="indefinite" />
-      </circle>
-      <circle cx="120" cy="480" r="2">
-        <animate attributeName="opacity" values="0.3;0.8;0.3" dur="2.8s" repeatCount="indefinite" />
-        <animate attributeName="cx" values="120;125;120" dur="6s" repeatCount="indefinite" />
-      </circle>
-      <circle cx="720" cy="350" r="1.8">
-        <animate attributeName="opacity" values="0.5;1;0.5" dur="4s" repeatCount="indefinite" />
-        <animate attributeName="cx" values="720;715;720" dur="5.5s" repeatCount="indefinite" />
-      </circle>
-      <circle cx="280" cy="120" r="2">
-        <animate attributeName="opacity" values="0.2;0.9;0.2" dur="2.2s" repeatCount="indefinite" />
-        <animate attributeName="cy" values="120;112;120" dur="3.8s" repeatCount="indefinite" />
-      </circle>
-      <circle cx="550" cy="720" r="2.2">
-        <animate attributeName="opacity" values="0.6;1;0.6" dur="3.2s" repeatCount="indefinite" />
-        <animate attributeName="cy" values="720;710;720" dur="4.2s" repeatCount="indefinite" />
-      </circle>
-      <circle cx="180" cy="320" r="1.5">
-        <animate attributeName="opacity" values="0.3;1;0.3" dur="2.7s" repeatCount="indefinite" />
-        <animate attributeName="cx" values="180;185;180" dur="5s" repeatCount="indefinite" />
-      </circle>
-      <circle cx="640" cy="440" r="2">
-        <animate attributeName="opacity" values="0.4;0.9;0.4" dur="3.8s" repeatCount="indefinite" />
-        <animate attributeName="cx" values="640;635;640" dur="4.8s" repeatCount="indefinite" />
+      <circle cx="0" cy="0" r="2.2">
+        <animateMotion path="M310,400 A90,340 0 1,1 490,400 A90,340 0 1,1 310,400" dur="10s" repeatCount="indefinite" />
+        <animate attributeName="opacity" values="0.6;1;0.6" dur="2.2s" repeatCount="indefinite" begin="1.5s" />
       </circle>
     </g>
 
-    <!-- Órbitas Elípticas Estilo Átomo / Tecno -->
+    <!-- Estrelas em Órbita - Órbita 2 (rotacionada -60°) -->
+    <g transform="rotate(-60 400 400)" fill="#ff5566" filter="url(#soft-glow)">
+      <circle cx="0" cy="0" r="2.2">
+        <animateMotion path="M400,60 A90,340 0 1,1 400,740 A90,340 0 1,1 400,60" dur="14s" repeatCount="indefinite" />
+        <animate attributeName="opacity" values="0.4;1;0.4" dur="2.5s" repeatCount="indefinite" />
+      </circle>
+      <circle cx="0" cy="0" r="1.8">
+        <animateMotion path="M400,740 A90,340 0 1,1 400,60 A90,340 0 1,1 400,740" dur="14s" repeatCount="indefinite" />
+        <animate attributeName="opacity" values="0.3;0.9;0.3" dur="3s" repeatCount="indefinite" begin="0.7s" />
+      </circle>
+      <circle cx="0" cy="0" r="2">
+        <animateMotion path="M490,400 A90,340 0 1,1 310,400 A90,340 0 1,1 490,400" dur="14s" repeatCount="indefinite" />
+        <animate attributeName="opacity" values="0.5;1;0.5" dur="2s" repeatCount="indefinite" begin="1.4s" />
+      </circle>
+    </g>
+
+    <!-- Estrelas em Órbita - Órbita 3 (rotacionada +60°) -->
+    <g transform="rotate(60 400 400)" fill="#ff2244" filter="url(#soft-glow)">
+      <circle cx="0" cy="0" r="2">
+        <animateMotion path="M400,60 A90,340 0 1,1 400,740 A90,340 0 1,1 400,60" dur="18s" repeatCount="indefinite" />
+        <animate attributeName="opacity" values="0.5;1;0.5" dur="3.2s" repeatCount="indefinite" />
+      </circle>
+      <circle cx="0" cy="0" r="2.5">
+        <animateMotion path="M400,740 A90,340 0 1,1 400,60 A90,340 0 1,1 400,740" dur="18s" repeatCount="indefinite" />
+        <animate attributeName="opacity" values="0.4;1;0.4" dur="2.7s" repeatCount="indefinite" begin="0.9s" />
+      </circle>
+      <circle cx="0" cy="0" r="1.5">
+        <animateMotion path="M490,400 A90,340 0 1,1 310,400 A90,340 0 1,1 490,400" dur="18s" repeatCount="indefinite" />
+        <animate attributeName="opacity" values="0.3;0.8;0.3" dur="3.8s" repeatCount="indefinite" begin="1.8s" />
+      </circle>
+    </g>
+
+    <!-- Órbitas Elípticas Estilo Átomo / Tecno (estáticas) -->
     <g stroke="#ff0033" stroke-width="1.5" fill="none" opacity="0.8" filter="url(#glow)">
-      <!-- Órbita Vertical -->
-      <g>
-        <animateTransform attributeName="transform" type="rotate" values="0 400 400; 360 400 400" dur="30s" repeatCount="indefinite" />
-        <ellipse cx="400" cy="400" rx="90" ry="340" />
-      </g>
-      <!-- Órbita Inclinada Esquerda -->
-      <g>
-        <animateTransform attributeName="transform" type="rotate" values="0 400 400; -360 400 400" dur="40s" repeatCount="indefinite" />
-        <ellipse cx="400" cy="400" rx="90" ry="340" transform="rotate(-60 400 400)" />
-      </g>
-      <!-- Órbita Inclinada Direita -->
-      <g>
-        <animateTransform attributeName="transform" type="rotate" values="0 400 400; 360 400 400" dur="25s" repeatCount="indefinite" />
-        <ellipse cx="400" cy="400" rx="90" ry="340" transform="rotate(60 400 400)" />
-      </g>
-    </g>
-
-    <!-- Pontos Brilhantes nas Órbitas -->
-    <g fill="#ffffff" filter="url(#glow)">
-      <circle cx="400" cy="60" r="4">
-        <animate attributeName="opacity" values="0.4;1;0.4" dur="1.5s" repeatCount="indefinite" />
-        <animate attributeName="r" values="3;5;3" dur="2s" repeatCount="indefinite" />
-      </circle>
-      <circle cx="130" cy="240" r="4">
-        <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite" />
-      </circle>
-      <circle cx="670" cy="240" r="4">
-        <animate attributeName="opacity" values="0.3;1;0.3" dur="1.8s" repeatCount="indefinite" />
-      </circle>
-      <circle cx="220" cy="510" r="3">
-        <animate attributeName="opacity" values="0.5;1;0.5" dur="2.5s" repeatCount="indefinite" />
-      </circle>
-      <circle cx="580" cy="510" r="3">
-        <animate attributeName="opacity" values="0.4;1;0.4" dur="2.2s" repeatCount="indefinite" />
-      </circle>
-      <circle cx="308" cy="180" r="3.5">
-        <animate attributeName="opacity" values="0.5;1;0.5" dur="1.6s" repeatCount="indefinite" />
-        <animate attributeName="r" values="2.5;4;2.5" dur="3s" repeatCount="indefinite" />
-      </circle>
+      <ellipse cx="400" cy="400" rx="90" ry="340" />
+      <ellipse cx="400" cy="400" rx="90" ry="340" transform="rotate(-60 400 400)" />
+      <ellipse cx="400" cy="400" rx="90" ry="340" transform="rotate(60 400 400)" />
     </g>
 
     <!-- Escudo Central -->
     <g filter="url(#glow)">
-      <!-- Fundo Preenchido do Escudo -->
       <polygon points="400,180 580,260 540,540 400,630 260,540 220,260" 
                fill="url(#shield-grad)" stroke="#ff0033" stroke-width="2.5" />
                
-      <!-- Borda Interna Dupla do Escudo -->
+      <!-- Borda Interna Dupla do Escudo (estática) -->
       <polygon points="400,205 555,275 520,525 400,605 280,525 245,275" 
-               fill="none" stroke="#ff3355" stroke-width="1.5" opacity="0.7">
-        <animate attributeName="opacity" values="0.5;0.8;0.5" dur="4s" repeatCount="indefinite" />
-      </polygon>
+               fill="none" stroke="#ff3355" stroke-width="1.5" opacity="0.7" />
     </g>
 
-    <!-- Malha Geométrica Intensa (Sem Fechadura) -->
+    <!-- Malha Geométrica Intensa -->
     <g stroke="#ff1a40" stroke-width="1.2" opacity="0.75" filter="url(#soft-glow)">
-      <!-- Conexões Externas para Internas -->
       <line x1="400" y1="180" x2="330" y2="250" />
       <line x1="400" y1="180" x2="470" y2="250" />
       <line x1="220" y1="260" x2="310" y2="330" />
@@ -157,7 +125,6 @@
       <line x1="540" y1="540" x2="450" y2="450" />
       <line x1="400" y1="630" x2="400" y2="520" />
       
-      <!-- Redes Intermediárias do Centro -->
       <line x1="330" y1="250" x2="470" y2="250" />
       <line x1="330" y1="250" x2="400" y2="310" />
       <line x1="470" y1="250" x2="400" y2="310" />
@@ -172,7 +139,6 @@
       <line x1="400" y1="310" x2="470" y2="410" />
       <line x1="400" y1="310" x2="400" y2="390" />
       
-      <!-- Centro do Plexo -->
       <line x1="330" y1="410" x2="400" y2="390" />
       <line x1="470" y1="410" x2="400" y2="390" />
       <line x1="330" y1="410" x2="350" y2="450" />
@@ -184,7 +150,6 @@
       <line x1="350" y1="450" x2="400" y2="520" />
       <line x1="450" y1="450" x2="400" y2="520" />
       
-      <!-- Linhas Transversais Adicionais -->
       <line x1="330" y1="250" x2="310" y2="330" />
       <line x1="470" y1="250" x2="490" y2="330" />
       <line x1="330" y1="410" x2="470" y2="410" />
@@ -197,7 +162,7 @@
       <line x1="400" y1="470" x2="400" y2="630" />
     </g>
 
-    <!-- Núcleo Brilhante de Energia no Centro -->
+    <!-- Núcleo Brilhante de Energia no Centro (pulsante) -->
     <g filter="url(#intense-glow)">
       <circle cx="400" cy="390" r="25" fill="#ff0033" opacity="0.4">
         <animate attributeName="r" values="20;30;20" dur="3s" repeatCount="indefinite" />
@@ -209,80 +174,33 @@
       </circle>
     </g>
 
-    <!-- Vértices / Pontos de Conexão -->
+    <!-- Vértices / Pontos de Conexão (estáticos) -->
     <g fill="#ffffff" filter="url(#soft-glow)">
-      <circle cx="400" cy="180" r="3.5">
-        <animate attributeName="opacity" values="0.5;1;0.5" dur="2s" repeatCount="indefinite" />
-      </circle>
-      <circle cx="330" cy="250" r="3">
-        <animate attributeName="opacity" values="0.4;1;0.4" dur="2.3s" repeatCount="indefinite" />
-      </circle>
-      <circle cx="470" cy="250" r="3">
-        <animate attributeName="opacity" values="0.6;1;0.6" dur="1.9s" repeatCount="indefinite" />
-      </circle>
-      <circle cx="310" cy="330" r="3.5">
-        <animate attributeName="opacity" values="0.3;0.9;0.3" dur="2.7s" repeatCount="indefinite" />
-      </circle>
-      <circle cx="490" cy="330" r="3.5">
-        <animate attributeName="opacity" values="0.5;1;0.5" dur="2.1s" repeatCount="indefinite" />
-      </circle>
-      <circle cx="400" cy="310" r="4">
-        <animate attributeName="opacity" values="0.6;1;0.6" dur="1.5s" repeatCount="indefinite" />
-        <animate attributeName="r" values="3;5;3" dur="2s" repeatCount="indefinite" />
-      </circle>
-      <circle cx="280" cy="390" r="3">
-        <animate attributeName="opacity" values="0.4;0.9;0.4" dur="2.5s" repeatCount="indefinite" />
-      </circle>
-      <circle cx="520" cy="390" r="3">
-        <animate attributeName="opacity" values="0.5;1;0.5" dur="2.8s" repeatCount="indefinite" />
-      </circle>
-      <circle cx="330" cy="410" r="3.5">
-        <animate attributeName="opacity" values="0.3;0.8;0.3" dur="3s" repeatCount="indefinite" />
-      </circle>
-      <circle cx="470" cy="410" r="3.5">
-        <animate attributeName="opacity" values="0.6;1;0.6" dur="2.6s" repeatCount="indefinite" />
-      </circle>
-      <circle cx="400" cy="390" r="4.5">
-        <animate attributeName="opacity" values="0.5;1;0.5" dur="1.8s" repeatCount="indefinite" />
-        <animate attributeName="r" values="3.5;5.5;3.5" dur="2.5s" repeatCount="indefinite" />
-      </circle>
-      <circle cx="350" cy="450" r="3.5">
-        <animate attributeName="opacity" values="0.4;0.9;0.4" dur="2.4s" repeatCount="indefinite" />
-      </circle>
-      <circle cx="450" cy="450" r="3.5">
-        <animate attributeName="opacity" values="0.5;1;0.5" dur="2.9s" repeatCount="indefinite" />
-      </circle>
-      <circle cx="400" cy="470" r="4">
-        <animate attributeName="opacity" values="0.3;1;0.3" dur="2.2s" repeatCount="indefinite" />
-      </circle>
-      <circle cx="400" cy="520" r="3.5">
-        <animate attributeName="opacity" values="0.5;1;0.5" dur="3.2s" repeatCount="indefinite" />
-      </circle>
-      <circle cx="260" cy="540" r="3">
-        <animate attributeName="opacity" values="0.4;0.8;0.4" dur="2.6s" repeatCount="indefinite" />
-      </circle>
-      <circle cx="540" cy="540" r="3">
-        <animate attributeName="opacity" values="0.3;1;0.3" dur="3.4s" repeatCount="indefinite" />
-      </circle>
-      <circle cx="400" cy="630" r="4">
-        <animate attributeName="opacity" values="0.5;1;0.5" dur="1.7s" repeatCount="indefinite" />
-      </circle>
+      <circle cx="400" cy="180" r="3.5" />
+      <circle cx="330" cy="250" r="3" />
+      <circle cx="470" cy="250" r="3" />
+      <circle cx="310" cy="330" r="3.5" />
+      <circle cx="490" cy="330" r="3.5" />
+      <circle cx="400" cy="310" r="4" />
+      <circle cx="280" cy="390" r="3" />
+      <circle cx="520" cy="390" r="3" />
+      <circle cx="330" cy="410" r="3.5" />
+      <circle cx="470" cy="410" r="3.5" />
+      <circle cx="400" cy="390" r="4.5" />
+      <circle cx="350" cy="450" r="3.5" />
+      <circle cx="450" cy="450" r="3.5" />
+      <circle cx="400" cy="470" r="4" />
+      <circle cx="400" cy="520" r="3.5" />
+      <circle cx="260" cy="540" r="3" />
+      <circle cx="540" cy="540" r="3" />
+      <circle cx="400" cy="630" r="4" />
     </g>
 
-    <!-- Flares de Luz -->
+    <!-- Flares de Luz (estáticos) -->
     <g fill="#ffffff" filter="url(#glow)">
-      <circle cx="400" cy="310" r="2">
-        <animate attributeName="opacity" values="0.3;1;0.3" dur="1.3s" repeatCount="indefinite" />
-        <animate attributeName="r" values="1;3;1" dur="2s" repeatCount="indefinite" />
-      </circle>
-      <circle cx="400" cy="390" r="2.5">
-        <animate attributeName="opacity" values="0.5;1;0.5" dur="1.8s" repeatCount="indefinite" />
-        <animate attributeName="r" values="1.5;3.5;1.5" dur="2.5s" repeatCount="indefinite" />
-      </circle>
-      <circle cx="400" cy="470" r="2">
-        <animate attributeName="opacity" values="0.4;1;0.4" dur="1.5s" repeatCount="indefinite" />
-        <animate attributeName="r" values="1;3;1" dur="3s" repeatCount="indefinite" />
-      </circle>
+      <circle cx="400" cy="310" r="2" />
+      <circle cx="400" cy="390" r="2.5" />
+      <circle cx="400" cy="470" r="2" />
     </g>
   </g>
 </svg>
