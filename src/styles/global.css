@@ -8,7 +8,7 @@
   --card-bg: rgba(255, 255, 255, 0.03);
   --card-border: rgba(255, 255, 255, 0.08);
   --glass-bg: rgba(3, 3, 3, 0.95);
-  --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
   --title-gradient: linear-gradient(180deg, #fff 0%, #777 100%);
   --cyber-radius: 6px;
 }
@@ -86,6 +86,9 @@ button:hover svg,
 html {
   scroll-behavior: smooth;
   -webkit-tap-highlight-color: transparent;
+  overscroll-behavior: none; /* Bloqueia pull-to-refresh / bounce (ref: data-base-analysis) */
+  -webkit-text-size-adjust: 100%; /* Evita auto-zoom de texto no iOS */
+  text-size-adjust: 100%;
 }
 
 body {
@@ -95,6 +98,7 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+  overscroll-behavior: none; /* Complementa o bloqueio de pull-to-refresh no mobile */
 }
 
 .neural-background {
@@ -171,6 +175,7 @@ section {
   text-align: center;
   background: var(--title-gradient);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -183,6 +188,34 @@ section {
 @media (max-width: 576px) {
   section {
     padding: 4rem 0;
+  }
+}
+
+/* Desabilita transições durante a troca de tema: como as cores vêm de
+   variáveis de :root, sem isso o navegador re-animaria toda a página
+   (transition: all + backdrop-filter), causando atraso no mobile. */
+html.no-theme-transition,
+html.no-theme-transition *,
+html.no-theme-transition *::before,
+html.no-theme-transition *::after {
+  transition: none !important;
+}
+
+/* === Melhorias de touch no mobile (ref: data-base-analysis) === */
+
+/* Remove o atraso de 300ms / double-tap zoom em elementos interativos */
+button, a, input, select, textarea, label, summary, [role="button"] {
+  touch-action: manipulation;
+}
+
+/* Neutraliza estados de hover "grudados" em dispositivos sem ponteiro */
+@media (hover: none) {
+  .project-card:not(.expanded):hover,
+  .project-card.expanded:hover {
+    transform: none !important;
+  }
+  .project-card:hover .project-bg-image {
+    transform: none !important;
   }
 }
 

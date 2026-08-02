@@ -12,6 +12,7 @@
   justify-content: center;
   padding: 6rem 2rem 2rem;
   overflow-y: auto;
+  overscroll-behavior: contain; /* Evita que o overscroll do modal vaze para a página */
 }
 
 .cv-modal-backdrop {
@@ -171,6 +172,7 @@
 .cv-modal-body {
   flex-grow: 1;
   overflow-y: auto;
+  overscroll-behavior: contain; /* Evita que o overscroll do modal vaze para a página */
   padding: 2.5rem;
   background-color: transparent;
 }

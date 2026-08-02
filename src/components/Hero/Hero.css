@@ -80,6 +80,7 @@
 .hero-title .highlight {
   background: linear-gradient(90deg, var(--accent-color), #fff);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   position: relative;
 }
@@ -87,6 +88,7 @@
 .light-theme .hero-title .highlight {
   background: linear-gradient(90deg, var(--accent-color), #0f172a);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
