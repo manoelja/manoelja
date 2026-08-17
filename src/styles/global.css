@@ -1,4 +1,7 @@
 :root {
+  /* NOTA: sem `color-scheme` aqui — no Chrome Android ele pinta a borda
+     inferior do navegador de PRETO puro (#000), criando uma faixa visível
+     contra o fundo #030303 da página ao rolar no mobile. */
   --bg-color: #030303;
   --bg-secondary: rgba(10, 10, 15, 0.7);
   --accent-color: #00f5ff;

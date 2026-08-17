@@ -1,11 +1,7 @@
-/* Resets e estilos base minimalistas */
-:root {
-  background-color: #050505;
-}
-
+/* Resets e estilos base minimalistas.
+   Obs.: o fundo das páginas é controlado pelo global.css via variáveis de tema. */
 body {
   margin: 0;
-  background-color: #050505;
 }
 
 #root {

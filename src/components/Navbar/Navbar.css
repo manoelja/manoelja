@@ -348,9 +348,10 @@
     display: flex;
   }
 
+  /* Mantém o mesmo comportamento do desktop: transparente no topo,
+     fundo vítreo apenas quando rola a página (.shrunk). */
   .navbar {
     height: 70px;
-    background: var(--glass-bg);
   }
 
   .navbar.shrunk {

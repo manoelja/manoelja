@@ -10,6 +10,22 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <title>Manoel | Data Scientist</title>
+    <script>
+      // Aplica o tema salvo ANTES do primeiro paint, evitando o flash de fundo
+      // (escuro → claro) ao recarregar a página no modo claro.
+      // O script NÃO toca em backgroundColor nem em <meta name="theme-color">.
+      try {
+        if (localStorage.getItem('theme') === 'light') {
+          document.documentElement.classList.add('light-theme');
+        }
+      } catch (e) {}
+    </script>
+    <!-- Fundo do <html> antes do CSS principal chegar (anti-flash de branco no dev):
+         declarativo em CSS, sem JavaScript. Valores iguais aos do global.css. -->
+    <style>
+      html { background-color: #030303; }
+      html.light-theme { background-color: #f5f7fa; }
+    </style>
   </head>
   <body>
     <div id="root"></div>
