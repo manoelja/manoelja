@@ -1,4 +1,5 @@
 import { useEffect, useCallback, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { useTranslation } from 'react-i18next';
 import { X, Download, Briefcase, GraduationCap, Code2, Award, Calendar, MapPin, Globe, Linkedin, Github } from 'lucide-react';
 import html2pdf from 'html2pdf.js';
@@ -280,7 +281,7 @@ const CVModal = ({ isOpen, onClose }: CVModalProps) => {
       if (e.key === 'Escape') handleClose();
     };
     if (isOpen) {
-      window.scrollTo(0, 0);
+      window.scrollTo({ top: 0, behavior: 'instant' });
       window.addEventListener('keydown', handleKeyDown);
       document.body.style.overflow = 'hidden';
     }
@@ -350,7 +351,7 @@ const CVModal = ({ isOpen, onClose }: CVModalProps) => {
     }
   };
 
-  return (
+  return createPortal(
     <>
       {isOpen && (
         <div className={`cv-modal-portal${isGenerating ? ' generating' : ''}`}>
@@ -540,7 +541,8 @@ const CVModal = ({ isOpen, onClose }: CVModalProps) => {
           </div>
         </div>
       )}
-    </>
+    </>,
+    document.body
   );
 };
 
