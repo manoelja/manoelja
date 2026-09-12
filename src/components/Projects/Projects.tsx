@@ -19,9 +19,6 @@ interface ProjectCardProps {
 const ProjectCard = ({ project, isExpanded, clickStep, onToggle, setClickStep, currentLang, t }: ProjectCardProps) => {
   const cardRef = useRef<HTMLDivElement>(null);
   const [isInView, setIsInView] = useState(false);
-  const [isDarkTheme, setIsDarkTheme] = useState(
-    () => typeof document !== 'undefined' && !document.documentElement.classList.contains('light-theme')
-  );
 
   // IntersectionObserver: só carrega o SVG animado quando o card está perto do viewport
   useEffect(() => {
@@ -42,14 +39,6 @@ const ProjectCard = ({ project, isExpanded, clickStep, onToggle, setClickStep, c
     return () => observer.disconnect();
   }, [isInView]);
 
-  useEffect(() => {
-    const observer = new MutationObserver(() => {
-      setIsDarkTheme(!document.documentElement.classList.contains('light-theme'));
-    });
-    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
-    return () => observer.disconnect();
-  }, []);
-
   const handleCardClick = () => {
     if (project.hasPngStep && !isExpanded) {
       if (clickStep === 0) {
@@ -69,7 +58,6 @@ const ProjectCard = ({ project, isExpanded, clickStep, onToggle, setClickStep, c
   });
 
   const showPng = project.hasPngStep && clickStep >= 1;
-  const currentPng = isDarkTheme ? project.imageDark : project.imageLight;
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter' || e.key === ' ') {
@@ -124,17 +112,28 @@ const ProjectCard = ({ project, isExpanded, clickStep, onToggle, setClickStep, c
                   transition={{ duration: 0.4 }}
                 />
               ) : (
-                <motion.img
+                <motion.div
                   key="png"
-                  src={currentPng}
-                  alt={project.title[currentLang] || project.title['pt']}
-                  className="project-bg-image project-bg-png"
-                  loading="lazy"
+                  className="project-bg-png-wrapper"
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.95 }}
                   transition={{ duration: 0.4 }}
-                />
+                >
+                  {/* As duas variantes ficam carregadas; o CSS mostra só a do tema atual */}
+                  <img
+                    src={project.imageDark}
+                    alt={project.title[currentLang] || project.title['pt']}
+                    className="project-bg-image project-bg-png project-bg-png-dark"
+                    loading="lazy"
+                  />
+                  <img
+                    src={project.imageLight}
+                    alt={project.title[currentLang] || project.title['pt']}
+                    className="project-bg-image project-bg-png project-bg-png-light"
+                    loading="lazy"
+                  />
+                </motion.div>
               )}
             </AnimatePresence>
           ) : (

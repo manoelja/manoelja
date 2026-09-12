@@ -108,10 +108,35 @@
   transform: scale(1.05);
 }
 
+/* Par claro/escuro: as DUAS variantes ficam no DOM e o CSS decide qual
+   exibir, sincronizado com a classe .light-theme do <html>. A troca vira
+   apenas uma mudança de classe (sem fetch de imagem e sem re-render do
+   React), por isso é instantânea. */
+.project-bg-png-wrapper {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
 .project-bg-png {
+  position: absolute;
+  inset: 0;
   object-fit: contain;
   padding: 1rem;
-  background: var(--bg-primary);
+  background: var(--bg-color);
+}
+
+.project-bg-png-light {
+  opacity: 0;
+}
+
+.light-theme .project-bg-png-dark {
+  opacity: 0;
+}
+
+.light-theme .project-bg-png-light {
+  opacity: 1;
 }
 
 /* Botões sobrepostos */

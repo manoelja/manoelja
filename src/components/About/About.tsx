@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-import { Calendar, ChevronDown, User, Target, Globe, ChevronLeft, ChevronRight, ExternalLink, FileText, GraduationCap } from 'lucide-react';
+import { Calendar, ChevronDown, User, Target, Globe, ChevronLeft, ChevronRight, ExternalLink, BookOpen, GraduationCap } from 'lucide-react';
 import './About.css';
 import { useLongPress } from '../../hooks/useLongPress';
 
@@ -473,9 +473,23 @@ const PublishedArticleCard = () => {
   const { t } = useTranslation();
   const [expanded, setExpanded] = useState(false);
 
+  const toggleExpanded = () => setExpanded((prev) => !prev);
+
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      toggleExpanded();
+    }
+  };
+
   return (
     <motion.div
-      className="published-article-card"
+      className={`published-article-card ${expanded ? 'expanded' : ''}`}
+      onClick={toggleExpanded}
+      role="button"
+      tabIndex={0}
+      aria-expanded={expanded}
+      onKeyDown={handleKeyDown}
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -483,9 +497,16 @@ const PublishedArticleCard = () => {
     >
       <div className="article-card-header">
         <div className="article-icon-wrap">
-          <FileText size={22} />
+          <BookOpen size={22} />
         </div>
         <h3 className="article-card-title">{t('about.published_article.title')}</h3>
+        <motion.div
+          className="article-expand-chevron"
+          animate={{ rotate: expanded ? 180 : 0 }}
+          transition={{ duration: 0.3, ease: 'easeInOut' }}
+        >
+          <ChevronDown size={18} />
+        </motion.div>
       </div>
 
       <h4 className="article-subtitle">{t('about.published_article.article_title')}</h4>
@@ -494,15 +515,12 @@ const PublishedArticleCard = () => {
         <p>{t('about.published_article.summary')}</p>
       </div>
 
-      <button className="article-toggle-summary" onClick={() => setExpanded(!expanded)}>
-        {expanded ? `▲  ${t('about.published_article.show_less')}` : `▼  ${t('about.published_article.show_more')}`}
-      </button>
-
       <a
         href={ARTICLE_URL}
         target="_blank"
         rel="noopener noreferrer"
         className="article-read-btn"
+        onClick={(e) => e.stopPropagation()}
       >
         <ExternalLink size={16} />
         {t('about.published_article.read_article')}
