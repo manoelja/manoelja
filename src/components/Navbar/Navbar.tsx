@@ -45,13 +45,40 @@ const Navbar = ({ isCvActive = false }: NavbarProps) => {
     // e reabilita as transições logo em seguida
     root.getBoundingClientRect();
     root.classList.remove('no-theme-transition');
+  }, [isLight]);
+
+  useEffect(() => {
+    const html = document.documentElement;
+    const body = document.body;
+    const root = document.getElementById('root');
 
     if (isMobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
+      const scrollY = window.scrollY;
+
+      html.style.overflow = 'hidden';
+      body.style.overflow = 'hidden';
+      if (root) root.style.overflow = 'hidden';
+
+      const preventTouchMove = (e: TouchEvent) => {
+        if ((e.target as HTMLElement).closest('.mobile-drawer')) return;
+        e.preventDefault();
+      };
+      document.addEventListener('touchmove', preventTouchMove, { passive: false });
+
+      return () => {
+        html.style.overflow = '';
+        body.style.overflow = '';
+        if (root) root.style.overflow = '';
+
+        window.scrollTo(0, scrollY);
+        document.removeEventListener('touchmove', preventTouchMove);
+      };
     } else {
-      document.body.style.overflow = 'unset';
+      html.style.overflow = '';
+      body.style.overflow = '';
+      if (root) root.style.overflow = '';
     }
-  }, [isLight, isMobileMenuOpen]);
+  }, [isMobileMenuOpen]);
 
   const changeLanguage = (lng: string) => {
     i18n.changeLanguage(lng);
@@ -64,6 +91,13 @@ const Navbar = ({ isCvActive = false }: NavbarProps) => {
     { code: 'en', label: 'EN', flag: '🇺🇸' },
     { code: 'es', label: 'ES', flag: '🇪🇸' }
   ];
+
+  const scrollToSection = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   const navLinks = [
     { id: 'hero', label: t('nav.home') },
@@ -91,6 +125,7 @@ const Navbar = ({ isCvActive = false }: NavbarProps) => {
               <a 
                 href={`#${link.id}`} 
                 className={activeSection === link.id ? 'active' : ''}
+                onClick={(e) => { e.preventDefault(); scrollToSection(link.id); }}
               >
                 {link.label}
               </a>
@@ -193,7 +228,11 @@ const Navbar = ({ isCvActive = false }: NavbarProps) => {
                     <a 
                       href={`#${link.id}`}
                       className={activeSection === link.id ? 'active' : ''}
-                      onClick={() => setIsMobileMenuOpen(false)}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        setIsMobileMenuOpen(false);
+                        setTimeout(() => scrollToSection(link.id), 100);
+                      }}
                     >
                       {link.label}
                     </a>

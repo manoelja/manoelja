@@ -86,6 +86,16 @@ button:hover svg,
   background: rgba(0, 245, 255, 0.4);
 }
 
+/* Firefox / browsers que não suportam ::-webkit-scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 245, 255, 0.3) transparent;
+}
+
+.light-theme * {
+  scrollbar-color: rgba(0, 245, 255, 0.2) transparent;
+}
+
 html {
   scroll-behavior: smooth;
   -webkit-tap-highlight-color: transparent;
